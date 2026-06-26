@@ -47,6 +47,39 @@ Instead of collateral, loans are approved using a comprehensive AI-driven credit
 
 ---
 
+---
+
+## 🏆 Stellar Journey to Master
+## 🧭 Belt System Progress
+ 
+| Level | Belt | Focus | Status |
+|-------|------|-------|--------|
+| ⚪️ Level 1 | White Belt | Wallets & transactions | ✅ Completed |
+| 🟡 Level 2 | Yellow Belt | Multi-wallet, contracts & events | ✅ Completed |
+| 🟠 Level 3 | Orange Belt | Mini dApp + tests | 🔜 Upcoming |
+| 🟢 Level 4 | Green Belt | Advanced contracts & production readiness | 🔜 Upcoming |
+| 🔵 Level 5 | Blue Belt | Real MVP (5+ users) | 🔜 Upcoming |
+| ⚫️ Level 6 | Black Belt | Scale + Demo Day readiness | 🔜 Upcoming |
+ 
+---
+ 
+## 🟢 Current Status: GREEN BELT (Completed)
+
+ ## 📋 Contract Addresses (Testnet)
+
+| Name | Address |
+|------|---------|
+| 🔐💎  CONTRACT ID | `CBKMPCT4RSI2NHJJILN7K5K6FB2ZVD7EYCB5G37UT47GJLCPZOZXYMNT` |
+
+---
+
+## 🔗 Transaction Hashes (Testnet)
+
+| Action | TX Hash |
+|--------|---------|
+| Contract Deploy | `CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI` |
+
+---
 # 🚀 Key Features
 
 ## 💰 Collateral-Free Lending
