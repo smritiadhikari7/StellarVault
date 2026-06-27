@@ -57,13 +57,13 @@ Instead of collateral, loans are approved using a comprehensive AI-driven credit
 | ⚪️ Level 1 | White Belt | Wallets & transactions | ✅ Completed |
 | 🟡 Level 2 | Yellow Belt | Multi-wallet, contracts & events | ✅ Completed |
 | 🟠 Level 3 | Orange Belt | Mini dApp + tests | ✅ Completed |
-| 🟢 Level 4 | Green Belt | Advanced contracts & production readiness | ✅ Completed |
+| 🟢 Level 4 | Green Belt | Advanced contracts & production readiness |🔜 Upcoming |
 | 🔵 Level 5 | Blue Belt | Real MVP (5+ users) | 🔜 Upcoming |
 | ⚫️ Level 6 | Black Belt | Scale + Demo Day readiness | 🔜 Upcoming |
  
 ---
  
-## 🟢 Current Status: GREEN BELT (Completed)
+## 🟠 Current Status: Orange BELT (Completed)
 
  ## 📋 Contract Addresses (Testnet)
 
