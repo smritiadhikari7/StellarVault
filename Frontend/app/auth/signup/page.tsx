@@ -5,7 +5,15 @@ import { Link } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { useWallet } from "@/context/WalletContext";
 import WalletConnect from "@/components/ui/WalletConnect";
-import { ArrowRight, UserPlus, Mail, Lock, ShieldCheck, Eye, EyeOff } from "lucide-react";
+import {
+  ArrowRight,
+  UserPlus,
+  Mail,
+  Lock,
+  ShieldCheck,
+  Eye,
+  EyeOff,
+} from "lucide-react";
 
 export default function SignupPage() {
   const { signup } = useAuth();
@@ -37,12 +45,16 @@ export default function SignupPage() {
   return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 font-sans">
       <div className="w-full max-w-[440px] bg-white shadow-xl border border-slate-100 rounded-3xl p-8 space-y-7 animate-fade-in">
-        
         {/* Logo and Header */}
         <div className="text-center space-y-2">
-          <Link to="/" className="inline-flex items-center gap-1.5 text-2xl font-black text-text-primary tracking-tight">
-            <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-primary text-white font-mono text-xl font-black shadow-md shadow-primary/20">T</span>
-            <span>TrustLend</span>
+          <Link
+            to="/"
+            className="inline-flex items-center gap-1.5 text-2xl font-black text-text-primary tracking-tight"
+          >
+            <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-primary text-white font-mono text-xl font-black shadow-md shadow-primary/20">
+              T
+            </span>
+            <span>StellarVault</span>
             <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-primary to-accent animate-pulse" />
             <span className="text-primary">X</span>
           </Link>
@@ -76,10 +88,12 @@ export default function SignupPage() {
 
         {/* Signup Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
-          
           {/* Full Name */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold text-text-secondary uppercase tracking-wider block" htmlFor="name-input">
+            <label
+              className="text-xs font-bold text-text-secondary uppercase tracking-wider block"
+              htmlFor="name-input"
+            >
               Full Name
             </label>
             <div className="relative">
@@ -98,7 +112,10 @@ export default function SignupPage() {
 
           {/* Email */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold text-text-secondary uppercase tracking-wider block" htmlFor="email-input">
+            <label
+              className="text-xs font-bold text-text-secondary uppercase tracking-wider block"
+              htmlFor="email-input"
+            >
               Email Address
             </label>
             <div className="relative">
@@ -117,7 +134,10 @@ export default function SignupPage() {
 
           {/* Password */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold text-text-secondary uppercase tracking-wider block" htmlFor="password-input">
+            <label
+              className="text-xs font-bold text-text-secondary uppercase tracking-wider block"
+              htmlFor="password-input"
+            >
               Password
             </label>
             <div className="relative">
@@ -136,7 +156,11 @@ export default function SignupPage() {
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3.5 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-secondary focus:outline-none"
               >
-                {showPassword ? <EyeOff className="w-4.5 h-4.5" /> : <Eye className="w-4.5 h-4.5" />}
+                {showPassword ? (
+                  <EyeOff className="w-4.5 h-4.5" />
+                ) : (
+                  <Eye className="w-4.5 h-4.5" />
+                )}
               </button>
             </div>
           </div>
@@ -152,7 +176,10 @@ export default function SignupPage() {
           {/* ZK Privacy Shield Label */}
           <div className="p-3 bg-blue-50/70 border border-blue-100 rounded-xl text-[10.5px] text-primary leading-normal flex items-start gap-2 font-medium">
             <ShieldCheck className="w-4.5 h-4.5 text-primary flex-shrink-0 mt-0.5" />
-            <span>Registration creates a zero-knowledge commitment profile. Your passwords and private files remain fully encrypted locally.</span>
+            <span>
+              Registration creates a zero-knowledge commitment profile. Your
+              passwords and private files remain fully encrypted locally.
+            </span>
           </div>
 
           {/* Submit Button */}
@@ -170,12 +197,14 @@ export default function SignupPage() {
         <div className="text-center pt-2">
           <p className="text-xs text-text-secondary font-medium">
             Already have an account?{" "}
-            <Link to="/auth/signin" className="text-primary hover:underline font-bold">
+            <Link
+              to="/auth/signin"
+              className="text-primary hover:underline font-bold"
+            >
               Sign In
             </Link>
           </p>
         </div>
-
       </div>
     </div>
   );

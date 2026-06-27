@@ -1,7 +1,7 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface User {
   name: string;
@@ -22,16 +22,16 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const setCookie = (name: string, value: string, days = 7) => {
-  if (typeof window === 'undefined') return;
+  if (typeof window === "undefined") return;
   const date = new Date();
-  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
   const expires = "; expires=" + date.toUTCString();
   document.cookie = name + "=" + (value || "") + expires + "; path=/";
 };
 
 const deleteCookie = (name: string) => {
-  if (typeof window === 'undefined') return;
-  document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  if (typeof window === "undefined") return;
+  document.cookie = name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 };
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -43,46 +43,56 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   // Load auth state from localStorage on mount
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const storedUser = localStorage.getItem('trustlend_user');
-      const storedKyc = localStorage.getItem('trustlend_kyc_level');
-      const hasToken = document.cookie.includes('auth_token=');
+    if (typeof window !== "undefined") {
+      const storedUser = localStorage.getItem("StellarVault_user");
+      const storedKyc = localStorage.getItem("StellarVault_kyc_level");
+      const hasToken = document.cookie.includes("auth_token=");
 
       if (storedUser && hasToken) {
         setUser(JSON.parse(storedUser));
         setIsLoggedIn(true);
         const level = storedKyc ? parseInt(storedKyc, 10) : 0;
         setKycLevel(level);
-        setCookie('kyc_level', level.toString());
+        setCookie("kyc_level", level.toString());
       } else {
         // Clear cookies if localStorage is empty
-        deleteCookie('auth_token');
-        deleteCookie('kyc_level');
+        deleteCookie("auth_token");
+        deleteCookie("kyc_level");
       }
       setLoading(false);
     }
   }, []);
 
   const login = async (email: string, password?: string) => {
-    const walletAddress = typeof window !== 'undefined' ? localStorage.getItem('trustlend_wallet') : null;
-    
+    const walletAddress =
+      typeof window !== "undefined"
+        ? localStorage.getItem("StellarVault_wallet")
+        : null;
+
     if (!walletAddress) {
       throw new Error("Please connect your Stellar Wallet first.");
     }
 
-    const apiBase = import.meta.env.VITE_API_URL || (typeof window !== 'undefined' ? `http://${window.location.hostname}:5001/api` : 'http://localhost:5001/api');
-    
+    const apiBase =
+      import.meta.env.VITE_API_URL ||
+      (typeof window !== "undefined"
+        ? `http://${window.location.hostname}:5001/api`
+        : "http://localhost:5001/api");
+
     const payload = {
       walletAddress,
       email,
-      password: password || 'password123'
+      password: password || "password123",
     };
 
-    const response = await fetch(`${apiBase.replace(/\/api$/, '')}/api/auth/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
+    const response = await fetch(
+      `${apiBase.replace(/\/api$/, "")}/api/auth/login`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      },
+    );
 
     if (!response.ok) {
       const errData = await response.json().catch(() => ({}));
@@ -99,44 +109,58 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setIsLoggedIn(true);
     setKycLevel(finalKyc);
 
-    localStorage.setItem('trustlend_user', JSON.stringify(userDataObj));
-    localStorage.setItem('trustlend_kyc_level', finalKyc.toString());
+    localStorage.setItem("StellarVault_user", JSON.stringify(userDataObj));
+    localStorage.setItem("StellarVault_kyc_level", finalKyc.toString());
 
-    setCookie('auth_token', token);
-    setCookie('kyc_level', finalKyc.toString());
+    setCookie("auth_token", token);
+    setCookie("kyc_level", finalKyc.toString());
 
     if (finalKyc >= 1) {
-      navigate('/dashboard');
+      navigate("/dashboard");
     } else {
-      navigate('/kyc');
+      navigate("/kyc");
     }
   };
 
   const signup = async (name: string, email: string, password?: string) => {
-    const walletAddress = typeof window !== 'undefined' ? localStorage.getItem('trustlend_wallet') : null;
-    
+    const walletAddress =
+      typeof window !== "undefined"
+        ? localStorage.getItem("StellarVault_wallet")
+        : null;
+
     if (!walletAddress) {
-      throw new Error("Please connect your Stellar Wallet first to associate it with your new profile.");
+      throw new Error(
+        "Please connect your Stellar Wallet first to associate it with your new profile.",
+      );
     }
 
-    const apiBase = import.meta.env.VITE_API_URL || (typeof window !== 'undefined' ? `http://${window.location.hostname}:5001/api` : 'http://localhost:5001/api');
-    
+    const apiBase =
+      import.meta.env.VITE_API_URL ||
+      (typeof window !== "undefined"
+        ? `http://${window.location.hostname}:5001/api`
+        : "http://localhost:5001/api");
+
     const payload = {
       walletAddress,
       name,
       email,
-      password: password || 'password123'
+      password: password || "password123",
     };
 
-    const response = await fetch(`${apiBase.replace(/\/api$/, '')}/api/auth/signup`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
+    const response = await fetch(
+      `${apiBase.replace(/\/api$/, "")}/api/auth/signup`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      },
+    );
 
     if (!response.ok) {
       const errData = await response.json().catch(() => ({}));
-      throw new Error(errData.error || "Failed to create user profile in database.");
+      throw new Error(
+        errData.error || "Failed to create user profile in database.",
+      );
     }
 
     const data = await response.json();
@@ -149,16 +173,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setIsLoggedIn(true);
     setKycLevel(finalKyc);
 
-    localStorage.setItem('trustlend_user', JSON.stringify(userDataObj));
-    localStorage.setItem('trustlend_kyc_level', finalKyc.toString());
+    localStorage.setItem("StellarVault_user", JSON.stringify(userDataObj));
+    localStorage.setItem("StellarVault_kyc_level", finalKyc.toString());
 
-    setCookie('auth_token', token);
-    setCookie('kyc_level', finalKyc.toString());
+    setCookie("auth_token", token);
+    setCookie("kyc_level", finalKyc.toString());
 
     if (finalKyc >= 1) {
-      navigate('/dashboard');
+      navigate("/dashboard");
     } else {
-      navigate('/kyc');
+      navigate("/kyc");
     }
   };
 
@@ -167,25 +191,36 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setIsLoggedIn(false);
     setKycLevel(0);
 
-    localStorage.removeItem('trustlend_user');
-    localStorage.removeItem('trustlend_kyc_level');
-    // Keep wallet state inside localStorage if connected, or clear it? 
+    localStorage.removeItem("StellarVault_user");
+    localStorage.removeItem("StellarVault_kyc_level");
+    // Keep wallet state inside localStorage if connected, or clear it?
     // The prompt says: "Sign Out button in sidebar bottom that clears auth state and redirects to /"
     // So we clear cookies and auth state
-    deleteCookie('auth_token');
-    deleteCookie('kyc_level');
+    deleteCookie("auth_token");
+    deleteCookie("kyc_level");
 
-    navigate('/');
+    navigate("/");
   };
 
   const updateKycLevel = (level: number) => {
     setKycLevel(level);
-    localStorage.setItem('trustlend_kyc_level', level.toString());
-    setCookie('kyc_level', level.toString());
+    localStorage.setItem("StellarVault_kyc_level", level.toString());
+    setCookie("kyc_level", level.toString());
   };
 
   return (
-    <AuthContext.Provider value={{ user, isLoggedIn, kycLevel, loading, login, signup, logout, updateKycLevel }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        isLoggedIn,
+        kycLevel,
+        loading,
+        login,
+        signup,
+        logout,
+        updateKycLevel,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
@@ -194,7 +229,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
 }

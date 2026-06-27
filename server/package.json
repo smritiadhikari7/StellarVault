@@ -1,7 +1,7 @@
 {
-  "name": "trustlend-x-server",
+  "name": "StellarVault-x-server",
   "version": "1.0.0",
-  "description": "Express + MongoDB Atlas backend for TrustLend X",
+  "description": "Express + MongoDB Atlas backend for StellarVault X",
   "main": "server.ts",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only server.ts",

@@ -36,40 +36,69 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-1 font-sans text-xl font-bold text-text-primary group">
-          <span>TrustLend</span>
+        <Link
+          to="/"
+          className="flex items-center gap-1 font-sans text-xl font-bold text-text-primary group"
+        >
+          <span>StellarVault</span>
           <span className="inline-block w-2.5 h-2.5 rounded-full bg-gradient-to-r from-primary to-accent animate-pulse"></span>
-          <span className="text-text-primary group-hover:text-primary transition-colors">X</span>
+          <span className="text-text-primary group-hover:text-primary transition-colors">
+            X
+          </span>
         </Link>
 
         {/* Nav Links */}
         {isLandingPage ? (
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
+            <a
+              href="#features"
+              className="text-sm font-medium text-text-secondary hover:text-primary transition-colors"
+            >
               Features
             </a>
-            <a href="#how-it-works" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
+            <a
+              href="#how-it-works"
+              className="text-sm font-medium text-text-secondary hover:text-primary transition-colors"
+            >
               How it works
             </a>
-            <Link to="/lend" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
+            <Link
+              to="/lend"
+              className="text-sm font-medium text-text-secondary hover:text-primary transition-colors"
+            >
               Lend
             </Link>
-            <a href="#docs" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
+            <a
+              href="#docs"
+              className="text-sm font-medium text-text-secondary hover:text-primary transition-colors"
+            >
               Docs
             </a>
           </nav>
         ) : (
           <nav className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
+            <Link
+              to="/"
+              className="text-sm font-medium text-text-secondary hover:text-primary transition-colors"
+            >
               Home
             </Link>
-            <Link to="/dashboard" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
+            <Link
+              to="/dashboard"
+              className="text-sm font-medium text-text-secondary hover:text-primary transition-colors"
+            >
               Dashboard
             </Link>
-            <Link to="/lend" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
+            <Link
+              to="/lend"
+              className="text-sm font-medium text-text-secondary hover:text-primary transition-colors"
+            >
               Lend Marketplace
             </Link>
-            <Link to="/borrow" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
+            <Link
+              to="/borrow"
+              className="text-sm font-medium text-text-secondary hover:text-primary transition-colors"
+            >
               Borrow Capital
             </Link>
           </nav>
@@ -102,7 +131,10 @@ export default function Navbar() {
           ) : (
             <>
               <div className="hidden sm:block">
-                <WalletConnect showDisconnect={false} className="border-primary text-primary hover:bg-primary-light font-semibold px-4 py-2 text-xs" />
+                <WalletConnect
+                  showDisconnect={false}
+                  className="border-primary text-primary hover:bg-primary-light font-semibold px-4 py-2 text-xs"
+                />
               </div>
               <Link
                 to={isLoggedIn ? "/dashboard" : "/auth/signup"}

@@ -7,7 +7,7 @@ use soroban_sdk::{
 // ===== ERRORS =====
 #[contracterror]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum TrustLendError {
+pub enum StellarVaultError {
     NotFound = 1,
     NotPending = 2,
     Unauthorized = 3,
@@ -109,10 +109,10 @@ pub enum DataKey {
 
 // ===== CONTRACT =====
 #[contract]
-pub struct TrustLendContract;
+pub struct StellarVaultContract;
 
 #[contractimpl]
-impl TrustLendContract {
+impl StellarVaultContract {
 
     // ===== INIT =====
     pub fn initialize(env: Env, admin: Address) {
@@ -132,11 +132,11 @@ impl TrustLendContract {
         sender: Address,
         receiver: Address,
         amount: i128,
-    ) -> Result<u64, TrustLendError> {
+    ) -> Result<u64, StellarVaultError> {
         sender.require_auth();
 
         if amount <= 0 {
-            return Err(TrustLendError::InvalidAmount);
+            return Err(StellarVaultError::InvalidAmount);
         }
 
         let mut id: u64 = env.storage().instance()
@@ -173,13 +173,13 @@ impl TrustLendContract {
     pub fn release_funds(
         env: Env,
         escrow_id: u64,
-    ) -> Result<(), TrustLendError> {
+    ) -> Result<(), StellarVaultError> {
         let key = DataKey::Escrow(escrow_id);
         let mut escrow: Escrow = env.storage().persistent()
-            .get(&key).ok_or(TrustLendError::NotFound)?;
+            .get(&key).ok_or(StellarVaultError::NotFound)?;
 
         if escrow.status != EscrowStatus::Pending {
-            return Err(TrustLendError::NotPending);
+            return Err(StellarVaultError::NotPending);
         }
 
         escrow.receiver.require_auth();
@@ -199,13 +199,13 @@ impl TrustLendContract {
     pub fn refund_funds(
         env: Env,
         escrow_id: u64,
-    ) -> Result<(), TrustLendError> {
+    ) -> Result<(), StellarVaultError> {
         let key = DataKey::Escrow(escrow_id);
         let mut escrow: Escrow = env.storage().persistent()
-            .get(&key).ok_or(TrustLendError::NotFound)?;
+            .get(&key).ok_or(StellarVaultError::NotFound)?;
 
         if escrow.status != EscrowStatus::Pending {
-            return Err(TrustLendError::NotPending);
+            return Err(StellarVaultError::NotPending);
         }
 
         escrow.sender.require_auth();
@@ -230,17 +230,17 @@ pub fn request_loan(
     amount: i128,
     duration: u32,
     escrow_id: u64,
-) -> Result<u64, TrustLendError> {
+) -> Result<u64, StellarVaultError> {
     borrower.require_auth();
 
     if amount <= 0 {
-        return Err(TrustLendError::InvalidAmount);
+        return Err(StellarVaultError::InvalidAmount);
     }
 
     // READ SCORE FROM CHAIN — cannot be faked
     let score_data: UserScore = env.storage().persistent()
         .get(&DataKey::UserScore(borrower.clone()))
-        .ok_or(TrustLendError::NotFound)?;
+        .ok_or(StellarVaultError::NotFound)?;
 
     let trust_score = score_data.score;
 
@@ -275,30 +275,30 @@ pub fn request_loan(
     env: Env,
     loan_id: u64,
     admin: Address,
-) -> Result<bool, TrustLendError> {
+) -> Result<bool, StellarVaultError> {
     admin.require_auth();
 
     // Verify admin
     let stored_admin: Address = env.storage().instance()
         .get(&DataKey::Admin)
-        .ok_or(TrustLendError::Unauthorized)?;
+        .ok_or(StellarVaultError::Unauthorized)?;
     if admin != stored_admin {
-        return Err(TrustLendError::Unauthorized);
+        return Err(StellarVaultError::Unauthorized);
     }
 
     // LOAD LOAN FIRST
     let key = DataKey::Loan(loan_id);
     let mut loan: Loan = env.storage().persistent()
-        .get(&key).ok_or(TrustLendError::NotFound)?;
+        .get(&key).ok_or(StellarVaultError::NotFound)?;
 
     if loan.status != LoanStatus::Pending {
-        return Err(TrustLendError::LoanNotActive);
+        return Err(StellarVaultError::LoanNotActive);
     }
 
     // THEN READ SCORE USING loan.borrower
     let score_data: UserScore = env.storage().persistent()
         .get(&DataKey::UserScore(loan.borrower.clone()))
-        .ok_or(TrustLendError::NotFound)?;
+        .ok_or(StellarVaultError::NotFound)?;
 
     // HARDCODED MINIMUM — no param needed
     if score_data.score >= 500 {
@@ -317,23 +317,23 @@ pub fn request_loan(
         loan_id: u64,
         borrower: Address,
         amount: i128,
-    ) -> Result<i128, TrustLendError> {
+    ) -> Result<i128, StellarVaultError> {
         borrower.require_auth();
 
         if amount <= 0 {
-            return Err(TrustLendError::InvalidAmount);
+            return Err(StellarVaultError::InvalidAmount);
         }
 
         let key = DataKey::Loan(loan_id);
         let mut loan: Loan = env.storage().persistent()
-            .get(&key).ok_or(TrustLendError::NotFound)?;
+            .get(&key).ok_or(StellarVaultError::NotFound)?;
 
         if loan.status != LoanStatus::Active {
-            return Err(TrustLendError::LoanNotActive);
+            return Err(StellarVaultError::LoanNotActive);
         }
 
         if loan.borrower != borrower {
-            return Err(TrustLendError::Unauthorized);
+            return Err(StellarVaultError::Unauthorized);
         }
 
         loan.repaid += amount;
@@ -360,22 +360,22 @@ pub fn request_loan(
         env: Env,
         loan_id: u64,
         admin: Address,
-    ) -> Result<(), TrustLendError> {
+    ) -> Result<(), StellarVaultError> {
         admin.require_auth();
 
         let stored_admin: Address = env.storage().instance()
             .get(&DataKey::Admin)
-            .ok_or(TrustLendError::Unauthorized)?;
+            .ok_or(StellarVaultError::Unauthorized)?;
         if admin != stored_admin {
-            return Err(TrustLendError::Unauthorized);
+            return Err(StellarVaultError::Unauthorized);
         }
 
         let key = DataKey::Loan(loan_id);
         let mut loan: Loan = env.storage().persistent()
-            .get(&key).ok_or(TrustLendError::NotFound)?;
+            .get(&key).ok_or(StellarVaultError::NotFound)?;
 
         if loan.status != LoanStatus::Active {
-            return Err(TrustLendError::LoanNotActive);
+            return Err(StellarVaultError::LoanNotActive);
         }
 
         loan.status = LoanStatus::Defaulted;
@@ -392,11 +392,11 @@ pub fn request_loan(
         guarantor: Address,
         borrower: Address,
         amount: i128,
-    ) -> Result<u64, TrustLendError> {
+    ) -> Result<u64, StellarVaultError> {
         guarantor.require_auth();
 
         if amount <= 0 {
-            return Err(TrustLendError::InvalidAmount);
+            return Err(StellarVaultError::InvalidAmount);
         }
 
         let mut id: u64 = env.storage().instance()
@@ -429,19 +429,19 @@ pub fn request_loan(
         env: Env,
         guarantee_id: u64,
         admin: Address,
-    ) -> Result<(), TrustLendError> {
+    ) -> Result<(), StellarVaultError> {
         admin.require_auth();
 
         let stored_admin: Address = env.storage().instance()
             .get(&DataKey::Admin)
-            .ok_or(TrustLendError::Unauthorized)?;
+            .ok_or(StellarVaultError::Unauthorized)?;
         if admin != stored_admin {
-            return Err(TrustLendError::Unauthorized);
+            return Err(StellarVaultError::Unauthorized);
         }
 
         let key = DataKey::Guarantee(guarantee_id);
         let mut guarantee: Guarantee = env.storage().persistent()
-            .get(&key).ok_or(TrustLendError::GuaranteeNotFound)?;
+            .get(&key).ok_or(StellarVaultError::GuaranteeNotFound)?;
 
         guarantee.status = GuaranteeStatus::Released;
         env.storage().persistent().set(&key, &guarantee);
@@ -454,19 +454,19 @@ pub fn request_loan(
         env: Env,
         guarantee_id: u64,
         admin: Address,
-    ) -> Result<(), TrustLendError> {
+    ) -> Result<(), StellarVaultError> {
         admin.require_auth();
 
         let stored_admin: Address = env.storage().instance()
             .get(&DataKey::Admin)
-            .ok_or(TrustLendError::Unauthorized)?;
+            .ok_or(StellarVaultError::Unauthorized)?;
         if admin != stored_admin {
-            return Err(TrustLendError::Unauthorized);
+            return Err(StellarVaultError::Unauthorized);
         }
 
         let key = DataKey::Guarantee(guarantee_id);
         let mut guarantee: Guarantee = env.storage().persistent()
-            .get(&key).ok_or(TrustLendError::GuaranteeNotFound)?;
+            .get(&key).ok_or(StellarVaultError::GuaranteeNotFound)?;
 
         guarantee.status = GuaranteeStatus::Slashed;
         env.storage().persistent().set(&key, &guarantee);
@@ -480,14 +480,14 @@ pub fn request_loan(
         env: Env,
         user: Address,
         admin: Address,
-    ) -> Result<(), TrustLendError> {
+    ) -> Result<(), StellarVaultError> {
         admin.require_auth();
 
         let stored_admin: Address = env.storage().instance()
             .get(&DataKey::Admin)
-            .ok_or(TrustLendError::Unauthorized)?;
+            .ok_or(StellarVaultError::Unauthorized)?;
         if admin != stored_admin {
-            return Err(TrustLendError::Unauthorized);
+            return Err(StellarVaultError::Unauthorized);
         }
 
         let score = UserScore {
@@ -511,20 +511,20 @@ pub fn request_loan(
         admin: Address,
         on_time: bool,
         defaulted: bool,
-    ) -> Result<u32, TrustLendError> {
+    ) -> Result<u32, StellarVaultError> {
         admin.require_auth();
 
         let stored_admin: Address = env.storage().instance()
             .get(&DataKey::Admin)
-            .ok_or(TrustLendError::Unauthorized)?;
+            .ok_or(StellarVaultError::Unauthorized)?;
         if admin != stored_admin {
-            return Err(TrustLendError::Unauthorized);
+            return Err(StellarVaultError::Unauthorized);
         }
 
         let key = DataKey::UserScore(user.clone());
         let mut score_data: UserScore = env.storage().persistent()
             .get(&key)
-            .ok_or(TrustLendError::NotFound)?;
+            .ok_or(StellarVaultError::NotFound)?;
 
         if defaulted {
             // Default → big penalty
@@ -560,29 +560,29 @@ pub fn request_loan(
     pub fn get_score(
         env: Env,
         user: Address,
-    ) -> Result<UserScore, TrustLendError> {
+    ) -> Result<UserScore, StellarVaultError> {
         env.storage().persistent()
             .get(&DataKey::UserScore(user))
-            .ok_or(TrustLendError::NotFound)
+            .ok_or(StellarVaultError::NotFound)
     }
     // ===== READ FUNCTIONS =====
 
-    pub fn get_escrow(env: Env, escrow_id: u64) -> Result<Escrow, TrustLendError> {
+    pub fn get_escrow(env: Env, escrow_id: u64) -> Result<Escrow, StellarVaultError> {
         env.storage().persistent()
             .get(&DataKey::Escrow(escrow_id))
-            .ok_or(TrustLendError::NotFound)
+            .ok_or(StellarVaultError::NotFound)
     }
 
-    pub fn get_loan(env: Env, loan_id: u64) -> Result<Loan, TrustLendError> {
+    pub fn get_loan(env: Env, loan_id: u64) -> Result<Loan, StellarVaultError> {
         env.storage().persistent()
             .get(&DataKey::Loan(loan_id))
-            .ok_or(TrustLendError::NotFound)
+            .ok_or(StellarVaultError::NotFound)
     }
 
-    pub fn get_guarantee(env: Env, guarantee_id: u64) -> Result<Guarantee, TrustLendError> {
+    pub fn get_guarantee(env: Env, guarantee_id: u64) -> Result<Guarantee, StellarVaultError> {
         env.storage().persistent()
             .get(&DataKey::Guarantee(guarantee_id))
-            .ok_or(TrustLendError::GuaranteeNotFound)
+            .ok_or(StellarVaultError::GuaranteeNotFound)
     }
 
     pub fn get_pool_balance(env: Env) -> i128 {

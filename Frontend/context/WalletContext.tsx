@@ -1,13 +1,20 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
-import { useAuth } from '@/context/AuthContext';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+} from "react";
+import { useAuth } from "@/context/AuthContext";
 import {
   checkFreighterInstalled,
   getConnectedWalletAddress,
   checkNetworkIsTestnet,
-  fetchXLMBalance
-} from '@contracts/stellar';
+  fetchXLMBalance,
+} from "@contracts/stellar";
 
 interface WalletContextType {
   walletAddress: string | null;
@@ -40,8 +47,8 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
 
   // Load wallet from localStorage on mount
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedAddress = localStorage.getItem('trustlend_wallet');
+    if (typeof window !== "undefined") {
+      const savedAddress = localStorage.getItem("StellarVault_wallet");
       if (savedAddress) {
         setWalletAddress(savedAddress);
         setIsConnected(true);
@@ -53,7 +60,12 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
     if (!walletAddress) return;
     try {
       // Clear network or fetch errors before retry
-      if (error && error !== 'UNFUNDED_ACCOUNT' && error !== 'INSTALL_FREIGHTER' && error !== 'WRONG_NETWORK') {
+      if (
+        error &&
+        error !== "UNFUNDED_ACCOUNT" &&
+        error !== "INSTALL_FREIGHTER" &&
+        error !== "WRONG_NETWORK"
+      ) {
         setError(null);
       }
 
@@ -61,15 +73,15 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       setXlmBalance(`${balance} XLM`);
 
       // If we previously had an unfunded error, clear it
-      if (error === 'UNFUNDED_ACCOUNT') {
+      if (error === "UNFUNDED_ACCOUNT") {
         setError(null);
       }
     } catch (err: any) {
-      if (err.message === 'UNFUNDED_ACCOUNT') {
-        setXlmBalance('0.0000 XLM');
-        setError('UNFUNDED_ACCOUNT');
+      if (err.message === "UNFUNDED_ACCOUNT") {
+        setXlmBalance("0.0000 XLM");
+        setError("UNFUNDED_ACCOUNT");
       } else {
-        setError('NETWORK_ERROR');
+        setError("NETWORK_ERROR");
       }
     }
   }, [walletAddress, error]);
@@ -81,7 +93,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       // 1. Check if Freighter is installed
       const installed = await checkFreighterInstalled();
       if (!installed) {
-        setError('INSTALL_FREIGHTER');
+        setError("INSTALL_FREIGHTER");
         setIsConnecting(false);
         return;
       }
@@ -89,7 +101,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       // 2. Check if Freighter is on Testnet
       const isTestnet = await checkNetworkIsTestnet();
       if (!isTestnet) {
-        setError('WRONG_NETWORK');
+        setError("WRONG_NETWORK");
         setIsConnecting(false);
         return;
       }
@@ -98,29 +110,38 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       const address = await getConnectedWalletAddress();
 
       // Fetch or Create user profile in MongoDB Atlas
-      const apiBase = import.meta.env.VITE_API_URL || (typeof window !== 'undefined' ? `http://${window.location.hostname}:5001/api` : 'http://localhost:5001/api');
+      const apiBase =
+        import.meta.env.VITE_API_URL ||
+        (typeof window !== "undefined"
+          ? `http://${window.location.hostname}:5001/api`
+          : "http://localhost:5001/api");
       const userRes = await fetch(`${apiBase}/users`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          walletAddress: address
-        })
+          walletAddress: address,
+        }),
       });
 
       if (!userRes.ok) {
-        throw new Error(`Server profile sync failed with status ${userRes.status}`);
+        throw new Error(
+          `Server profile sync failed with status ${userRes.status}`,
+        );
       }
 
       const userData = await userRes.json();
       const finalKyc = userData.kycLevel !== undefined ? userData.kycLevel : 1;
 
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('trustlend_wallet', address);
-        localStorage.setItem('trustlend_user', JSON.stringify({ name: userData.name, email: userData.email }));
+      if (typeof window !== "undefined") {
+        localStorage.setItem("StellarVault_wallet", address);
+        localStorage.setItem(
+          "StellarVault_user",
+          JSON.stringify({ name: userData.name, email: userData.email }),
+        );
         // Sync to cookies for KYC Level Check
         document.cookie = `kyc_level=${finalKyc}; path=/`;
         // Also update local storage KYC level
-        localStorage.setItem('trustlend_kyc_level', finalKyc.toString());
+        localStorage.setItem("StellarVault_kyc_level", finalKyc.toString());
       }
 
       // 4. Update React state only after successful sync and storage
@@ -142,13 +163,13 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
     setIsConnected(false);
     setXlmBalance(null);
     setError(null);
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('trustlend_wallet');
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("StellarVault_wallet");
       // If logging out, clear KYC cookies
       document.cookie = "kyc_level=0; path=/";
-      const localKyc = localStorage.getItem('trustlend_kyc_level');
+      const localKyc = localStorage.getItem("StellarVault_kyc_level");
       if (localKyc && parseInt(localKyc, 10) === 1) {
-        localStorage.setItem('trustlend_kyc_level', '0');
+        localStorage.setItem("StellarVault_kyc_level", "0");
       }
     }
     logout();
@@ -162,12 +183,16 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
     setIsFunding(true);
     setError(null);
     try {
-      const response = await fetch(`https://friendbot.stellar.org/?addr=${walletAddress}`);
+      const response = await fetch(
+        `https://friendbot.stellar.org/?addr=${walletAddress}`,
+      );
       if (response.ok) {
         // Success funding! Refresh balance immediately
         await fetchBalance();
       } else {
-        throw new Error("Friendbot failed to disburse funds. Please try again later.");
+        throw new Error(
+          "Friendbot failed to disburse funds. Please try again later.",
+        );
       }
     } catch (err: any) {
       setError("Friendbot funding failed: " + err.message);
@@ -199,21 +224,23 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
   }, [isConnected, walletAddress, fetchBalance]);
 
   return (
-    <WalletContext.Provider value={{
-      walletAddress,
-      isConnected,
-      xlmBalance,
-      error,
-      setError,
-      isConnecting,
-      isFunding,
-      isSendModalOpen,
-      setSendModalOpen,
-      connectWallet,
-      disconnectWallet,
-      fetchBalance,
-      fundAccount
-    }}>
+    <WalletContext.Provider
+      value={{
+        walletAddress,
+        isConnected,
+        xlmBalance,
+        error,
+        setError,
+        isConnecting,
+        isFunding,
+        isSendModalOpen,
+        setSendModalOpen,
+        connectWallet,
+        disconnectWallet,
+        fetchBalance,
+        fundAccount,
+      }}
+    >
       {children}
     </WalletContext.Provider>
   );
@@ -222,7 +249,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
 export function useWallet() {
   const context = useContext(WalletContext);
   if (context === undefined) {
-    throw new Error('useWallet must be used within a WalletProvider');
+    throw new Error("useWallet must be used within a WalletProvider");
   }
   return context;
 }
