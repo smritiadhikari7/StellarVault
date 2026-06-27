@@ -56,8 +56,8 @@ Instead of collateral, loans are approved using a comprehensive AI-driven credit
 |-------|------|-------|--------|
 | ⚪️ Level 1 | White Belt | Wallets & transactions | ✅ Completed |
 | 🟡 Level 2 | Yellow Belt | Multi-wallet, contracts & events | ✅ Completed |
-| 🟠 Level 3 | Orange Belt | Mini dApp + tests | 🔜 Upcoming |
-| 🟢 Level 4 | Green Belt | Advanced contracts & production readiness | 🔜 Upcoming |
+| 🟠 Level 3 | Orange Belt | Mini dApp + tests | ✅ Completed |
+| 🟢 Level 4 | Green Belt | Advanced contracts & production readiness | ✅ Completed |
 | 🔵 Level 5 | Blue Belt | Real MVP (5+ users) | 🔜 Upcoming |
 | ⚫️ Level 6 | Black Belt | Scale + Demo Day readiness | 🔜 Upcoming |
  
@@ -72,13 +72,94 @@ Instead of collateral, loans are approved using a comprehensive AI-driven credit
 | 🔐💎  CONTRACT ID | `CBKMPCT4RSI2NHJJILN7K5K6FB2ZVD7EYCB5G37UT47GJLCPZOZXYMNT` |
 
 ---
+## Deployed Contract
 
-## 🔗 Transaction Hashes (Testnet)
+| Property | Value |
+|---|---|
+| **Contract ID** | `CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI` |
+| **Network** | Stellar Testnet |
+| **Admin Address** | `GCVE5QXJ33NFGVMUCGUTTUVJQ7F6O4G6OPLCIU5O6OQXPYNORGDP3UIY` |
+| **Pool Treasury** | `GDRNUHQGNSDT3FW6BLA7FRL4SXRSOUB2PV6HGPVSMML7FPLOECYWLDOA` |
+| **Explorer** | [View on Stellar.expert](https://stellar.expert/explorer/testnet/contract/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI) |
 
-| Action | TX Hash |
-|--------|---------|
-| Contract Deploy | `CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI` |
 
+---
+## 🌈 UI DEMO 
+<img width="2383" height="1239" alt="Screenshot 2026-06-27 145107" src="https://github.com/user-attachments/assets/b82c10bb-6465-4eb7-ac8a-a6434d68b3bc" />
+
+<img width="2556" height="1288" alt="Screenshot 2026-06-27 145238" src="https://github.com/user-attachments/assets/bee5455d-7ba4-49c8-8b0d-41ece67ce233" />
+
+## ⚡ Smart Contract Test Flow
+<img width="1958" height="1163" alt="Screenshot 2026-06-27 142550" src="https://github.com/user-attachments/assets/81f3fec5-6cd9-41c8-b86e-fbc57e53157f" />
+
+<img width="2005" height="684" alt="Screenshot 2026-06-27 142654" src="https://github.com/user-attachments/assets/2391b22d-8e71-4949-95ef-c6869061f91d" />
+
+## Step-by-Step Test Cases
+
+**Step 1 — `create_escrow`**  
+Output: ✅ Escrow ID = `16`
+
+**Step 2 — `get_escrow`**  
+Output: ✅ Status = `0` (Pending)
+
+**Step 3 — `request_loan`**  
+Output: ✅ Loan ID = `1`
+
+**Step 4 — `get_loan`**  
+Output: ✅ amount=`50000000`, trust_score=`750`, status=`0` (Pending)
+
+**Step 5 — `auto_release`**  
+Output: ✅ `true` — trust score `750` >= threshold `700`, Loan Approved
+
+**Step 6 — `repay_loan`**  
+Output: ✅ Remaining = `25000000` stroops (2.5 XLM)
+
+**Step 7 — `lock_guarantee`**  
+Output: ✅ Guarantee ID = `1`
+
+**Step 8 — `release_funds`**  
+Output: ✅ `null` (Success)
+
+**Step 9 — `refund_funds`**  
+Output: ✅ `null` (Success)
+
+**Step 10 — `release_guarantee`**  
+Output: ✅ `null` (Success)
+
+**Step 11 — `get_wallet_escrows`**  
+Output: ✅ `[5, 6, 7, 13, 14, 15, 16, 17]`
+
+**Step 12 — `get_wallet_loans`**  
+Output: ✅ `[1]`
+
+**Step 13 — `get_wallet_guarantees`**  
+Output: ✅ `[1]`
+
+**Step 14 — `get_pool_balance`**  
+Output: ✅ `26473571428` stroops = `2647.35 XLM`
+
+---
+
+## Test Summary
+
+| # | Function | Status | Output |
+|---|---|---|---|
+| 1 | `create_escrow` | ✅ Pass | Escrow ID `16` |
+| 2 | `get_escrow` | ✅ Pass | Status Pending |
+| 3 | `request_loan` | ✅ Pass | Loan ID `1` |
+| 4 | `get_loan` | ✅ Pass | All fields correct |
+| 5 | `auto_release` | ✅ Pass | Approved (750 >= 700) |
+| 6 | `repay_loan` | ✅ Pass | 2.5 XLM remaining |
+| 7 | `lock_guarantee` | ✅ Pass | Guarantee ID `1` |
+| 8 | `release_funds` | ✅ Pass | Success |
+| 9 | `refund_funds` | ✅ Pass | Success |
+| 10 | `release_guarantee` | ✅ Pass | Success |
+| 11 | `get_wallet_escrows` | ✅ Pass | `[5,6,7,13,14,15,16,17]` |
+| 12 | `get_wallet_loans` | ✅ Pass | `[1]` |
+| 13 | `get_wallet_guarantees` | ✅ Pass | `[1]` |
+| 14 | `get_pool_balance` | ✅ Pass | `2647.35 XLM` |
+
+**14/14 Functions Passing on Stellar Testnet** 🚀
 ---
 # 🚀 Key Features
 
