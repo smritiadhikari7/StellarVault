@@ -13,9 +13,10 @@ permissions:
   actions: read
 
 jobs:
-  lint-and-typecheck:
-    name: Lint & Typecheck
+  pipeline:
+    name: Build, Test & Deploy
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -28,71 +29,33 @@ jobs:
           cache-dependency-path: Frontend/package-lock.json
 
       - name: Install Dependencies
-        run: npm ci
         working-directory: ./Frontend
+        run: npm ci
 
       - name: Run Typecheck
-        run: npm run typecheck
         working-directory: ./Frontend
+        run: npm run typecheck
 
       - name: Run ESLint
+        working-directory: ./Frontend
         run: npm run lint
-        working-directory: ./Frontend
-
-  build:
-    name: Build Production Bundle
-    runs-on: ubuntu-latest
-    needs: [lint-and-typecheck]
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js (22 LTS)
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: "npm"
-          cache-dependency-path: Frontend/package-lock.json
-
-      - name: Install Dependencies
-        run: npm ci
-        working-directory: ./Frontend
 
       - name: Build Application
-        run: npm run build
         working-directory: ./Frontend
+        run: npm run build
         env:
           VITE_CONTRACT_ID: ${{ secrets.VITE_CONTRACT_ID }}
           VITE_POOL_TREASURY_ADDRESS: ${{ secrets.VITE_POOL_TREASURY_ADDRESS }}
           VITE_ADMIN_ADDRESS: ${{ secrets.VITE_ADMIN_ADDRESS }}
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
-  e2e-tests:
-    name: Playwright E2E Tests
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js (22 LTS)
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: "npm"
-          cache-dependency-path: Frontend/package-lock.json
-
-      - name: Install Dependencies
-        run: npm ci
-        working-directory: ./Frontend
-
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
         working-directory: ./Frontend
+        run: npx playwright install --with-deps
 
       - name: Run Playwright E2E Tests
-        run: npm run test:e2e
         working-directory: ./Frontend
+        run: npm run test:e2e
         env:
           CI: "true"
 
@@ -104,31 +67,12 @@ jobs:
           path: Frontend/playwright-report/
           retention-days: 14
 
-  deploy:
-    name: Deploy Frontend → Vercel
-    runs-on: ubuntu-latest
-    needs: [lint-and-typecheck, build, e2e-tests]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js (22 LTS)
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: "npm"
-          cache-dependency-path: Frontend/package-lock.json
-
-      - name: Install Dependencies
-        working-directory: ./Frontend
-        run: npm ci
-
       - name: Install Latest Vercel CLI
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: npm install -g vercel@latest
 
       - name: Pull Vercel Environment
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         working-directory: ./Frontend
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
         env:
@@ -136,6 +80,7 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Build for Vercel
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         working-directory: ./Frontend
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
         env:
@@ -143,6 +88,7 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Deploy to Vercel
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         working-directory: ./Frontend
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
         env:
