@@ -171,6 +171,3 @@ jobs:
           url=$(vercel deploy --prod --yes)
           echo "deployment-url=$url" >> "$GITHUB_OUTPUT"
           echo "Deployed to: $url"
-            url=$(vercel deploy --prebuilt --prod)
-            echo "deployment-url=$url" >> "$GITHUB_OUTPUT"
-            echo "Deployed to: $url"
