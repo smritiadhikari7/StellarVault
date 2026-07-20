@@ -145,9 +145,8 @@ jobs:
         working-directory: ${{ env.WORKING_DIR }}
         run: vercel whoami --token="${{ secrets.VERCEL_TOKEN }}"
 
-      - name: Pull Vercel Environment Info
-        working-directory: ${{ env.WORKING_DIR }}
-        run: vercel pull --yes --environment=production --token="${{ secrets.VERCEL_TOKEN }}"
+      - name: Verify npm is available
+        run: which npm && npm --version
 
       - name: Build Project Artifacts
         working-directory: ${{ env.WORKING_DIR }}
