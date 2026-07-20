@@ -196,14 +196,14 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex font-sans">
+    <div className="min-h-screen bg-background flex flex-col md:flex-row font-sans overflow-x-hidden">
       <Sidebar />
 
       {/* Main Content Area */}
-      <main className="flex-1 pl-16 xl:pl-60 min-h-screen flex flex-col transition-all duration-300">
+      <main className="flex-1 pl-0 md:pl-16 xl:pl-60 pt-16 md:pt-0 min-h-screen flex flex-col transition-all duration-300">
 
-        {/* Top Header Bar */}
-        <header className="h-16 bg-white border-b border-borderCustom px-6 flex items-center justify-between sticky top-0 z-30">
+        {/* Desktop Top Header Bar */}
+        <header className="hidden md:flex h-16 bg-white border-b border-borderCustom px-6 items-center justify-between sticky top-0 z-30">
           <div className="flex items-center gap-2">
             <span className="text-lg font-bold text-text-primary">Good morning, {displayName.split(" ")[0]} 👋</span>
             <span className="text-xs text-text-muted hidden sm:inline-block">· Nov 23, 2025</span>
@@ -237,7 +237,7 @@ export default function Dashboard() {
         </header>
 
         {/* Dashboard Content Container */}
-        <div className="p-6 md:p-8 space-y-8 max-w-7xl w-full mx-auto">
+        <div className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 max-w-7xl w-full mx-auto">
 
           {/* Warning Banner if wallet disconnected */}
           {(!isConnected || !walletAddress) && (

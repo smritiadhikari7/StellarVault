@@ -1,79 +1,73 @@
 import { Link } from "react-router-dom";
-import { MessageSquare, ShieldAlert } from "lucide-react";
+import { MessageSquare, ShieldCheck } from "lucide-react";
+import StellarVaultLogo from "@/components/ui/StellarVaultLogo";
 
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-borderCustom py-12 md:py-16">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
         {/* Logo and Tagline */}
-        <div className="md:col-span-2 space-y-4">
-          <Link
-            to="/"
-            className="flex items-center gap-1 font-bold text-xl text-text-primary"
-          >
-            <span>StellarVault</span>
-            <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-primary to-accent"></span>
-            <span className="text-text-primary">X</span>
-          </Link>
-          <p className="text-sm text-text-secondary max-w-sm leading-relaxed">
-            A decentralized AI-powered credit platform on Stellar blockchain.
-            Unlocking capital through social trust, secure ZK-KYC verification,
-            and predictive credit profiles.
+        <div className="sm:col-span-2 space-y-4">
+          <StellarVaultLogo size="lg" variant="full" />
+          <p className="text-sm text-text-secondary max-w-md leading-relaxed">
+            A decentralized AI-powered credit platform built on the Stellar blockchain.
+            Unlocking institutional capital through social trust, secure ZK-KYC verification,
+            and predictive credit profiling.
           </p>
         </div>
 
         {/* Links */}
-        <div className="space-y-4">
-          <h4 className="text-xs font-semibold text-text-muted uppercase tracking-wider">
-            Platform
+        <div className="space-y-3">
+          <h4 className="text-xs font-bold text-text-muted uppercase tracking-wider">
+            Platform Features
           </h4>
           <ul className="space-y-2">
             <li>
               <Link
                 to="/dashboard"
-                className="text-sm text-text-secondary hover:text-primary transition-colors"
+                className="text-sm text-text-secondary hover:text-primary transition-colors font-medium"
               >
-                Dashboard
+                Credit Dashboard
               </Link>
             </li>
             <li>
               <Link
                 to="/borrow"
-                className="text-sm text-text-secondary hover:text-primary transition-colors"
+                className="text-sm text-text-secondary hover:text-primary transition-colors font-medium"
               >
-                Borrow
+                Borrow Capital
               </Link>
             </li>
             <li>
               <Link
                 to="/lend"
-                className="text-sm text-text-secondary hover:text-primary transition-colors"
+                className="text-sm text-text-secondary hover:text-primary transition-colors font-medium"
               >
-                Lend
+                Lend Marketplace
               </Link>
             </li>
             <li>
               <Link
                 to="/social"
-                className="text-sm text-text-secondary hover:text-primary transition-colors"
+                className="text-sm text-text-secondary hover:text-primary transition-colors font-medium"
               >
-                Social Trust
+                Social Trust Network
               </Link>
             </li>
           </ul>
         </div>
 
-        {/* Social and Security */}
+        {/* Social & Security Badges */}
         <div className="space-y-4">
-          <h4 className="text-xs font-semibold text-text-muted uppercase tracking-wider">
-            Connect
+          <h4 className="text-xs font-bold text-text-muted uppercase tracking-wider">
+            Community & Security
           </h4>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <a
               href="https://twitter.com"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-lg border border-borderCustom flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-all duration-150"
+              className="w-9 h-9 rounded-xl border border-borderCustom flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-all shadow-sm"
               aria-label="Twitter X Link"
             >
               <svg
@@ -88,7 +82,7 @@ export default function Footer() {
               href="https://github.com"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-lg border border-borderCustom flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-all duration-150"
+              className="w-9 h-9 rounded-xl border border-borderCustom flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-all shadow-sm"
               aria-label="GitHub Link"
             >
               <svg
@@ -107,32 +101,27 @@ export default function Footer() {
               href="https://discord.com"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-lg border border-borderCustom flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-all duration-150"
+              className="w-9 h-9 rounded-xl border border-borderCustom flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-all shadow-sm"
+              aria-label="Discord Link"
             >
               <MessageSquare className="w-4 h-4" />
             </a>
           </div>
-          <div className="flex items-center gap-1.5 text-xs text-success bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100 w-fit">
-            <ShieldAlert className="w-3.5 h-3.5" />
-            <span>Stellar ZK-Verified</span>
+          <div className="flex items-center gap-1.5 text-xs text-success bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-100 w-fit font-semibold shadow-sm">
+            <ShieldCheck className="w-4 h-4 text-success" />
+            <span>Stellar ZK-Verified Vault</span>
           </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-borderCustom flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted">
-        <div>© 2025 StellarVault X · Built on Stellar · Powered by AI</div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-10 pt-6 border-t border-borderCustom flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted">
+        <div>© 2026 StellarVault X · Built on Stellar Blockchain · Powered by AI</div>
         <div className="flex items-center gap-6">
-          <a
-            href="#terms"
-            className="hover:text-text-secondary transition-colors"
-          >
+          <a href="#terms" className="hover:text-text-secondary transition-colors">
             Terms of Service
           </a>
-          <a
-            href="#privacy"
-            className="hover:text-text-secondary transition-colors"
-          >
+          <a href="#privacy" className="hover:text-text-secondary transition-colors">
             Privacy Policy
           </a>
         </div>

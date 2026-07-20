@@ -264,10 +264,10 @@ export default function KYCPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex font-sans">
+    <div className="min-h-screen bg-background flex flex-col md:flex-row font-sans overflow-x-hidden">
       <Sidebar />
 
-      <main className="flex-1 pl-16 xl:pl-60 min-h-screen flex flex-col transition-all duration-300 relative">
+      <main className="flex-1 pl-0 md:pl-16 xl:pl-60 pt-16 md:pt-0 min-h-screen flex flex-col transition-all duration-300 relative">
         {/* Blocking overlay if Level 1 (Wallet Connect) is not complete */}
         {!isConnected && (
           <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex items-center justify-center p-6 transition-all duration-300">
@@ -279,12 +279,10 @@ export default function KYCPage() {
                 <h2 className="text-lg font-bold text-text-primary">
                   Complete KYC to continue
                 </h2>
-                <p className="text-xs text-text-muted max-w-[280px] mx-auto leading-relaxed font-medium">
-                  To access the StellarVault X platform, you must link your
-                  Freighter Stellar Wallet (KYC Level 1).
+                <p className="text-xs text-text-secondary leading-relaxed">
+                  Please connect your Stellar Wallet first (Level 1 KYC) to start using StellarVault X and access your dashboard.
                 </p>
               </div>
-
               <div className="pt-2">
                 <WalletConnect showDisconnect={false} />
               </div>
@@ -293,7 +291,7 @@ export default function KYCPage() {
         )}
 
         {/* Top Header Bar */}
-        <header className="h-16 bg-white border-b border-borderCustom px-6 flex items-center justify-between sticky top-0 z-30">
+        <header className="hidden md:flex h-16 bg-white border-b border-borderCustom px-6 items-center justify-between sticky top-0 z-30">
           <div className="flex items-center gap-2">
             <span className="text-lg font-bold text-text-primary">
               Identity & KYC Verification

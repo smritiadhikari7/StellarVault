@@ -203,12 +203,12 @@ export default function BorrowPage() {
     liveLoanHistory.length > 0 ? liveLoanHistory : loanHistory;
 
   return (
-    <div className="min-h-screen bg-background flex font-sans">
+    <div className="min-h-screen bg-background flex flex-col md:flex-row font-sans overflow-x-hidden">
       <Sidebar />
 
-      <main className="flex-1 pl-16 xl:pl-60 min-h-screen flex flex-col transition-all duration-300">
+      <main className="flex-1 pl-0 md:pl-16 xl:pl-60 pt-16 md:pt-0 min-h-screen flex flex-col transition-all duration-300">
         {/* Top Header Bar */}
-        <header className="h-16 bg-white border-b border-borderCustom px-6 flex items-center justify-between sticky top-0 z-30">
+        <header className="hidden md:flex h-16 bg-white border-b border-borderCustom px-6 items-center justify-between sticky top-0 z-30">
           <div className="flex items-center gap-2">
             <span className="text-lg font-bold text-text-primary">
               Borrow Capital

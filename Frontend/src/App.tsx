@@ -14,6 +14,8 @@ import SocialTrustPage from '@/app/social/page';
 import AnalyticsPage from '@/app/analytics/page';
 import AdminPanelPage from '@/app/admin/page';
 import EscrowActions from "@/components/EscrowActions";
+import StellarVaultLogo from "@/components/ui/StellarVaultLogo";
+
 // Route Guard - Must be signed in
 function RequireAuth({ children }: { children: React.ReactNode }) {
   const { isLoggedIn, loading } = useAuth();
@@ -21,9 +23,12 @@ function RequireAuth({ children }: { children: React.ReactNode }) {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="flex flex-col items-center gap-3">
-          <div className="w-10 h-10 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin"></div>
-          <p className="text-sm font-semibold text-slate-500">Loading your profile...</p>
+        <div className="flex flex-col items-center gap-4">
+          <StellarVaultLogo size="xl" variant="full" linkTo="" />
+          <div className="flex items-center gap-2 text-sm font-semibold text-slate-500 animate-pulse">
+            <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+            <span>Loading your credit profile...</span>
+          </div>
         </div>
       </div>
     );
@@ -42,9 +47,12 @@ function RequireKyc({ children }: { children: React.ReactNode }) {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="flex flex-col items-center gap-3">
-          <div className="w-10 h-10 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin"></div>
-          <p className="text-sm font-semibold text-slate-500">Loading your profile...</p>
+        <div className="flex flex-col items-center gap-4">
+          <StellarVaultLogo size="xl" variant="full" linkTo="" />
+          <div className="flex items-center gap-2 text-sm font-semibold text-slate-500 animate-pulse">
+            <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+            <span>Loading your credit profile...</span>
+          </div>
         </div>
       </div>
     );

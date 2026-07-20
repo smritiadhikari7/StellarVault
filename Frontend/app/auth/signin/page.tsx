@@ -15,6 +15,8 @@ import {
   EyeOff,
 } from "lucide-react";
 
+import StellarVaultLogo from "@/components/ui/StellarVaultLogo";
+
 export default function SigninPage() {
   const { login } = useAuth();
   const { walletAddress, isConnected } = useWallet();
@@ -45,18 +47,8 @@ export default function SigninPage() {
     <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 font-sans">
       <div className="w-full max-w-[440px] bg-white shadow-xl border border-slate-100 rounded-3xl p-8 space-y-7 animate-fade-in">
         {/* Logo and Header */}
-        <div className="text-center space-y-2">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-1.5 text-2xl font-black text-text-primary tracking-tight"
-          >
-            <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-primary text-white font-mono text-xl font-black shadow-md shadow-primary/20">
-              T
-            </span>
-            <span>StellarVault</span>
-            <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-primary to-accent animate-pulse" />
-            <span className="text-primary">X</span>
-          </Link>
+        <div className="text-center space-y-2 flex flex-col items-center">
+          <StellarVaultLogo size="lg" variant="full" />
           <p className="text-xs text-text-muted font-medium pt-1">
             Access your decentralized AI-powered credit profile
           </p>
