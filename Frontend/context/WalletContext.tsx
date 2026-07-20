@@ -109,34 +109,43 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       // 3. Request address
       const address = await getConnectedWalletAddress();
 
-      // Fetch or Create user profile in MongoDB Atlas
+      // Attempt to Fetch or Create user profile in backend API (optional sync)
       const apiBase =
         import.meta.env.VITE_API_URL ||
         (typeof window !== "undefined"
           ? `http://${window.location.hostname}:5001/api`
           : "http://localhost:5001/api");
-      const userRes = await fetch(`${apiBase}/users`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          walletAddress: address,
-        }),
-      });
 
-      if (!userRes.ok) {
-        throw new Error(
-          `Server profile sync failed with status ${userRes.status}`,
-        );
+      let finalKyc = 1;
+      let userProfile = { name: "", email: "" };
+
+      try {
+        const userRes = await fetch(`${apiBase}/users`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            walletAddress: address,
+          }),
+        });
+
+        if (userRes.ok) {
+          const userData = await userRes.json();
+          if (userData.kycLevel !== undefined) {
+            finalKyc = userData.kycLevel;
+          }
+          if (userData.name || userData.email) {
+            userProfile = { name: userData.name || "", email: userData.email || "" };
+          }
+        }
+      } catch (backendErr) {
+        console.warn("Backend server offline or profile sync unavailable, continuing locally:", backendErr);
       }
-
-      const userData = await userRes.json();
-      const finalKyc = userData.kycLevel !== undefined ? userData.kycLevel : 1;
 
       if (typeof window !== "undefined") {
         localStorage.setItem("StellarVault_wallet", address);
         localStorage.setItem(
           "StellarVault_user",
-          JSON.stringify({ name: userData.name, email: userData.email }),
+          JSON.stringify(userProfile),
         );
         // Sync to cookies for KYC Level Check
         document.cookie = `kyc_level=${finalKyc}; path=/`;
@@ -144,12 +153,16 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
         localStorage.setItem("StellarVault_kyc_level", finalKyc.toString());
       }
 
-      // 4. Update React state only after successful sync and storage
+      // 4. Update React state after successful connection and storage
       setWalletAddress(address);
       setIsConnected(true);
     } catch (err: any) {
       console.error("Wallet connection failed:", err);
-      setError(err.message || "Failed to connect wallet.");
+      let errorMsg = err.message || "Failed to connect wallet.";
+      if (errorMsg === "Failed to fetch") {
+        errorMsg = "Unable to connect to network server. Please try again.";
+      }
+      setError(errorMsg);
       // Clear out state on failure to ensure consistency
       setWalletAddress(null);
       setIsConnected(false);
