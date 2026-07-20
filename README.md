@@ -21,8 +21,8 @@
 
 | Resource | Link |
 |----------|------|
-| **Live Demo** | [https://stellar-vault-eight.vercel.app](https://stellar-vault-eight.vercel.app) |
-| **Contract ID ** | [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CBKMPCT4RSI2NHJJILN7K5K6FB2ZVD7EYCB5G37UT47GJLCPZOZXYMNT) |
+| **Live Demo** | [https://stellar-vault-pied.vercel.app/](https://stellar-vault-pied.vercel.app/) |
+| **Contract ID** | [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CBKMPCT4RSI2NHJJILN7K5K6FB2ZVD7EYCB5G37UT47GJLCPZOZXYMNT) |
 | **transaction activity** | [transaction ](https://stellar.expert/explorer/testnet/account/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI) |
 | **User Testing & Feedback** | [10+ verified users Excel Sheet Data](https://docs.google.com/spreadsheets/d/1WiiCXXYpEvG68_Hj6qfuNIlhjCtKLm9f2sfYchyAOgY/edit?usp=sharing) |
 | **User FeedBack Summery** | [Feedback Summery](https://docs.google.com/presentation/d/1OP0RDVZy3l-jffxUe3YdLIUmkQADfXPK/edit?usp=sharing&ouid=111617888193331830582&rtpof=true&sd=true) |
@@ -33,7 +33,7 @@
 
 | Requirement | Status | Evidence |
 |-------------|--------|----------|
-| **Live Demo Deployed** | ✅ Complete | https://stellar-vault-eight.vercel.app |
+| **Live Demo Deployed** | ✅ Complete | https://stellar-vault-pied.vercel.app/ |
 | **CI/CD Pipeline** | ✅ Complete | GitHub Actions Enabled |
 | **Smart Contract Deployed** | ✅ Complete | `CBKMPCT4RSI2NHJJILN7K5K6FB2ZVD7EYCB5G37UT47GJLCPZOZXYMNT` |
 | **Mobile Responsive** | ✅ Complete | Optimized for Desktop, Tablet & Mobile |
@@ -166,6 +166,10 @@ Instead of collateral, loans are approved using a comprehensive AI-driven credit
 <img width="2383" height="1239" alt="Screenshot 2026-06-27 145107" src="https://github.com/user-attachments/assets/b82c10bb-6465-4eb7-ac8a-a6434d68b3bc" />
 
 <img width="2556" height="1288" alt="Screenshot 2026-06-27 145238" src="https://github.com/user-attachments/assets/bee5455d-7ba4-49c8-8b0d-41ece67ce233" />
+
+## CI/CD Running
+<img width="2514" height="789" alt="image" src="https://github.com/user-attachments/assets/4283c355-812a-49f8-b979-20b7596d9db2" />
+
 
 ## ⚡ Smart Contract Test Flow
 <img width="1958" height="1163" alt="Screenshot 2026-06-27 142550" src="https://github.com/user-attachments/assets/81f3fec5-6cd9-41c8-b86e-fbc57e53157f" />
