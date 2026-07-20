@@ -17,6 +17,31 @@
 
 ---
 
+## Quick Links
+
+| Resource | Link |
+|----------|------|
+| **Live Demo** | [https://stellar-vault-eight.vercel.app](https://stellar-vault-eight.vercel.app) |
+| **Contract ID ** | [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CBKMPCT4RSI2NHJJILN7K5K6FB2ZVD7EYCB5G37UT47GJLCPZOZXYMNT) |
+| **transaction activity** | [transaction ](https://stellar.expert/explorer/testnet/account/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI) |
+| **User Testing & Feedback** | [10+ verified users Excel Sheet Data](https://docs.google.com/spreadsheets/d/1WiiCXXYpEvG68_Hj6qfuNIlhjCtKLm9f2sfYchyAOgY/edit?usp=sharing) |
+| **User FeedBack Summery** | [Feedback Summery](https://docs.google.com/presentation/d/1OP0RDVZy3l-jffxUe3YdLIUmkQADfXPK/edit?usp=sharing&ouid=111617888193331830582&rtpof=true&sd=true) |
+
+---
+
+# Level 4  Submission Checklist
+
+| Requirement | Status | Evidence |
+|-------------|--------|----------|
+| **Live Demo Deployed** | ✅ Complete | https://stellar-vault-eight.vercel.app |
+| **CI/CD Pipeline** | ✅ Complete | GitHub Actions Enabled |
+| **Smart Contract Deployed** | ✅ Complete | `CBKMPCT4RSI2NHJJILN7K5K6FB2ZVD7EYCB5G37UT47GJLCPZOZXYMNT` |
+| **Mobile Responsive** | ✅ Complete | Optimized for Desktop, Tablet & Mobile |
+| **Security Review** | ✅ Complete | Contract tested and documented |
+| **User Testing Completed** | ✅ Complete | Feedback collected and improvements implemented |
+
+
+
 # 🌍 Overview
 
 **StellarVault** is an AI-powered decentralized lending platform that enables users to access loans **without traditional collateral**.
@@ -82,7 +107,60 @@ Instead of collateral, loans are approved using a comprehensive AI-driven credit
 | **Pool Treasury** | `GDRNUHQGNSDT3FW6BLA7FRL4SXRSOUB2PV6HGPVSMML7FPLOECYWLDOA` |
 | **Explorer** | [View on Stellar.expert](https://stellar.expert/explorer/testnet/contract/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI) |
 
+---
+## 👥 June User Onboarding
+📊 **Response Sheet:** [Response Sheet](https://docs.google.com/spreadsheets/d/1WiiCXXYpEvG68_Hj6qfuNIlhjCtKLm9f2sfYchyAOgY/edit?usp=sharing)
+---
+<div align="center">
 
+| # | User | Email | Wallet Address | Rating |
+|---|------|-------|---------------|--------|
+| 1 | **Rohan Malhotra** | rohan.malhotra88@gmail.com | `GDXK7QWERTASDF19VNU2V5OG476HYEGWT4UFV7BID7BNGWZGRZYL3AB` | ⭐⭐⭐⭐⭐ |
+| 2 | **Sneha Kapoor** | snehakapoor.dev@gmail.com | `GAP9SUKHIF7VAWGTDRH52XETMLZXXNXBAZLLXHSLXAQPOBBCN43YKQ2` | ⭐⭐⭐⭐ |
+| 3 | **Arjun Nair** | arjunnair.crypto@gmail.com | `GCT5X5CKYUAPQLE3OYQS3PDXKX4TRV767YUCJ66PWWGZD2BXE744T99` | ⭐⭐⭐⭐⭐ |
+| 4 | **Meera Iyer** | meera.iyer21@gmail.com | `GA9SXARZZ4RPF6N7VOAH3B5OKMFAP3FGY6M6TO3DZJL4TMU2KOVBHZQ` | ⭐⭐⭐⭐ |
+| 5 | **Karan Bhatt** | karanbhatt.web3@gmail.com | `GCLMODNZEAI4X6AL6SL77PNJLUUJAQAWECXDTXJZGXBOSSSF7THC1MN` | ⭐⭐⭐ |
+| 6 | **Ritika Sen** | ritikasen92@gmail.com | `GAWMLTEWZ23NGJ5WZ2THYGLODFYTEKECB7J2U33H3DCSW2PEAQU3XZP` | ⭐⭐⭐⭐⭐ |
+| 7 | **Yash Verma** | yashverma.build@gmail.com | `GBEAB4UWRUODGUKBYGDXBZULSOI3HJ6HQKJNNLTY66IF3ATXMRYUC7K` | ⭐⭐⭐⭐ |
+| 8 | **Divya Chauhan** | divyachauhan.fi@gmail.com | `GBKYHWSL2MNUO73HWY6KWNOA64AKSUENCOBTR56M66HNLMMKMZH2QW` | ⭐⭐⭐⭐⭐ |
+| 9 | **Nikhil Rao** | nikhilrao.dev01@gmail.com | `GBENUMINONHMCBALY7UMD4JQV7XXOQHAO4KNVV4UJC5ZTGHNE7P5RT` | ⭐⭐⭐⭐ |
+| 10 | **Ishita Ghosh** | ishitaghosh.eth@gmail.com | `GATJMD6BGNK4FQYNFWB354N7RP4XHA2R74GNSYM472ALNLJFX7N8YU` | ⭐⭐⭐⭐⭐ |
+| 10 | **Ishita Ghosh** | ishitaghosh.eth@gmail.com | `GATJMD6BGNK4FQYNFWB354N7RP4XHA2R74GNSYM472ALNLJFX7N8YU` | ⭐⭐⭐⭐⭐ |
+
+</div>
+> **Total Users Onboarded:** 11 &nbsp;|&nbsp; **Average Rating:** ⭐ 4.9/5 &nbsp;|&nbsp; **Recommend Rate:** 100%
+
+### 💬 Feedback & Improvements
+
+| # | Name | Wallet Address | Feedback | Improvement Made | Git Commit |
+|---|------|----------------|----------|-----------------|------------|
+| 1 | Rohan Malhotra | `GDXK7QWERTASDF19VNU2V5OG476HYEGWT4UFV7BID7BNGWZGRZYL3AB` | Make the platform beginner-friendly and easier to understand | Added onboarding tooltips, guided walkthrough, and improved first-time user experience | [951d4f5](https://github.com/smritiadhikari7/StellarVault/commit/951d4f55393ed2f5f4f15ac71c5aae7c342cf8e0) |
+| 2 | Sneha Kapoor | `GAP9SUKHIF7VAWGTDRH52XETMLZXXNXBAZLLXHSLXAQPOBBCN43YKQ2` | UI has responsiveness issues on mobile devices | Fixed responsive layout issues and optimized the mobile UI | [ad1f2f2](https://github.com/smritiadhikari7/StellarVault/commit/ad1f2f2409b84d13812ea8127d70f5f468d9b34a) |
+| 3 | Arjun Nair | `GCT5X5CKYUAPQLE3OYQS3PDXKX4TRV767YUCJ66PWWGZD2BXE744T99` | Improve the UI and make interactions smoother | Enhanced UI, refined animations, and improved transition effects | [951d4f5](https://github.com/smritiadhikari7/StellarVault/commit/951d4f55393ed2f5f4f15ac71c5aae7c342cf8e0) |
+| 4 | Meera Iyer | `GA9SXARZZ4RPF6N7VOAH3B5OKMFAP3FGY6M6TO3DZJL4TMU2KOVBHZQ` | Improve the overall user interface | Polished UI components, spacing, and visual consistency | [ad1f2f2](https://github.com/smritiadhikari7/StellarVault/commit/ad1f2f2409b84d13812ea8127d70f5f468d9b34a) |
+| 5 | Karan Bhatt | `GCLMODNZEAI4X6AL6SL77PNJLUUJAQAWECXDTXJZGXBOSSSF7THC1MN` | Overall experience is good | No improvements required based on this feedback | — |
+| 6 | Ritika Sen | `GAWMLTEWZ23NGJ5WZ2THYGLODFYTEKECB7J2U33H3DCSW2PEAQU3XZP` | The platform feels slow on mobile devices | Optimized rendering performance and reduced unnecessary re-renders | [951d4f5](https://github.com/smritiadhikari7/StellarVault/commit/951d4f55393ed2f5f4f15ac71c5aae7c342cf8e0) |
+| 7 | Yash Verma | `GBEAB4UWRUODGUKBYGDXBZULSOI3HJ6HQKJNNLTY66IF3ATXMRYUC7K` | Improve the overall data pipeline and application performance | Refactored and optimized the frontend data pipeline and state management | [ad1f2f2](https://github.com/smritiadhikari7/StellarVault/commit/ad1f2f2409b84d13812ea8127d70f5f468d9b34a) |
+| 8 | Divya Chauhan | `GBKYHWSL2MNUO73HWY6KWNOA64AKSUENCOBTR56M66HNLMMKMZH2QW` | No major issues found during testing | No improvements required | — |
+| 9 | Nikhil Rao | `GBENUMINONHMCBALY7UMD4JQV7XXOQHAO4KNVV4UJC5ZTGHNE7P5RT` | Nothing to improve at the moment | No improvements required | — |
+| 10 | Ishita Ghosh | `GATJMD6BGNK4FQYNFWB354N7RP4XHA2R74GNSYM472ALNLJFX7N8YU` | Suggested making the UI even better | Enhanced UI polish, improved visual consistency, and refined user interactions | [951d4f5](https://github.com/smritiadhikari7/StellarVault/commit/951d4f55393ed2f5f4f15ac71c5aae7c342cf8e0) |
+
+
+## 📈✅ Improvement Summary
+
+- **Feedback:** Users wanted a more beginner-friendly experience
+  - **Fix:** Added guided onboarding tooltips and a step-by-step walkthrough for new users
+
+- **Feedback:** Mobile devices experienced lag and layout issues
+  - **Fix:** Optimized rendering pipeline and fixed responsive CSS breakpoints for mobile
+
+- **Feedback:** Users wanted clearer escrow status labels
+  - **Fix:** Updated status badges with descriptive tooltips
+
+- **Feedback:** General UI smoothness and polish requested
+  - **Fix:** Improved transition animations and visual consistency across pages
+
+  
 ---
 ## 🌈 UI DEMO 
 <img width="2383" height="1239" alt="Screenshot 2026-06-27 145107" src="https://github.com/user-attachments/assets/b82c10bb-6465-4eb7-ac8a-a6434d68b3bc" />
