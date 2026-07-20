@@ -143,10 +143,15 @@ jobs:
       - name: Verify Vercel Token
         working-directory: ${{ env.WORKING_DIR }}
         run: vercel whoami --token="${{ secrets.VERCEL_TOKEN }}"
-
-      - name: Verify npm is available
-        run: which npm && npm --version
-
+      - name: Pull Vercel Environment
+        working-directory: ${{ env.WORKING_DIR }}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          vercel pull --yes --environment=production
+     
       - name: Build Project Artifacts
         working-directory: ${{ env.WORKING_DIR }}
         run: vercel build --prod --token="${{ secrets.VERCEL_TOKEN }}"
@@ -167,6 +172,5 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
           url=$(vercel deploy --prebuilt --prod)
-          url=$(vercel deploy --prebuilt --prod --token="${{ secrets.VERCEL_TOKEN }}")
           echo "deployment-url=$url" >> "$GITHUB_OUTPUT"
           echo "Deployed to: $url"
