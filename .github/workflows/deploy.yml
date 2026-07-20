@@ -111,7 +111,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: ${{ steps.deploy.outputs.deployment-url }}
 
     env:
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -136,17 +135,28 @@ jobs:
       - name: Install Vercel CLI
         run: npm install -g vercel@latest
 
-      - name: Pull Vercel Environment Info
-        working-directory: ${{ env.WORKING_DIR }}
-        run: vercel pull --yes --environment=production --token="${{ secrets.VERCEL_TOKEN }}"
+      - name: Verify npm is available
+        run: which npm && npm --version
 
       - name: Build Project Artifacts
         working-directory: ${{ env.WORKING_DIR }}
         run: vercel build --prod --token="${{ secrets.VERCEL_TOKEN }}"
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VITE_CONTRACT_ID: ${{ secrets.VITE_CONTRACT_ID }}
+          VITE_POOL_TREASURY_ADDRESS: ${{ secrets.VITE_POOL_TREASURY_ADDRESS }}
+          VITE_ADMIN_ADDRESS: ${{ secrets.VITE_ADMIN_ADDRESS }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
       - name: Deploy to Vercel
         id: deploy
         working-directory: ${{ env.WORKING_DIR }}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
-          url=$(vercel deploy --prebuilt --prod --token="${{ secrets.VERCEL_TOKEN }}")
+          url=$(vercel deploy --prebuilt --prod)
           echo "deployment-url=$url" >> "$GITHUB_OUTPUT"
+          echo "Deployed to: $url"
