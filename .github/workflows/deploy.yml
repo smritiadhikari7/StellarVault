@@ -12,7 +12,7 @@ permissions:
   contents: read
   actions: read
 
-# Cancel older in-progress runs on the same branch/PR when a new commit lands
+# Cancel superseded runs on the same branch/PR
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -23,7 +23,7 @@ env:
 
 jobs:
   # ---------------------------------------------------------------
-  # 1. Build & Test — runs on every push and PR
+  # 1. Build, Lint & Test — runs on every push and PR
   # ---------------------------------------------------------------
   build-and-test:
     name: Build, Lint & Test
@@ -39,6 +39,12 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: "npm"
           cache-dependency-path: Frontend/package-lock.json
+
+      - name: Verify Node & npm
+        run: |
+          node --version
+          npm --version
+          which npm
 
       - name: Install Dependencies
         working-directory: ${{ env.WORKING_DIR }}
@@ -62,18 +68,18 @@ jobs:
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
       - name: Cache Playwright Browsers
-        uses: actions/cache@v4
         id: playwright-cache
+        uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('Frontend/package-lock.json') }}
 
-      - name: Install Playwright Browsers
+      - name: Install Playwright Browsers (cache miss)
         working-directory: ${{ env.WORKING_DIR }}
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
 
-      - name: Install Playwright OS deps only (cache hit)
+      - name: Install Playwright OS Deps Only (cache hit)
         working-directory: ${{ env.WORKING_DIR }}
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps
@@ -91,15 +97,6 @@ jobs:
           name: playwright-report
           path: Frontend/playwright-report/
           retention-days: 14
-
-      # Pass the build output to the deploy job so we don't rebuild twice
-      - name: Upload Build Output
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: actions/upload-artifact@v4
-        with:
-          name: frontend-dist
-          path: Frontend/dist/
-          retention-days: 1
 
   # ---------------------------------------------------------------
   # 2. Deploy — only on push to main, only after tests pass
@@ -127,13 +124,25 @@ jobs:
           cache: "npm"
           cache-dependency-path: Frontend/package-lock.json
 
-      # 👇 ADD THIS — installs deps so Vercel CLI doesn't try to spawn npm itself
+      - name: Verify Node & npm
+        run: |
+          node --version
+          npm --version
+          which npm
+
+      # Installing deps here means node_modules already exists, so
+      # `vercel build` will NOT try to spawn its own install step
+      # (this is what caused the earlier "spawn npm ENOENT" error).
       - name: Install Dependencies
         working-directory: ${{ env.WORKING_DIR }}
         run: npm ci
 
       - name: Install Vercel CLI
         run: npm install -g vercel@latest
+
+      - name: Verify Vercel Token
+        working-directory: ${{ env.WORKING_DIR }}
+        run: vercel whoami --token="${{ secrets.VERCEL_TOKEN }}"
 
       - name: Verify npm is available
         run: which npm && npm --version
@@ -158,5 +167,6 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
           url=$(vercel deploy --prebuilt --prod)
+          url=$(vercel deploy --prebuilt --prod --token="${{ secrets.VERCEL_TOKEN }}")
           echo "deployment-url=$url" >> "$GITHUB_OUTPUT"
           echo "Deployed to: $url"
