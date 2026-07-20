@@ -156,7 +156,7 @@ export default function SigninPage() {
         {/* Navigation to Sign Up */}
         <div className="text-center pt-2">
           <p className="text-xs text-text-secondary font-medium">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link
               to="/auth/signup"
               className="text-primary hover:underline font-bold"

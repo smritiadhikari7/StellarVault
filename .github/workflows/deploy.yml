@@ -1,4 +1,4 @@
-name: Deploy to Vercel
+name: CI/CD Pipeline & Vercel Deployment
 
 on:
   push:
@@ -8,32 +8,117 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  actions: read
+
 jobs:
-  deploy:
+  lint-and-typecheck:
+    name: Lint & Typecheck
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js (22 LTS)
+        uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: 22
           cache: "npm"
+          cache-dependency-path: Frontend/package-lock.json
 
-      - name: Install dependencies
-        run: npm install
-        working-directory: ./frontend
+      - name: Install Dependencies
+        run: npm ci
+        working-directory: ./Frontend
 
-      - name: Build project
+      - name: Run Typecheck
+        run: npm run typecheck
+        working-directory: ./Frontend
+
+      - name: Run ESLint
+        run: npm run lint
+        working-directory: ./Frontend
+
+  build:
+    name: Build Production Bundle
+    runs-on: ubuntu-latest
+    needs: [lint-and-typecheck]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (22 LTS)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+          cache-dependency-path: Frontend/package-lock.json
+
+      - name: Install Dependencies
+        run: npm ci
+        working-directory: ./Frontend
+
+      - name: Build Application
         run: npm run build
-        working-directory: ./frontend
+        working-directory: ./Frontend
         env:
           VITE_CONTRACT_ID: ${{ secrets.VITE_CONTRACT_ID }}
           VITE_POOL_TREASURY_ADDRESS: ${{ secrets.VITE_POOL_TREASURY_ADDRESS }}
           VITE_ADMIN_ADDRESS: ${{ secrets.VITE_ADMIN_ADDRESS }}
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
+
+  e2e-tests:
+    name: Playwright E2E Tests
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (22 LTS)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+          cache-dependency-path: Frontend/package-lock.json
+
+      - name: Install Dependencies
+        run: npm ci
+        working-directory: ./Frontend
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+        working-directory: ./Frontend
+
+      - name: Run Playwright E2E Tests
+        run: npm run test:e2e
+        working-directory: ./Frontend
+        env:
+          CI: "true"
+
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: Frontend/playwright-report/
+          retention-days: 14
+
+  deploy:
+    name: Deploy to Vercel
+    runs-on: ubuntu-latest
+    needs: [lint-and-typecheck, build, e2e-tests]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (22 LTS)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+          cache-dependency-path: Frontend/package-lock.json
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
@@ -41,5 +126,5 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: smriti3
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: ./frontend
+          working-directory: ./Frontend
           vercel-args: "--prod"
