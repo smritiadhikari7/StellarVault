@@ -105,7 +105,7 @@ jobs:
           retention-days: 14
 
   deploy:
-    name: Deploy to Vercel
+    name: Deploy Frontend → Vercel
     runs-on: ubuntu-latest
     needs: [lint-and-typecheck, build, e2e-tests]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
@@ -114,11 +114,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js (22 LTS)
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+          cache: "npm"
           cache-dependency-path: Frontend/package-lock.json
 
       - name: Install Dependencies
@@ -131,11 +131,20 @@ jobs:
       - name: Pull Vercel Environment
         working-directory: ./Frontend
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
-      - name: Build Project
+      - name: Build for Vercel
         working-directory: ./Frontend
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Deploy to Vercel
         working-directory: ./Frontend
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
