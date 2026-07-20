@@ -152,12 +152,10 @@ jobs:
         run: |
           vercel pull --yes --environment=production
      
-      - name: Build Project Artifacts
+      - name: Build Application
         working-directory: ${{ env.WORKING_DIR }}
-        run: vercel build --prod --token="${{ secrets.VERCEL_TOKEN }}"
+        run: npm run build
         env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VITE_CONTRACT_ID: ${{ secrets.VITE_CONTRACT_ID }}
           VITE_POOL_TREASURY_ADDRESS: ${{ secrets.VITE_POOL_TREASURY_ADDRESS }}
           VITE_ADMIN_ADDRESS: ${{ secrets.VITE_ADMIN_ADDRESS }}
@@ -171,6 +169,9 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
-          url=$(vercel deploy --prebuilt --prod)
+          url=$(vercel deploy --prod --yes)
           echo "deployment-url=$url" >> "$GITHUB_OUTPUT"
           echo "Deployed to: $url"
+            url=$(vercel deploy --prebuilt --prod)
+            echo "deployment-url=$url" >> "$GITHUB_OUTPUT"
+            echo "Deployed to: $url"
