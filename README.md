@@ -34,7 +34,7 @@
 | Requirement | Status | Evidence |
 |-------------|--------|----------|
 | **Live Demo Deployed** | ✅ Complete | https://stellar-vault-pied.vercel.app/ |
-| **CI/CD Pipeline** | ✅ Complete | GitHub Actions Enabled |
+| **CI/CD Pipeline** | ✅ Complete | [75ff914](https://github.com/smritiadhikari7/StellarVault/actions/runs/30058783643) GitHub Actions Enabled  |
 | **Smart Contract Deployed** | ✅ Complete | `CBKMPCT4RSI2NHJJILN7K5K6FB2ZVD7EYCB5G37UT47GJLCPZOZXYMNT` |
 | **Mobile Responsive** | ✅ Complete | Optimized for Desktop, Tablet & Mobile |
 | **Security Review** | ✅ Complete | Contract tested and documented |
@@ -168,7 +168,8 @@ Instead of collateral, loans are approved using a comprehensive AI-driven credit
 <img width="2556" height="1288" alt="Screenshot 2026-06-27 145238" src="https://github.com/user-attachments/assets/bee5455d-7ba4-49c8-8b0d-41ece67ce233" />
 
 ## CI/CD Running
-<img width="2514" height="789" alt="image" src="https://github.com/user-attachments/assets/4283c355-812a-49f8-b979-20b7596d9db2" />
+<img width="1917" height="781" alt="image" src="https://github.com/user-attachments/assets/4bd14c7c-3c53-4064-84c2-ce2fbe82841b" />
+
 
 
 ## ⚡ Smart Contract Test Flow
