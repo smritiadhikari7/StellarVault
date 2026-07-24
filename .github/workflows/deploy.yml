@@ -23,7 +23,34 @@ env:
 
 jobs:
   # ---------------------------------------------------------------
-  # 1. Build, Lint & Test — runs on every push and PR
+  # 1. Build & Test Stellar Contracts - runs on every push and PR
+  # ---------------------------------------------------------------
+  contract-build-and-test:
+    name: Build & Test Stellar Contracts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Cargo Dependencies
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: ./contracts -> target
+
+      - name: Build Stellar Contracts
+        working-directory: ./contracts
+        run: cargo build
+
+      - name: Test Stellar Contracts
+        working-directory: ./contracts
+        run: cargo test
+
+  # ---------------------------------------------------------------
+  # 2. Build, Lint & Test - runs on every push and PR
   # ---------------------------------------------------------------
   build-and-test:
     name: Build, Lint & Test
@@ -99,11 +126,13 @@ jobs:
           retention-days: 14
 
   # ---------------------------------------------------------------
-  # 2. Deploy — only on push to main, only after tests pass
+  # 3. Deploy - only on push to main, only after tests pass
   # ---------------------------------------------------------------
   deploy:
     name: Deploy to Vercel
-    needs: build-and-test
+    needs:
+      - build-and-test
+      - contract-build-and-test
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     environment:
