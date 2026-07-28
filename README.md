@@ -15,7 +15,12 @@
 
 </div>
 
+<img width="2551" height="1310" alt="image" src="https://github.com/user-attachments/assets/6f0f1b10-1627-462f-b8aa-0fe6ad519bf6" />
+
+
 ---
+## 🎥 Stellar Vault Demo
+https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=sharing
 
 ## Quick Links
 
@@ -26,6 +31,7 @@
 | **transaction activity** | [transaction ](https://stellar.expert/explorer/testnet/account/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI) |
 | **User Testing & Feedback** | [10+ verified users Excel Sheet Data](https://docs.google.com/spreadsheets/d/1WiiCXXYpEvG68_Hj6qfuNIlhjCtKLm9f2sfYchyAOgY/edit?usp=sharing) |
 | **User FeedBack Summery** | [Feedback Summery](https://docs.google.com/presentation/d/1OP0RDVZy3l-jffxUe3YdLIUmkQADfXPK/edit?usp=sharing&ouid=111617888193331830582&rtpof=true&sd=true) |
+| **Video Demo ** | [Watch Demo](https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=sharing) |
 
 ---
 
@@ -39,38 +45,8 @@
 | **Mobile Responsive** | ✅ Complete | Optimized for Desktop, Tablet & Mobile |
 | **Security Review** | ✅ Complete | Contract tested and documented |
 | **User Testing Completed** | ✅ Complete | Feedback collected and improvements implemented |
+| **Video Demo ** | ✅ Complete| [Watch Demo](https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=sharing) |
 
-
-
-# 🌍 Overview
-
-**StellarVault** is an AI-powered decentralized lending platform that enables users to access loans **without traditional collateral**.
-
-Instead of requiring crypto assets as security, StellarVault evaluates borrowers using an intelligent **AI Trust Score**, wallet activity, repayment history, community reputation, and optional identity verification.
-
-Our mission is to make decentralized finance **accessible, transparent, and inclusive** for everyone.
-
-> **"Credit should be earned through trust, not wealth."**
-
----
-
-# ✨ Why StellarVault?
-
-Traditional DeFi lending platforms require users to lock valuable crypto assets before borrowing.
-
-This excludes:
-
-- Students
-- Freelancers
-- Small business owners
-- New crypto users
-- People without significant capital
-
-**StellarVault changes the model.**
-
-Instead of collateral, loans are approved using a comprehensive AI-driven credit evaluation system.
-
----
 
 ---
 
@@ -82,13 +58,11 @@ Instead of collateral, loans are approved using a comprehensive AI-driven credit
 | ⚪️ Level 1 | White Belt | Wallets & transactions | ✅ Completed |
 | 🟡 Level 2 | Yellow Belt | Multi-wallet, contracts & events | ✅ Completed |
 | 🟠 Level 3 | Orange Belt | Mini dApp + tests | ✅ Completed |
-| 🟢 Level 4 | Green Belt | Advanced contracts & production readiness |🔜 Upcoming |
+| 🟢 Level 4 | Green Belt | Advanced contracts & production readiness |✅ Completed  |
 | 🔵 Level 5 | Blue Belt | Real MVP (5+ users) | 🔜 Upcoming |
 | ⚫️ Level 6 | Black Belt | Scale + Demo Day readiness | 🔜 Upcoming |
  
 ---
- 
-## 🟠 Current Status: Orange BELT (Completed)
 
  ## 📋 Contract Addresses (Testnet)
 
@@ -163,9 +137,11 @@ Instead of collateral, loans are approved using a comprehensive AI-driven credit
   
 ---
 ## 🌈 UI DEMO 
-<img width="2383" height="1239" alt="Screenshot 2026-06-27 145107" src="https://github.com/user-attachments/assets/b82c10bb-6465-4eb7-ac8a-a6434d68b3bc" />
+<div align="center">
+ <img width="372" height="815" alt="image" src="https://github.com/user-attachments/assets/9d4947a7-098f-41e4-b979-d201738d692b" />
 
-<img width="2556" height="1288" alt="Screenshot 2026-06-27 145238" src="https://github.com/user-attachments/assets/bee5455d-7ba4-49c8-8b0d-41ece67ce233" />
+</div>
+<img width="2558" height="1310" alt="image" src="https://github.com/user-attachments/assets/d7113ddd-4457-416b-8065-2dd9f17cbac7" />
 
 ## CI/CD Running
 <img width="1917" height="781" alt="image" src="https://github.com/user-attachments/assets/4bd14c7c-3c53-4064-84c2-ce2fbe82841b" />
@@ -244,6 +220,37 @@ Output: ✅ `26473571428` stroops = `2647.35 XLM`
 
 **14/14 Functions Passing on Stellar Testnet** 🚀
 ---
+
+# 🌍 Overview
+
+**StellarVault** is an AI-powered decentralized lending platform that enables users to access loans **without traditional collateral**.
+
+Instead of requiring crypto assets as security, StellarVault evaluates borrowers using an intelligent **AI Trust Score**, wallet activity, repayment history, community reputation, and optional identity verification.
+
+Our mission is to make decentralized finance **accessible, transparent, and inclusive** for everyone.
+
+> **"Credit should be earned through trust, not wealth."**
+
+---
+
+# ✨ Why StellarVault?
+
+Traditional DeFi lending platforms require users to lock valuable crypto assets before borrowing.
+
+This excludes:
+
+- Students
+- Freelancers
+- Small business owners
+- New crypto users
+- People without significant capital
+
+**StellarVault changes the model.**
+
+Instead of collateral, loans are approved using a comprehensive AI-driven credit evaluation system.
+
+---
+
 # 🚀 Key Features
 
 ## 💰 Collateral-Free Lending
