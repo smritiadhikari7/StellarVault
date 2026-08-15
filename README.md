@@ -48,7 +48,7 @@ https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=shari
 | **Security Review** | ✅ Complete | Contract tested and documented |
 | **User Testing Completed** | ✅ Complete | Feedback collected and improvements implemented |
 | **Video Demo** | ✅ Complete| [Watch Demo](https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=sharing) |
-| **Analytics & Monitoring** | ✅ Complete| [/Analytics & Monitoring](https://github.com/smritiadhikari7/StellarVault/edit/main/README.md#analytics--monitoring) |
+| **Analytics & Monitoring** | ✅ Complete| [/Analytics & Monitoring](#analytics--monitoring) |
 
 <br/>
 
