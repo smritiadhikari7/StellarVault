@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -50,4 +50,322 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
+}
+/* StellarVault landing redesign */
+.stellar-landing {
+  background: #080807;
+  color: #ffffff;
+}
+
+.stellar-landing *,
+.stellar-landing *::before,
+.stellar-landing *::after {
+  letter-spacing: 0;
+}
+
+.sv-hero {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 122, 26, 0.2), transparent 28%),
+    linear-gradient(180deg, #090908 0%, #080807 64%, #0d0d0b 100%);
+}
+
+.sv-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 70%, transparent 100%);
+  opacity: 0.42;
+}
+
+.sv-hero-beam {
+  position: absolute;
+  top: 8%;
+  width: 34vw;
+  min-width: 280px;
+  height: 72vh;
+  background: linear-gradient(90deg, transparent, rgba(255, 122, 26, 0.2), transparent);
+  filter: blur(24px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.sv-hero-beam-left {
+  left: 4%;
+  transform: rotate(18deg);
+}
+
+.sv-hero-beam-right {
+  right: 4%;
+  transform: rotate(-18deg);
+}
+
+.sv-card-stage {
+  position: relative;
+  width: min(72vw, 360px);
+  aspect-ratio: 1.38;
+  margin-bottom: 2.25rem;
+  perspective: 1100px;
+}
+
+.sv-payment-card {
+  position: absolute;
+  inset: 10% 4%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid rgba(255, 196, 137, 0.5);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 24%),
+    linear-gradient(145deg, #2b1306 0%, #11110f 42%, #050504 100%);
+  box-shadow:
+    0 34px 90px rgba(255, 122, 26, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transform: rotateX(56deg) rotateZ(-18deg) rotateY(8deg);
+  animation: sv-card-float 5s ease-in-out infinite alternate;
+}
+
+.sv-payment-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.sv-payment-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.sv-card-chip {
+  width: 52px;
+  height: 38px;
+  margin-top: 36px;
+  border: 1px solid rgba(255, 219, 166, 0.65);
+  background:
+    linear-gradient(90deg, transparent 30%, rgba(255,255,255,0.24) 31%, transparent 32%, transparent 68%, rgba(255,255,255,0.24) 69%, transparent 70%),
+    linear-gradient(180deg, #ffd88f, #b86a1e);
+}
+
+.sv-card-shadow {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 0;
+  height: 28%;
+  background: rgba(255, 122, 26, 0.58);
+  filter: blur(42px);
+  transform: rotate(-12deg);
+}
+
+@keyframes sv-card-float {
+  0% {
+    transform: translateY(0) rotateX(56deg) rotateZ(-18deg) rotateY(8deg);
+  }
+  100% {
+    transform: translateY(-14px) rotateX(54deg) rotateZ(-14deg) rotateY(5deg);
+  }
+}
+
+.sv-ai-stage {
+  position: relative;
+  width: min(76vw, 360px);
+  aspect-ratio: 1;
+}
+
+.sv-ai-arc {
+  position: absolute;
+  inset: 18%;
+  border: 2px solid rgba(255, 122, 26, 0.26);
+  border-top-color: rgba(255, 122, 26, 0.95);
+  border-right-color: rgba(255, 180, 111, 0.72);
+  transform: rotate(-28deg);
+  box-shadow: 0 0 50px rgba(255, 122, 26, 0.34);
+  animation: sv-spin 9s linear infinite;
+}
+
+.sv-ai-core {
+  position: absolute;
+  inset: 36%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 122, 26, 0.45);
+  background: #11110f;
+  box-shadow: 0 0 80px rgba(255, 122, 26, 0.34);
+}
+
+.sv-ai-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.055);
+  color: #ffffff;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 12px;
+  font-weight: 900;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+}
+
+.sv-ai-node-a { left: 3%; top: 26%; }
+.sv-ai-node-b { right: 7%; top: 16%; color: #58c7ff; }
+.sv-ai-node-c { left: 16%; bottom: 12%; color: #18c37e; }
+.sv-ai-node-d { right: 9%; bottom: 19%; color: #ffb46f; }
+
+@keyframes sv-spin {
+  to { transform: rotate(332deg); }
+}
+
+.sv-score-ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 190px;
+  height: 190px;
+  padding: 14px;
+  background: conic-gradient(#ff7a1a 0deg 150deg, #18c37e 150deg 240deg, #58c7ff 240deg 306deg, rgba(255,255,255,0.12) 306deg 360deg);
+  box-shadow: 0 0 70px rgba(255, 122, 26, 0.2);
+}
+
+.sv-network {
+  position: relative;
+  min-height: 360px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px),
+    #080807;
+  background-size: 44px 44px;
+  overflow: hidden;
+}
+
+.sv-network::before {
+  content: "";
+  position: absolute;
+  inset: 12% 8%;
+  border: 1px solid rgba(255, 122, 26, 0.22);
+  transform: skewX(-10deg);
+}
+
+.sv-network-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 2px;
+  width: 28%;
+  background: linear-gradient(90deg, rgba(255, 122, 26, 0.62), rgba(255,255,255,0.08));
+  transform-origin: left center;
+}
+
+.sv-network-line-a { transform: rotate(207deg); }
+.sv-network-line-b { transform: rotate(328deg); }
+.sv-network-line-c { transform: rotate(144deg); }
+.sv-network-line-d { transform: rotate(31deg); }
+
+.sv-network-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #11110f;
+  color: #ffffff;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-weight: 900;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+}
+
+.sv-network-core {
+  left: calc(50% - 42px);
+  top: calc(50% - 42px);
+  width: 84px;
+  height: 84px;
+  border-color: rgba(255, 122, 26, 0.75);
+  background: #ff7a1a;
+  color: #160b03;
+  box-shadow: 0 0 70px rgba(255, 122, 26, 0.42);
+}
+
+.sv-network-a { left: 13%; top: 17%; color: #58c7ff; }
+.sv-network-b { right: 12%; top: 19%; color: #18c37e; }
+.sv-network-c { left: 20%; bottom: 16%; color: #f8d66d; }
+.sv-network-d { right: 18%; bottom: 17%; color: #ffb46f; }
+
+.sv-yield-range {
+  height: 6px;
+  appearance: none;
+  background: linear-gradient(90deg, #11110f, #ff7a1a);
+  outline: none;
+}
+
+.sv-yield-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 3px solid #ffffff;
+  background: #ff7a1a;
+  box-shadow: 0 4px 18px rgba(255, 122, 26, 0.45);
+  cursor: pointer;
+}
+
+.sv-yield-range::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border: 3px solid #ffffff;
+  background: #ff7a1a;
+  box-shadow: 0 4px 18px rgba(255, 122, 26, 0.45);
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .sv-card-stage {
+    width: min(86vw, 320px);
+    margin-bottom: 1.5rem;
+  }
+
+  .sv-payment-card {
+    padding: 18px;
+  }
+
+  .sv-ai-node {
+    width: 54px;
+    height: 38px;
+  }
+
+  .sv-network {
+    min-height: 310px;
+  }
+
+  .sv-network-node {
+    width: 58px;
+    height: 58px;
+    font-size: 12px;
+  }
+
+  .sv-network-core {
+    left: calc(50% - 35px);
+    top: calc(50% - 35px);
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sv-payment-card,
+  .sv-ai-arc {
+    animation: none;
+  }
 }

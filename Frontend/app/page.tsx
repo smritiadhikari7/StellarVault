@@ -1,25 +1,125 @@
-"use client";
+﻿"use client";
 
-import { useEffect, useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useEffect, useState, type MouseEvent } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
-  ShieldCheck,
-  DollarSign,
-  TrendingUp,
-  Award,
-  Users,
-  ChevronRight,
-  Layers,
   ArrowRight,
+  Award,
+  BadgeCheck,
+  BarChart3,
+  Bell,
   Calculator,
+  Check,
+  ChevronRight,
+  CreditCard,
+  DollarSign,
+  Layers,
+  LockKeyhole,
+  ShieldCheck,
+  TrendingUp,
+  Users,
+  Wallet,
+  Zap,
 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import TrustScoreRing from "@/components/ui/TrustScoreRing";
-import ProgressBar from "@/components/ui/ProgressBar";
 
 import { useAuth } from "@/context/AuthContext";
 import { useWallet } from "@/context/WalletContext";
+
+const stats = [
+  { label: "Credit disbursed", key: "disbursed" },
+  { label: "Verified borrowers", key: "borrowers" },
+  { label: "Repayment rate", key: "repayment" },
+  { label: "Default rate", key: "defaultRate" },
+] as const;
+
+const featureRows = [
+  {
+    icon: BarChart3,
+    title: "Risk intelligence",
+    text: "Wallet age, payment velocity, repayment history, and social trust are scored in one live credit profile.",
+  },
+  {
+    icon: Bell,
+    title: "Instant alerts",
+    text: "Borrowers and lenders see covenant changes, due windows, and score movement before risk becomes expensive.",
+  },
+  {
+    icon: LockKeyhole,
+    title: "ZK identity",
+    text: "Verification signals raise limits without exposing private documents or forcing collateral into escrow.",
+  },
+];
+
+const trustSignals = [
+  { label: "On-chain history", value: 92, color: "bg-[#ff7a1a]" },
+  { label: "Repayment behavior", value: 88, color: "bg-[#18c37e]" },
+  { label: "Social endorsements", value: 94, color: "bg-[#58c7ff]" },
+  { label: "ZK verification", value: 80, color: "bg-[#f8d66d]" },
+  { label: "AI prediction", value: 91, color: "bg-white" },
+];
+
+const steps = [
+  {
+    icon: Wallet,
+    number: "01",
+    title: "Connect reputation",
+    text: "Link a Stellar wallet and verified social signals so StellarVault can read creditworthiness without asking for collateral.",
+  },
+  {
+    icon: DollarSign,
+    number: "02",
+    title: "Request capital",
+    text: "Choose a loan size, duration, and repayment profile. The risk engine prices the request against your live score.",
+  },
+  {
+    icon: TrendingUp,
+    number: "03",
+    title: "Repay and level up",
+    text: "Automated repayment events feed back into the score, increasing future limits and improving rates over time.",
+  },
+];
+
+const tiers = [
+  {
+    name: "Starter",
+    label: "Tier 1",
+    amount: "$500 - $2,000",
+    score: "500+",
+    kyc: "Basic signals",
+    rate: "10% APY",
+    action: "Get started",
+    featured: false,
+  },
+  {
+    name: "Growth",
+    label: "Most used",
+    amount: "$5,000 - $20,000",
+    score: "650+",
+    kyc: "Level 2 verified",
+    rate: "14.2% APY",
+    action: "Apply for growth",
+    featured: true,
+  },
+  {
+    name: "Premium",
+    label: "Tier 3",
+    amount: "$20,000+",
+    score: "800+",
+    kyc: "Level 3 verified",
+    rate: "16.5% APY",
+    action: "Apply premium",
+    featured: false,
+  },
+];
+
+function formatStat(key: (typeof stats)[number]["key"], values: Record<string, number>) {
+  if (key === "disbursed") return "$" + values.disbursed + "M+";
+  if (key === "borrowers") return values.borrowers.toLocaleString() + "+";
+  if (key === "repayment") return values.repayment + "%";
+  return values.defaultRate + "%";
+}
 
 export default function LandingPage() {
   const { isLoggedIn } = useAuth();
@@ -33,37 +133,35 @@ export default function LandingPage() {
       setShowWalletAlert(true);
     }
   }, [location.state]);
-  // Metric counts animation values
+
   const [disbursed, setDisbursed] = useState(0);
   const [borrowers, setBorrowers] = useState(0);
   const [repayment, setRepayment] = useState(0);
   const [defaultRate, setDefaultRate] = useState(0);
 
-  // Lend calculator state
   const [calcAmount, setCalcAmount] = useState(5000);
-  const [calcDuration, setCalcDuration] = useState(6); // months
+  const [calcDuration, setCalcDuration] = useState(6);
 
   useEffect(() => {
-    // Basic numerical load animation
     const duration = 1000;
-    const steps = 30;
-    const stepTime = duration / steps;
+    const stepsCount = 30;
+    const stepTime = duration / stepsCount;
     let currentStep = 0;
 
     const interval = setInterval(() => {
       currentStep++;
       setDisbursed(
-        Math.min(Math.floor((2.4 / steps) * currentStep * 10) / 10, 2.4),
+        Math.min(Math.floor((2.4 / stepsCount) * currentStep * 10) / 10, 2.4),
       );
-      setBorrowers(Math.min(Math.floor((18400 / steps) * currentStep), 18400));
+      setBorrowers(Math.min(Math.floor((18400 / stepsCount) * currentStep), 18400));
       setRepayment(
-        Math.min(Math.floor((94.7 / steps) * currentStep * 10) / 10, 94.7),
+        Math.min(Math.floor((94.7 / stepsCount) * currentStep * 10) / 10, 94.7),
       );
       setDefaultRate(
-        Math.min(Math.floor((0.8 / steps) * currentStep * 10) / 10, 0.8),
+        Math.min(Math.floor((0.8 / stepsCount) * currentStep * 10) / 10, 0.8),
       );
 
-      if (currentStep >= steps) {
+      if (currentStep >= stepsCount) {
         clearInterval(interval);
       }
     }, stepTime);
@@ -71,9 +169,7 @@ export default function LandingPage() {
     return () => clearInterval(interval);
   }, []);
 
-  // Calculate yield
   const getEstimatedYield = () => {
-    // 12% to 18% APY depending on duration
     const apy =
       calcDuration === 1
         ? 0.12
@@ -92,7 +188,7 @@ export default function LandingPage() {
 
   const yieldResult = getEstimatedYield();
 
-  const handleStartBorrowing = (e: React.MouseEvent) => {
+  const handleStartBorrowing = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!isConnected || !walletAddress) {
       setShowWalletAlert(true);
@@ -102,7 +198,7 @@ export default function LandingPage() {
     navigate(isLoggedIn ? "/borrow" : "/auth/signup");
   };
 
-  const handleEarnAsLender = (e: React.MouseEvent) => {
+  const handleEarnAsLender = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!isConnected || !walletAddress) {
       setShowWalletAlert(true);
@@ -112,882 +208,391 @@ export default function LandingPage() {
     navigate(isLoggedIn ? "/lend" : "/auth/signup");
   };
 
+  const statValues = { disbursed, borrowers, repayment, defaultRate };
+
   return (
-    <div className="min-h-screen bg-background flex flex-col font-sans">
+    <div className="stellar-landing min-h-screen bg-[#080807] text-white font-sans">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative py-16 lg:py-24 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-        {/* Left Side Info */}
-        <div className="lg:col-span-7 space-y-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-light text-primary font-semibold text-xs border border-blue-100">
-            <span>⚡ Built on Stellar Blockchain</span>
-          </div>
+      <main>
+        <section className="sv-hero relative min-h-[calc(100vh-64px)] overflow-hidden border-b border-white/10 px-4 pt-10 sm:px-6 lg:px-8">
+          <div className="sv-hero-grid" />
+          <div className="sv-hero-beam sv-hero-beam-left" />
+          <div className="sv-hero-beam sv-hero-beam-right" />
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-primary tracking-tight leading-none">
-            Your Trust Score is <br />
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Your Credit
-            </span>
-          </h1>
-
-          <p className="text-base sm:text-lg text-text-secondary max-w-lg leading-relaxed">
-            Borrow without collateral. Your on-chain reputation, social trust,
-            and AI risk score unlock real capital — no banks, no gatekeepers.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <button
-              onClick={handleStartBorrowing}
-              className="w-full sm:w-auto px-7 py-3.5 bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-semibold rounded-xl text-center shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
-            >
-              <span>Start Borrowing</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-            <button
-              onClick={handleEarnAsLender}
-              className="w-full sm:w-auto px-7 py-3.5 bg-white border-2 border-primary text-primary hover:bg-primary-light font-semibold rounded-xl text-center transition-all"
-            >
-              Earn as Lender
-            </button>
-          </div>
-
-          {showWalletAlert && (
-            <div className="p-3 bg-red-50 border border-red-100 rounded-xl text-xs text-danger font-medium flex items-center gap-1.5 max-w-sm mt-3 animate-fade-in">
-              <span className="w-1.5 h-1.5 rounded-full bg-danger animate-pulse" />
-              <span>Please connect your wallet first.</span>
-            </div>
-          )}
-
-          {/* Mini Trust Badges */}
-          <div className="flex flex-wrap items-center gap-6 pt-2 text-sm text-text-secondary font-medium">
-            <div className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4.5 h-4.5 text-success" />
-              <span>No Collateral</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4.5 h-4.5 text-success" />
-              <span>KYC Protected</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4.5 h-4.5 text-success" />
-              <span>AI-Powered</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Side - Ring and Floaters */}
-        <div className="lg:col-span-5 relative flex items-center justify-center min-h-[360px]">
-          {/* Trust Score Ring */}
-          <div className="relative z-10 transition-transform duration-500 hover:scale-105">
-            <TrustScoreRing score={847} size={250} />
-          </div>
-
-          {/* Floating Metric Cards */}
-          <div
-            className="absolute top-2 left-0 sm:left-4 z-20 animate-float"
-            style={{ animationDelay: "0s" }}
-          >
-            <div className="bg-white border border-cardBorder shadow-md rounded-xl p-3.5 flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-blue-50 text-primary flex items-center justify-center font-bold text-xs">
-                Yr
-              </div>
-              <div>
-                <p className="text-[10px] text-text-muted font-bold uppercase">
-                  Wallet Age
-                </p>
-                <p className="text-xs font-mono font-bold text-text-primary">
-                  2.4 yrs
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="absolute top-8 right-0 sm:right-4 z-20 animate-float"
-            style={{ animationDelay: "0.5s" }}
-          >
-            <div className="bg-white border border-cardBorder shadow-md rounded-xl p-3.5 flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-emerald-50 text-success flex items-center justify-center font-bold text-xs">
-                %
-              </div>
-              <div>
-                <p className="text-[10px] text-text-muted font-bold uppercase">
-                  Repayment Rate
-                </p>
-                <p className="text-xs font-mono font-bold text-text-primary">
-                  98.2%
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="absolute bottom-6 left-0 sm:left-2 z-20 animate-float"
-            style={{ animationDelay: "1s" }}
-          >
-            <div className="bg-white border border-cardBorder shadow-md rounded-xl p-3.5 flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-violet-50 text-accent flex items-center justify-center font-bold text-xs">
-                ★
-              </div>
-              <div>
-                <p className="text-[10px] text-text-muted font-bold uppercase">
-                  Social Trust
-                </p>
-                <p className="text-xs font-mono font-bold text-text-primary">
-                  94/100
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="absolute bottom-2 right-0 sm:right-2 z-20 animate-float"
-            style={{ animationDelay: "1.5s" }}
-          >
-            <div className="bg-white border border-cardBorder shadow-md rounded-xl p-3.5 flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-amber-50 text-warning flex items-center justify-center font-bold text-xs">
-                AI
-              </div>
-              <div>
-                <p className="text-[10px] text-text-muted font-bold uppercase">
-                  AI Risk Score
-                </p>
-                <p className="text-xs font-bold text-text-primary">Low Risk</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Bar */}
-      <section className="bg-primary-light border-y border-blue-100 py-8 my-10">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div className="space-y-1">
-            <p className="font-mono text-2xl sm:text-3xl font-extrabold text-primary">
-              ${disbursed}M+
-            </p>
-            <p className="text-xs font-semibold text-text-secondary uppercase tracking-wider">
-              Total Disbursed
-            </p>
-          </div>
-          <div className="space-y-1">
-            <p className="font-mono text-2xl sm:text-3xl font-extrabold text-primary">
-              {borrowers.toLocaleString()}+
-            </p>
-            <p className="text-xs font-semibold text-text-secondary uppercase tracking-wider">
-              Active Borrowers
-            </p>
-          </div>
-          <div className="space-y-1">
-            <p className="font-mono text-2xl sm:text-3xl font-extrabold text-primary">
-              {repayment}%
-            </p>
-            <p className="text-xs font-semibold text-text-secondary uppercase tracking-wider">
-              Repayment Rate
-            </p>
-          </div>
-          <div className="space-y-1">
-            <p className="font-mono text-2xl sm:text-3xl font-extrabold text-primary">
-              {defaultRate}%
-            </p>
-            <p className="text-xs font-semibold text-text-secondary uppercase tracking-wider">
-              Default Rate
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* How it Works */}
-      <section
-        id="how-it-works"
-        className="py-20 max-w-7xl mx-auto px-6 w-full space-y-16"
-      >
-        <div className="text-center max-w-xl mx-auto space-y-3">
-          <h2 className="text-2xl sm:text-3xl font-bold text-text-primary tracking-tight">
-            From Trust to Capital in 3 Steps
-          </h2>
-          <p className="text-sm text-text-secondary">
-            StellarVault X uses ZK-proofs and smart covenants to disburse
-            capital safely and instantly.
-          </p>
-        </div>
-
-        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Horizontal Line connecting steps */}
-          <div className="hidden md:block absolute top-1/4 left-1/6 right-1/6 h-0.5 border-t-2 border-dashed border-slate-200 z-0 w-2/3 mx-auto" />
-
-          {/* Step 1 */}
-          <div className="bg-white border border-cardBorder rounded-2xl p-8 shadow-sm hover:shadow-md transition-all relative z-10 space-y-5">
-            <span className="font-mono text-3xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              01
-            </span>
-            <div className="w-11 h-11 bg-primary-light text-primary rounded-xl flex items-center justify-center border border-blue-150">
-              <ShieldCheck className="w-6 h-6" />
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-base font-bold text-text-primary">
-                Build Your Trust Score
-              </h3>
-              <p className="text-xs text-text-secondary leading-relaxed">
-                Connect your Stellar wallet and link verified identities. The
-                platform analyzes transaction frequency, account age, and
-                community endorsements.
-              </p>
-            </div>
-          </div>
-
-          {/* Step 2 */}
-          <div className="bg-white border border-cardBorder rounded-2xl p-8 shadow-sm hover:shadow-md transition-all relative z-10 space-y-5">
-            <span className="font-mono text-3xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              02
-            </span>
-            <div className="w-11 h-11 bg-purple-50 text-accent rounded-xl flex items-center justify-center border border-purple-100">
-              <DollarSign className="w-6 h-6" />
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-base font-bold text-text-primary">
-                Request a Loan
-              </h3>
-              <p className="text-xs text-text-secondary leading-relaxed">
-                Configure your borrow requirements. Choose a duration tier and
-                submit the request. AI assesses credit risk instantaneously.
-              </p>
-            </div>
-          </div>
-
-          {/* Step 3 */}
-          <div className="bg-white border border-cardBorder rounded-2xl p-8 shadow-sm hover:shadow-md transition-all relative z-10 space-y-5">
-            <span className="font-mono text-3xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              03
-            </span>
-            <div className="w-11 h-11 bg-emerald-50 text-success rounded-xl flex items-center justify-center border border-emerald-100">
-              <TrendingUp className="w-6 h-6" />
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-base font-bold text-text-primary">
-                Repay & Grow
-              </h3>
-              <p className="text-xs text-text-secondary leading-relaxed">
-                Complete automated micro-repayments. Successful transactions
-                raise your score bracket, unlocking higher credit boundaries.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Score Breakdown */}
-      <section
-        id="features"
-        className="py-20 bg-white border-y border-borderCustom"
-      >
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          {/* Left Side: SVG Donut Chart */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center space-y-6">
-            <div className="relative w-64 h-64">
-              <svg className="w-full h-full transform -rotate-90">
-                {/* 40% On-chain (blue) - dasharray ~ 251 (2*pi*r, r=40 is ~251) */}
-                {/* Let's use radius=60: Circumference ~ 377 */}
-                <circle
-                  cx="128"
-                  cy="128"
-                  r="60"
-                  className="fill-none stroke-slate-100"
-                  strokeWidth="18"
-                />
-
-                {/* On-chain Data 40%: offset=0, length=377 * 0.40 = 150.8 */}
-                <circle
-                  cx="128"
-                  cy="128"
-                  r="60"
-                  className="fill-none stroke-primary"
-                  strokeWidth="18"
-                  strokeDasharray="377"
-                  strokeDashoffset={377 - 150.8}
-                />
-
-                {/* Financial Behavior 25%: length=94.25, offset=150.8 */}
-                <circle
-                  cx="128"
-                  cy="128"
-                  r="60"
-                  className="fill-none stroke-accent"
-                  strokeWidth="18"
-                  strokeDasharray="377"
-                  strokeDashoffset={377 - 94.25}
-                  style={{
-                    transform: "rotate(144deg)",
-                    transformOrigin: "center",
-                  }}
-                />
-
-                {/* Social Trust 15%: length=56.55 */}
-                <circle
-                  cx="128"
-                  cy="128"
-                  r="60"
-                  className="fill-none stroke-success"
-                  strokeWidth="18"
-                  strokeDasharray="377"
-                  strokeDashoffset={377 - 56.55}
-                  style={{
-                    transform: "rotate(234deg)",
-                    transformOrigin: "center",
-                  }}
-                />
-
-                {/* KYC 10%: length=37.7 */}
-                <circle
-                  cx="128"
-                  cy="128"
-                  r="60"
-                  className="fill-none stroke-warning"
-                  strokeWidth="18"
-                  strokeDasharray="377"
-                  strokeDashoffset={377 - 37.7}
-                  style={{
-                    transform: "rotate(288deg)",
-                    transformOrigin: "center",
-                  }}
-                />
-
-                {/* AI Prediction 10%: length=37.7 */}
-                <circle
-                  cx="128"
-                  cy="128"
-                  r="60"
-                  className="fill-none stroke-slate-450 text-slate-400 stroke-slate-400"
-                  strokeWidth="18"
-                  strokeDasharray="377"
-                  strokeDashoffset={377 - 37.7}
-                  style={{
-                    transform: "rotate(324deg)",
-                    transformOrigin: "center",
-                  }}
-                />
-              </svg>
-
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                <span className="text-2xl font-black text-text-primary">
-                  100%
-                </span>
-                <span className="text-[10px] text-text-muted uppercase tracking-wider font-bold">
-                  Score Weights
-                </span>
-              </div>
+          <div className="relative z-10 mx-auto flex min-h-[calc(100vh-96px)] max-w-7xl flex-col items-center justify-center pb-24 text-center">
+            <div className="mb-8 inline-flex items-center gap-2 border border-[#ff7a1a]/30 bg-[#ff7a1a]/10 px-3 py-2 text-xs font-semibold text-[#ffd7bd] shadow-[0_0_32px_rgba(255,122,26,0.18)]">
+              <Zap className="h-4 w-4 text-[#ff7a1a]" />
+              <span>LIVE CREDIT BUILT ON STELLAR</span>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-[10px] font-bold text-text-secondary">
-              <span className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-primary" />{" "}
-                On-chain (40%)
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-accent" />{" "}
-                Financial (25%)
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-success" /> Social
-                (15%)
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-warning" /> KYC
-                (10%)
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-slate-400" /> AI
-                (10%)
-              </span>
-            </div>
-          </div>
-
-          {/* Right Side: List and Progress Bars */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="space-y-2">
-              <h2 className="text-2xl sm:text-3xl font-bold text-text-primary tracking-tight">
-                Deep Scoring Mechanics
-              </h2>
-              <p className="text-sm text-text-secondary">
-                Our AI engine synthesizes heterogeneous signals, generating
-                real-time algorithmic credit profiles on-chain.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <ProgressBar
-                value={92}
-                max={100}
-                label="On-chain Transaction History"
-                subLabel="92 / 100 (40% Weight)"
-                colorClass="bg-primary"
-              />
-              <ProgressBar
-                value={88}
-                max={100}
-                label="Financial Repayment Logs"
-                subLabel="88 / 100 (25% Weight)"
-                colorClass="bg-accent"
-              />
-              <ProgressBar
-                value={94}
-                max={100}
-                label="Social Network Endorsements"
-                subLabel="94 / 100 (15% Weight)"
-                colorClass="bg-success"
-              />
-              <ProgressBar
-                value={80}
-                max={100}
-                label="Zero-Knowledge KYC Level"
-                subLabel="80 / 100 (10% Weight)"
-                colorClass="bg-warning"
-              />
-              <ProgressBar
-                value={91}
-                max={100}
-                label="AI Repayment Prediction Model"
-                subLabel="91 / 100 (10% Weight)"
-                colorClass="bg-slate-400"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Loan Tiers Section */}
-      <section className="py-20 max-w-7xl mx-auto px-6 w-full space-y-12">
-        <div className="text-center max-w-xl mx-auto space-y-3">
-          <h2 className="text-2xl sm:text-3xl font-bold text-text-primary tracking-tight">
-            Flexible Non-Collateral Credit Limits
-          </h2>
-          <p className="text-sm text-text-secondary">
-            Find the right capital tier based on your verified credit rating
-            history.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Card 1 */}
-          <div className="bg-white border border-cardBorder rounded-xl p-8 flex flex-col justify-between space-y-6 shadow-sm hover:shadow-md transition-all">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="px-3 py-1 bg-emerald-50 text-success border border-emerald-100 rounded-full text-xs font-semibold">
-                  Starter
-                </span>
-                <span className="text-xs font-semibold text-text-muted">
-                  Tier 1
-                </span>
-              </div>
-              <div>
-                <p className="text-[10px] text-text-muted uppercase font-bold">
-                  Loan Capacity
-                </p>
-                <h4 className="text-2xl font-extrabold text-text-primary mt-0.5">
-                  ₹500 – ₹2,000
-                </h4>
-              </div>
-              <ul className="text-xs text-text-secondary space-y-2.5 pt-2">
-                <li className="flex items-center gap-2">
-                  ✓ Minimum Trust Score:{" "}
-                  <strong className="text-text-primary">500+</strong>
-                </li>
-                <li className="flex items-center gap-2">
-                  ✓ KYC verification:{" "}
-                  <strong className="text-text-primary">Not Required</strong>
-                </li>
-                <li className="flex items-center gap-2">
-                  ✓ Interest rate:{" "}
-                  <strong className="text-text-primary">10% APY</strong>
-                </li>
-                <li className="flex items-center gap-2">
-                  ✓ Instant Stellar payout
-                </li>
-              </ul>
-            </div>
-            <Link
-              to="/borrow"
-              className="w-full py-2.5 border border-primary hover:bg-primary-light text-primary text-xs font-semibold rounded-xl text-center transition-colors"
-            >
-              Get Started
-            </Link>
-          </div>
-
-          {/* Card 2 - Most Popular */}
-          <div className="bg-white border-2 border-primary rounded-xl p-8 flex flex-col justify-between space-y-6 shadow-md relative scale-105 z-10">
-            <div className="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-primary text-white text-[10px] uppercase font-bold tracking-wider rounded-full shadow-sm">
-              Most Popular
-            </div>
-
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="px-3 py-1 bg-blue-50 text-primary border border-blue-100 rounded-full text-xs font-semibold">
-                  Growth
-                </span>
-                <span className="text-xs font-semibold text-text-muted">
-                  Tier 2
-                </span>
-              </div>
-              <div>
-                <p className="text-[10px] text-text-muted uppercase font-bold">
-                  Loan Capacity
-                </p>
-                <h4 className="text-2xl font-extrabold text-text-primary mt-0.5">
-                  ₹5,000 – ₹20,000
-                </h4>
-              </div>
-              <ul className="text-xs text-text-secondary space-y-2.5 pt-2">
-                <li className="flex items-center gap-2">
-                  ✓ Minimum Trust Score:{" "}
-                  <strong className="text-text-primary">650+</strong>
-                </li>
-                <li className="flex items-center gap-2">
-                  ✓ KYC verification:{" "}
-                  <strong className="text-text-primary">
-                    Level 2 Required
-                  </strong>
-                </li>
-                <li className="flex items-center gap-2">
-                  ✓ Interest rate:{" "}
-                  <strong className="text-text-primary">14.2% APY</strong>
-                </li>
-                <li className="flex items-center gap-2">
-                  ✓ Score impact reporting
-                </li>
-              </ul>
-            </div>
-            <Link
-              to="/borrow"
-              className="w-full py-3 bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white text-xs font-semibold rounded-xl text-center shadow transition-all"
-            >
-              Apply For Growth
-            </Link>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white border border-cardBorder rounded-xl p-8 flex flex-col justify-between space-y-6 shadow-sm hover:shadow-md transition-all">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="px-3 py-1 bg-violet-50 text-accent border border-violet-100 rounded-full text-xs font-semibold">
-                  Premium
-                </span>
-                <span className="text-xs font-semibold text-text-muted">
-                  Tier 3
-                </span>
-              </div>
-              <div>
-                <p className="text-[10px] text-text-muted uppercase font-bold">
-                  Loan Capacity
-                </p>
-                <h4 className="text-2xl font-extrabold text-text-primary mt-0.5">
-                  ₹20,000+
-                </h4>
-              </div>
-              <ul className="text-xs text-text-secondary space-y-2.5 pt-2">
-                <li className="flex items-center gap-2">
-                  ✓ Minimum Trust Score:{" "}
-                  <strong className="text-text-primary">800+</strong>
-                </li>
-                <li className="flex items-center gap-2">
-                  ✓ KYC verification:{" "}
-                  <strong className="text-text-primary">
-                    Level 3 Required
-                  </strong>
-                </li>
-                <li className="flex items-center gap-2">
-                  ✓ Interest rate:{" "}
-                  <strong className="text-text-primary">16.5% APY</strong>
-                </li>
-                <li className="flex items-center gap-2">
-                  ✓ Assigned risk coverage
-                </li>
-              </ul>
-            </div>
-            <Link
-              to="/borrow"
-              className="w-full py-2.5 border border-primary hover:bg-primary-light text-primary text-xs font-semibold rounded-xl text-center transition-colors"
-            >
-              Apply For Premium
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Social Trust Network Preview */}
-      <section className="bg-slate-50 border-y border-borderCustom py-20">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          {/* Left info */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="w-11 h-11 bg-primary-light text-primary rounded-xl flex items-center justify-center border border-blue-150">
-              <Users className="w-5 h-5" />
-            </div>
-            <div className="space-y-3">
-              <h2 className="text-2xl sm:text-3xl font-bold text-text-primary tracking-tight">
-                Decentralized Social Endorsement
-              </h2>
-              <p className="text-sm text-text-secondary leading-relaxed">
-                Connect with verified peers, DAO networks, and validators.
-                Mutual staking and social endorsements decrease interest rates
-                and boost borrow ceilings dynamically.
-              </p>
-            </div>
-            <Link
-              to="/social"
-              className="inline-flex items-center gap-1.5 text-sm text-primary font-semibold hover:text-accent transition-colors"
-            >
-              <span>Explore Social Trust Graph</span>
-              <ChevronRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          {/* Right SVG Network visualization */}
-          <div className="lg:col-span-7 bg-white border border-cardBorder rounded-2xl p-6 shadow-sm flex items-center justify-center relative min-h-[300px]">
-            <svg
-              className="w-full max-w-[500px] h-[280px]"
-              viewBox="0 0 500 280"
-            >
-              {/* Lines (Edges) */}
-              <line
-                x1="250"
-                y1="140"
-                x2="110"
-                y2="70"
-                stroke="#E2E8F0"
-                strokeWidth="2"
-              />
-              <line
-                x1="250"
-                y1="140"
-                x2="390"
-                y2="80"
-                stroke="#E2E8F0"
-                strokeWidth="3.5"
-              />
-              <line
-                x1="250"
-                y1="140"
-                x2="130"
-                y2="210"
-                stroke="#E2E8F0"
-                strokeWidth="2"
-              />
-              <line
-                x1="250"
-                y1="140"
-                x2="370"
-                y2="200"
-                stroke="#E2E8F0"
-                strokeWidth="3"
-              />
-
-              {/* Core Nodes */}
-              {/* Center - You */}
-              <g className="cursor-pointer group">
-                <circle
-                  cx="250"
-                  cy="140"
-                  r="30"
-                  className="fill-primary stroke-white"
-                  strokeWidth="4"
-                />
-                <text
-                  x="250"
-                  y="144"
-                  textAnchor="middle"
-                  fill="white"
-                  className="font-sans text-xs font-bold pointer-events-none"
-                >
-                  AS (847)
-                </text>
-              </g>
-
-              {/* Node 1 */}
-              <g className="cursor-pointer">
-                <circle
-                  cx="110"
-                  cy="70"
-                  r="22"
-                  className="fill-accent stroke-white"
-                  strokeWidth="3"
-                />
-                <text
-                  x="110"
-                  y="73"
-                  textAnchor="middle"
-                  fill="white"
-                  className="font-sans text-[10px] font-bold"
-                >
-                  PP (790)
-                </text>
-              </g>
-
-              {/* Node 2 */}
-              <g className="cursor-pointer">
-                <circle
-                  cx="390"
-                  cy="80"
-                  r="24"
-                  className="fill-accent stroke-white"
-                  strokeWidth="3"
-                />
-                <text
-                  x="390"
-                  y="83"
-                  textAnchor="middle"
-                  fill="white"
-                  className="font-sans text-[10px] font-bold"
-                >
-                  RD (812)
-                </text>
-              </g>
-
-              {/* Node 3 */}
-              <g className="cursor-pointer">
-                <circle
-                  cx="130"
-                  cy="210"
-                  r="20"
-                  className="fill-amber-500 stroke-white"
-                  strokeWidth="3"
-                />
-                <text
-                  x="130"
-                  y="213"
-                  textAnchor="middle"
-                  fill="white"
-                  className="font-sans text-[9px] font-bold"
-                >
-                  VS (680)
-                </text>
-              </g>
-
-              {/* Node 4 */}
-              <g className="cursor-pointer">
-                <circle
-                  cx="370"
-                  cy="200"
-                  r="22"
-                  className="fill-accent stroke-white"
-                  strokeWidth="3"
-                />
-                <text
-                  x="370"
-                  y="203"
-                  textAnchor="middle"
-                  fill="white"
-                  className="font-sans text-[10px] font-bold"
-                >
-                  NR (825)
-                </text>
-              </g>
-            </svg>
-            <div className="absolute bottom-4 right-6 text-[10px] font-mono text-text-muted">
-              Nodes colored by risk factor (Blue = You, Violet = Low Risk,
-              Yellow = Good)
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Lender Slate Card Section */}
-      <section className="py-20 max-w-7xl mx-auto px-6 w-full">
-        <div className="bg-slate-900 text-white rounded-3xl p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center shadow-lg relative overflow-hidden">
-          {/* Subtle geometric grid background overlay */}
-          <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
-
-          {/* Left Description */}
-          <div className="lg:col-span-7 space-y-6 relative z-10">
-            <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight">
-              Earn 12–18% APY as a Lender
-            </h3>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-lg">
-              Your capital is AI-distributed across verified borrowers on the
-              Stellar blockchain. Smart risk pooling, automated repayments, and
-              daily accrued interest.
-            </p>
-            <div className="pt-2">
-              <Link
-                to="/lend"
-                className="inline-flex px-6 py-3.5 bg-white text-slate-900 font-bold rounded-xl text-sm hover:bg-slate-100 transition-colors shadow-sm"
-              >
-                Start Earning →
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Yield Calculator */}
-          <div className="lg:col-span-5 bg-slate-800/80 border border-slate-700/60 rounded-2xl p-6 relative z-10 space-y-5">
-            <div className="flex items-center gap-2 text-primary-light">
-              <Calculator className="w-5 h-5" />
-              <h4 className="text-sm font-bold">Stellar Yield Estimator</h4>
-            </div>
-
-            <div className="space-y-4">
-              {/* Deposit Slider */}
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between text-xs text-slate-350">
-                  <span className="text-slate-300">Principal Deposit</span>
-                  <span className="font-mono text-white font-bold">
-                    ${calcAmount.toLocaleString()}
-                  </span>
+            <div className="sv-card-stage" aria-hidden="true">
+              <div className="sv-card-shadow" />
+              <div className="sv-payment-card">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <p className="text-xs font-semibold text-white/55">STELLARVAULT X</p>
+                    <p className="mt-1 text-2xl font-black text-white">847</p>
+                  </div>
+                  <CreditCard className="h-8 w-8 text-[#ffb46f]" />
                 </div>
-                <input
-                  type="range"
-                  min="500"
-                  max="20000"
-                  step="500"
-                  value={calcAmount}
-                  onChange={(e) => setCalcAmount(Number(e.target.value))}
-                  className="w-full h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-primary"
-                />
+                <div className="sv-card-chip" />
+                <div className="mt-auto grid grid-cols-3 gap-3 text-left text-[10px] font-semibold text-white/55">
+                  <div>
+                    <p>LIMIT</p>
+                    <span className="mt-1 block text-sm text-white">$20K</span>
+                  </div>
+                  <div>
+                    <p>APR</p>
+                    <span className="mt-1 block text-sm text-white">14.2%</span>
+                  </div>
+                  <div>
+                    <p>RISK</p>
+                    <span className="mt-1 block text-sm text-[#18c37e]">LOW</span>
+                  </div>
+                </div>
               </div>
+            </div>
 
-              {/* Term buttons */}
-              <div className="space-y-1.5">
-                <span className="text-xs text-slate-350 text-slate-300">
-                  Lock Duration
+            <h1 className="max-w-5xl text-4xl font-black leading-[1.02] text-white sm:text-5xl lg:text-7xl">
+              StellarVault credit.
+              <span className="block text-[#ff7a1a]">Managed by trust.</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-white/68 sm:text-lg">
+              Borrow without collateral and lend into verified credit markets using on-chain reputation, social proof, and AI risk pricing.
+            </p>
+
+            <div className="mt-8 flex w-full max-w-xl flex-col gap-3 sm:flex-row sm:justify-center">
+              <button
+                onClick={handleStartBorrowing}
+                className="inline-flex min-h-12 items-center justify-center gap-2 border border-[#ff7a1a] bg-[#ff7a1a] px-6 py-3 text-sm font-bold text-[#160b03] transition hover:bg-[#ff9346] focus:outline-none focus:ring-2 focus:ring-[#ffb46f] focus:ring-offset-2 focus:ring-offset-[#080807]"
+              >
+                <span>Start Borrowing</span>
+                <ArrowRight className="h-4 w-4" />
+              </button>
+              <button
+                onClick={handleEarnAsLender}
+                className="inline-flex min-h-12 items-center justify-center gap-2 border border-white/18 bg-white/5 px-6 py-3 text-sm font-bold text-white transition hover:border-white/35 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#080807]"
+              >
+                <span>Earn as Lender</span>
+                <TrendingUp className="h-4 w-4" />
+              </button>
+            </div>
+
+            {showWalletAlert && (
+              <div className="mt-5 flex max-w-md items-center gap-3 border border-red-400/35 bg-red-500/10 px-4 py-3 text-sm font-semibold text-red-100">
+                <span className="h-2 w-2 bg-red-400" />
+                <span>Please connect your wallet first.</span>
+              </div>
+            )}
+
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-xs font-semibold text-white/62">
+              {["No collateral", "ZK identity", "Instant Stellar settlement"].map((item) => (
+                <span key={item} className="inline-flex items-center gap-2 border border-white/10 bg-white/[0.03] px-3 py-2">
+                  <ShieldCheck className="h-4 w-4 text-[#18c37e]" />
+                  {item}
                 </span>
-                <div className="grid grid-cols-4 gap-2">
-                  {[1, 3, 6, 12].map((dur) => (
-                    <button
-                      key={dur}
-                      onClick={() => setCalcDuration(dur)}
-                      className={`py-1.5 text-xs font-semibold rounded-lg transition-all border ${
-                        calcDuration === dur
-                          ? "bg-primary border-primary text-white"
-                          : "bg-slate-700/50 border-slate-600 text-slate-300 hover:bg-slate-700"
-                      }`}
-                    >
-                      {dur === 1 ? "1 Mo" : `${dur} Mos`}
-                    </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-white/10 bg-[#080807] px-4 py-8 sm:px-6 lg:px-8">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-4">
+            {stats.map((stat) => (
+              <div key={stat.key} className="bg-[#0d0d0b] p-5 text-center sm:p-7">
+                <p className="font-mono text-2xl font-black text-white sm:text-3xl">
+                  {formatStat(stat.key, statValues)}
+                </p>
+                <p className="mt-2 text-xs font-semibold text-white/48">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="features" className="relative overflow-hidden bg-[#080807] px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="mb-4 text-xs font-bold text-[#ffb46f]">CREDIT INTELLIGENCE</p>
+              <h2 className="text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl">
+                Smart finance. Zero collateral drag.
+              </h2>
+              <p className="mt-5 text-base leading-8 text-white/62">
+                The reference video's black premium finance mood is rebuilt for StellarVault with the product's actual lending, borrowing, wallet, and score flows still wired in.
+              </p>
+            </div>
+
+            <div className="lg:col-span-4">
+              <div className="sv-ai-stage mx-auto" aria-hidden="true">
+                <div className="sv-ai-arc" />
+                <div className="sv-ai-core">
+                  <Layers className="h-10 w-10 text-[#ffb46f]" />
+                </div>
+                <span className="sv-ai-node sv-ai-node-a">92</span>
+                <span className="sv-ai-node sv-ai-node-b">ZK</span>
+                <span className="sv-ai-node sv-ai-node-c">AI</span>
+                <span className="sv-ai-node sv-ai-node-d">14%</span>
+              </div>
+            </div>
+
+            <div className="space-y-4 lg:col-span-4">
+              {featureRows.map((feature) => {
+                const Icon = feature.icon;
+                return (
+                  <div key={feature.title} className="border border-white/10 bg-white/[0.035] p-5 transition hover:border-[#ff7a1a]/45 hover:bg-white/[0.055]">
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#ff7a1a]/35 bg-[#ff7a1a]/10 text-[#ffb46f]">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-bold text-white">{feature.title}</h3>
+                        <p className="mt-2 text-sm leading-6 text-white/58">{feature.text}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section id="how-it-works" className="bg-[#f6f4ef] px-4 py-20 text-[#11110f] sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <div className="max-w-2xl">
+              <p className="mb-4 text-xs font-black text-[#a24b10]">HOW IT WORKS</p>
+              <h2 className="text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">From wallet reputation to usable capital.</h2>
+            </div>
+
+            <div className="mt-12 grid gap-px overflow-hidden border border-[#11110f]/10 bg-[#11110f]/10 md:grid-cols-3">
+              {steps.map((step) => {
+                const Icon = step.icon;
+                return (
+                  <article key={step.title} className="bg-[#f6f4ef] p-7 sm:p-8">
+                    <div className="mb-8 flex items-center justify-between">
+                      <span className="font-mono text-3xl font-black text-[#ff7a1a]">{step.number}</span>
+                      <div className="flex h-11 w-11 items-center justify-center border border-[#11110f]/12 bg-white">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                    </div>
+                    <h3 className="text-lg font-black">{step.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-[#11110f]/68">{step.text}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#080807] px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <p className="mb-4 text-xs font-bold text-[#ffb46f]">TRUST SCORE</p>
+              <h2 className="text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl">A live credit profile lenders can price.</h2>
+              <p className="mt-5 text-base leading-8 text-white/62">
+                StellarVault turns heterogeneous trust data into a transparent score, then routes capital by risk and repayment behavior.
+              </p>
+              <div className="mt-8 grid grid-cols-2 gap-px overflow-hidden border border-white/10 bg-white/10">
+                <div className="bg-[#10100e] p-5">
+                  <p className="text-xs font-semibold text-white/45">Current score</p>
+                  <p className="mt-2 font-mono text-4xl font-black text-white">847</p>
+                </div>
+                <div className="bg-[#10100e] p-5">
+                  <p className="text-xs font-semibold text-white/45">Risk band</p>
+                  <p className="mt-2 font-mono text-4xl font-black text-[#18c37e]">LOW</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="border border-white/10 bg-white/[0.035] p-6 lg:col-span-7 sm:p-8">
+              <div className="grid items-center gap-8 md:grid-cols-[220px_1fr]">
+                <div className="sv-score-ring mx-auto">
+                  <div className="flex h-36 w-36 flex-col items-center justify-center bg-[#080807] text-center">
+                    <span className="font-mono text-4xl font-black text-white">847</span>
+                    <span className="text-xs font-bold text-white/45">TRUST</span>
+                  </div>
+                </div>
+                <div className="space-y-5">
+                  {trustSignals.map((signal) => (
+                    <div key={signal.label}>
+                      <div className="mb-2 flex items-center justify-between text-sm">
+                        <span className="font-semibold text-white/72">{signal.label}</span>
+                        <span className="font-mono font-bold text-white">{signal.value}/100</span>
+                      </div>
+                      <div className="h-2 bg-white/10">
+                        <div className={signal.color + " h-2"} style={{ width: signal.value + "%" }} />
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
 
-              {/* Live Yield computation grid */}
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-700/50 text-center bg-slate-900/50 p-4 rounded-xl">
-                <div>
-                  <p className="text-[10px] text-slate-400 uppercase font-bold">
-                    Estimated Returns
-                  </p>
-                  <p className="text-lg font-mono font-bold text-success mt-0.5">
-                    +${yieldResult.interest}
-                  </p>
+        <section className="bg-[#080807] px-4 pb-20 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <p className="mb-4 text-xs font-bold text-[#ffb46f]">CREDIT TIERS</p>
+              <h2 className="text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl">Simple limits. No collateral surprise.</h2>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-3">
+              {tiers.map((tier) => (
+                <article
+                  key={tier.name}
+                  className={
+                    "relative flex min-h-[360px] flex-col justify-between border p-7 transition " +
+                    (tier.featured
+                      ? "border-[#ff7a1a] bg-[#ff7a1a] text-[#140a03] shadow-[0_0_80px_rgba(255,122,26,0.35)] md:-translate-y-4"
+                      : "border-white/10 bg-white/[0.035] text-white hover:border-white/22")
+                  }
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-4">
+                      <h3 className="text-xl font-black">{tier.name}</h3>
+                      <span className={"text-xs font-bold " + (tier.featured ? "text-[#5b2505]" : "text-white/45")}>{tier.label}</span>
+                    </div>
+                    <p className="mt-8 text-xs font-bold opacity-70">LOAN CAPACITY</p>
+                    <p className="mt-2 text-3xl font-black">{tier.amount}</p>
+                    <ul className="mt-8 space-y-4 text-sm font-semibold">
+                      <li className="flex items-center gap-3"><Check className="h-4 w-4 shrink-0" /> Minimum score: {tier.score}</li>
+                      <li className="flex items-center gap-3"><Check className="h-4 w-4 shrink-0" /> Verification: {tier.kyc}</li>
+                      <li className="flex items-center gap-3"><Check className="h-4 w-4 shrink-0" /> Interest: {tier.rate}</li>
+                    </ul>
+                  </div>
+                  <Link
+                    to="/borrow"
+                    className={
+                      "mt-8 inline-flex min-h-11 items-center justify-center gap-2 border px-4 py-3 text-sm font-black transition " +
+                      (tier.featured
+                        ? "border-[#140a03] bg-[#140a03] text-white hover:bg-[#281104]"
+                        : "border-white/18 bg-white/5 text-white hover:border-[#ff7a1a]/60 hover:bg-[#ff7a1a]/10")
+                    }
+                  >
+                    {tier.action}
+                    <ChevronRight className="h-4 w-4" />
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-y border-white/10 bg-[#0e0e0c] px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <div className="mb-6 flex h-12 w-12 items-center justify-center border border-[#ff7a1a]/35 bg-[#ff7a1a]/10 text-[#ffb46f]">
+                <Users className="h-6 w-6" />
+              </div>
+              <h2 className="text-3xl font-black leading-tight text-white sm:text-4xl">Social trust that moves your rate.</h2>
+              <p className="mt-5 text-base leading-8 text-white/62">
+                Peer endorsements, DAO reputation, and verified network strength can improve a borrower profile while preserving lender visibility.
+              </p>
+              <Link to="/social" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#ffb46f] hover:text-white">
+                Explore Social Trust Graph
+                <ChevronRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <div className="lg:col-span-7">
+              <div className="sv-network" aria-hidden="true">
+                <span className="sv-network-line sv-network-line-a" />
+                <span className="sv-network-line sv-network-line-b" />
+                <span className="sv-network-line sv-network-line-c" />
+                <span className="sv-network-line sv-network-line-d" />
+                <span className="sv-network-node sv-network-core">847</span>
+                <span className="sv-network-node sv-network-a">790</span>
+                <span className="sv-network-node sv-network-b">812</span>
+                <span className="sv-network-node sv-network-c">680</span>
+                <span className="sv-network-node sv-network-d">825</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#f6f4ef] px-4 py-20 text-[#11110f] sm:px-6 lg:px-8">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-6">
+              <p className="mb-4 text-xs font-black text-[#a24b10]">LENDER YIELD</p>
+              <h2 className="text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">Capital allocation with a clear return model.</h2>
+              <p className="mt-5 max-w-xl text-base leading-8 text-[#11110f]/68">
+                Lenders can estimate returns before allocating into verified borrower pools. The existing calculator is preserved with the same amount, term, APY, and route behavior.
+              </p>
+              <Link to="/lend" className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 border border-[#11110f] bg-[#11110f] px-6 py-3 text-sm font-black text-white transition hover:bg-[#2a2a25]">
+                Start earning
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            <div className="border border-[#11110f]/12 bg-white p-6 shadow-[0_24px_80px_rgba(17,17,15,0.12)] lg:col-span-6 sm:p-8">
+              <div className="mb-7 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center border border-[#11110f]/12 bg-[#f6f4ef]">
+                    <Calculator className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-black">Stellar Yield Estimator</h3>
+                    <p className="text-sm text-[#11110f]/55">12% to 18% APY by duration</p>
+                  </div>
                 </div>
+                <Award className="hidden h-6 w-6 text-[#ff7a1a] sm:block" />
+              </div>
+
+              <div className="space-y-7">
                 <div>
-                  <p className="text-[10px] text-slate-400 uppercase font-bold">
-                    APY Rate
-                  </p>
-                  <p className="text-lg font-mono font-bold text-primary-light mt-0.5">
-                    {yieldResult.apy}%
-                  </p>
+                  <div className="mb-3 flex items-center justify-between text-sm font-bold">
+                    <span>Principal deposit</span>
+                    <span className="font-mono">${calcAmount.toLocaleString()}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="500"
+                    max="20000"
+                    step="500"
+                    value={calcAmount}
+                    onChange={(e) => setCalcAmount(Number(e.target.value))}
+                    className="sv-yield-range w-full"
+                  />
+                </div>
+
+                <div>
+                  <span className="mb-3 block text-sm font-bold">Lock duration</span>
+                  <div className="grid grid-cols-4 gap-2">
+                    {[1, 3, 6, 12].map((dur) => (
+                      <button
+                        key={dur}
+                        onClick={() => setCalcDuration(dur)}
+                        className={
+                          "min-h-10 border px-2 text-xs font-black transition " +
+                          (calcDuration === dur
+                            ? "border-[#11110f] bg-[#11110f] text-white"
+                            : "border-[#11110f]/12 bg-[#f6f4ef] text-[#11110f] hover:border-[#ff7a1a]")
+                        }
+                      >
+                        {dur === 1 ? "1 Mo" : dur + " Mos"}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="grid gap-px overflow-hidden border border-[#11110f]/10 bg-[#11110f]/10 sm:grid-cols-3">
+                  <div className="bg-[#f6f4ef] p-5">
+                    <p className="text-xs font-bold text-[#11110f]/50">Returns</p>
+                    <p className="mt-2 font-mono text-2xl font-black text-[#078653]">+${yieldResult.interest}</p>
+                  </div>
+                  <div className="bg-[#f6f4ef] p-5">
+                    <p className="text-xs font-bold text-[#11110f]/50">Total</p>
+                    <p className="mt-2 font-mono text-2xl font-black">${yieldResult.total}</p>
+                  </div>
+                  <div className="bg-[#f6f4ef] p-5">
+                    <p className="text-xs font-bold text-[#11110f]/50">APY</p>
+                    <p className="mt-2 font-mono text-2xl font-black text-[#a24b10]">{yieldResult.apy}%</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </div>

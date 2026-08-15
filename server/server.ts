@@ -8,7 +8,7 @@ import authRouter from './routes/auth';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // CORS setup to allow request origins dynamically
 app.use(cors({
