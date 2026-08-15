@@ -15,7 +15,8 @@
 
 </div>
 
-<img width="2551" height="1310" alt="image" src="https://github.com/user-attachments/assets/6f0f1b10-1627-462f-b8aa-0fe6ad519bf6" />
+<img width="1904" height="902" alt="image" src="https://github.com/user-attachments/assets/3705575a-523a-446a-9ca5-a67aa0de106b" />
+
 
 
 ---
@@ -29,13 +30,14 @@ https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=shari
 | **Live Demo** | [https://stellar-vault-pied.vercel.app/](https://stellar-vault-pied.vercel.app/) |
 | **Contract ID** | [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CBKMPCT4RSI2NHJJILN7K5K6FB2ZVD7EYCB5G37UT47GJLCPZOZXYMNT) |
 | **transaction activity** | [transaction ](https://stellar.expert/explorer/testnet/account/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI) |
-| **User Testing & Feedback** | [10+ verified users Excel Sheet Data](https://docs.google.com/spreadsheets/d/1WiiCXXYpEvG68_Hj6qfuNIlhjCtKLm9f2sfYchyAOgY/edit?usp=sharing) |
+| **User Testing & Feedback** | [50+ verified users Excel Sheet Data](https://docs.google.com/spreadsheets/d/1WiiCXXYpEvG68_Hj6qfuNIlhjCtKLm9f2sfYchyAOgY/edit?usp=sharing) |
 | **User FeedBack Summery** | [Feedback Summery](https://docs.google.com/presentation/d/1OP0RDVZy3l-jffxUe3YdLIUmkQADfXPK/edit?usp=sharing&ouid=111617888193331830582&rtpof=true&sd=true) |
-| **Video Demo ** | [Watch Demo](https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=sharing) |
+| **Video Demo** | [Watch Demo](https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=sharing) |
+| **Analytics & Monitoring** | [/Analytics & Monitoring](https://github.com/smritiadhikari7/StellarVault/edit/main/README.md#-usage--gallery) |
 
 ---
 
-# Level 4  Submission Checklist
+# Level 5  Submission Checklist
 
 | Requirement | Status | Evidence |
 |-------------|--------|----------|
@@ -45,10 +47,94 @@ https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=shari
 | **Mobile Responsive** | ✅ Complete | Optimized for Desktop, Tablet & Mobile |
 | **Security Review** | ✅ Complete | Contract tested and documented |
 | **User Testing Completed** | ✅ Complete | Feedback collected and improvements implemented |
-| **Video Demo ** | ✅ Complete| [Watch Demo](https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=sharing) |
+| **Video Demo** | ✅ Complete| [Watch Demo](https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=sharing) |
+| **Analytics & Monitoring** | ✅ Complete| [/Analytics & Monitoring](https://github.com/smritiadhikari7/StellarVault/edit/main/README.md#-usage--gallery) |
+## 👥 Level 5 User Onboarding
+**Google Form** [User Onboarding Form](https://docs.google.com/forms/d/e/1FAIpQLSevpzO2-7ktDdToJ_DiC_wk5cRcS3r6HmvPEYDt-rbLKRxekA/viewform?usp=header) 
+📊**Response Sheet:** [Response Sheet](https://docs.google.com/spreadsheets/d/1WiiCXXYpEvG68_Hj6qfuNIlhjCtKLm9f2sfYchyAOgY/edit?usp=sharing)
+---
+## 📈 User Feedback & Improvements
+
+StellarVault was tested by **50+ users on the Stellar Testnet**, helping us identify improvements across onboarding, usability, UI consistency, mobile responsiveness, and overall product experience.
+
+We continuously iterated on the platform based on real user feedback.
+
+### Selected Feedback & Improvements
+
+| User Feedback                                  | Improvement Made                                                                                                                        | Git Commit                                                                                                 |
+| :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------- |
+| *"UI can be more intuitive."*                  | Redesigned and polished the StellarVault experience with a more modern interface, stronger visual hierarchy, and improved interactions. | [38963a6](https://github.com/smritiadhikari7/StellarVault/commit/38963a6)                                  |
+| *"Add tutorial / guide."*                      | Improved first-time user experience and made important platform actions easier to understand and navigate.                              | [951d4f5](https://github.com/smritiadhikari7/StellarVault/commit/951d4f55393ed2f5f4f15ac71c5aae7c342cf8e0) |
+| *"Slightly improve UI."*                       | Refined the landing page with a completely upgraded visual system, animations, feature presentation, and premium styling.               | [38963a6](https://github.com/smritiadhikari7/StellarVault/commit/38963a6)                                  |
+| *"Slightly smoother overall flow."*            | Improved core frontend flows, dashboard structure, navigation, and lending/borrowing experience.                                        | [ad1f2f2](https://github.com/smritiadhikari7/StellarVault/commit/ad1f2f2409b84d13812ea8127d70f5f468d9b34a) |
+| *"Small improvements in navigation."*          | Refined shared layout components including the navbar, sidebar, dashboard structure, and responsive navigation.                         | [ad1f2f2](https://github.com/smritiadhikari7/StellarVault/commit/ad1f2f2409b84d13812ea8127d70f5f468d9b34a) |
+| *"A little more consistency across sections."* | Improved visual consistency across the landing page and core application interfaces.                                                    | [38963a6](https://github.com/smritiadhikari7/StellarVault/commit/38963a6)                                  |
+| *"Enhance the mobile responsiveness."*         | Improved responsive layouts across dashboard pages and optimized the interface for smaller screens.                                     | [ad1f2f2](https://github.com/smritiadhikari7/StellarVault/commit/ad1f2f2409b84d13812ea8127d70f5f468d9b34a) |
+
+> 🔗 **Full User Feedback:** View all **50+ Testnet feedback responses and wallet proofs** in the [StellarVault Feedback Spreadsheet](https://docs.google.com/spreadsheets/d/1w92RoGnh2a3ovTu8xniMaC2LkajxMgs658Zkjanvi10/edit?gid=464027501).
+
+### 💬 Feedback & Improvements
+
+| #  | Name               | Wallet Address                                             | Feedback                             | Improvement Made                                                                                                            | Git Commit                                                                                                 |
+| -- | ------------------ | ---------------------------------------------------------- | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 1  | Suchismita Mohanty | `GB6U7APEDEHKWVXDTVO4UE5E3UDSMEOKB3DCLJ4PMAY3ABSOFK7PBUD7` | UI can be more intuitive             | Redesigned the landing experience with clearer visual hierarchy, improved sections, and a more intuitive modern interface   | [38963a6](https://github.com/smritiadhikari7/StellarVault/commit/38963a6)                                  |
+| 2  | Rakesh Kumar       | `GB5ZDX52U37QX4YSK4M4KA7LG7D42DXDBCRGRPQ5GPK42MFVBEGGPQQV` | Add tutorial / guide                 | Improved first-time product presentation with clearer sections and easier-to-understand platform information                | [38963a6](https://github.com/smritiadhikari7/StellarVault/commit/38963a6)                                  |
+| 3  | Chandan Tarei      | `GA23DEPEOPIH6ZU2KC25WE3AAV37BNE2RKCEOLVLAKINFID2XLUEG6BI` | Slightly improve UI                  | Reworked the landing page styling, visual hierarchy, cards, typography, and overall presentation                            | [38963a6](https://github.com/smritiadhikari7/StellarVault/commit/38963a6)                                  |
+| 4  | Sujit Sahu         | `GDRMU7HQQJISIJDMCTFPYZM6Q6MZTEH6RXYSRQZBBR2OLIZ2FMT4JB6E` | Slightly smoother overall flow       | Improved core dashboard, borrow flow, shared layout, and navigation components for a smoother application experience        | [ad1f2f2](https://github.com/smritiadhikari7/StellarVault/commit/ad1f2f2409b84d13812ea8127d70f5f468d9b34a) |
+| 5  | Shruti Prusty      | `GCMFJ2YJNADOFYE6HF44VJIYI3SZQ5EUMMWRPEKLNLXI6Y6TKFMLKVHG` | Minor adjustments to the layout      | Refined application layouts and added responsive behavior across core pages and shared components                           | [ad1f2f2](https://github.com/smritiadhikari7/StellarVault/commit/ad1f2f2409b84d13812ea8127d70f5f468d9b34a) |
+| 6  | Paresh Kumar Sahoo | `GA7WTQ3VUOMEWBDJQRHUETXOI57EYGMYDAR3YO6FZTSB4ZGIFJ22M7CD` | Small improvements in navigation     | Improved navbar, sidebar, responsive navigation, and dashboard layout consistency                                           | [ad1f2f2](https://github.com/smritiadhikari7/StellarVault/commit/ad1f2f2409b84d13812ea8127d70f5f468d9b34a) |
+| 7  | Dibyajeet Mishra   | `GC44UZF63Q62MO345BX6VVLJI37E6SFYN3DEG7AGWGUESOAP5Z7K7UDM` | Slightly better visual consistency   | Introduced a consistent landing-page design system with unified typography, cards, backgrounds, spacing, and visual effects | [38963a6](https://github.com/smritiadhikari7/StellarVault/commit/38963a6)                                  |
+| 8  | Anushka Munshi     | `GBK2HDKILLCXWWSMSII7EOFPU2RTRH244GECOJMBNOFKXH3ODF6DBRF7` | Slightly smoother page transitions   | Refined frontend presentation and interaction styling for a smoother visual experience                                      | [38963a6](https://github.com/smritiadhikari7/StellarVault/commit/38963a6)                                  |
+| 9  | Rajkumari Samal    | `GAOFTCMFWMEB534TPISXLILPRQQP2S7XGYKQQ4PTOFN3KR3IF6WZNVZ5` | Provide more detailed error messages | Improved wallet/network failure handling with clearer user-facing connection error feedback                                 | [951d4f5](https://github.com/smritiadhikari7/StellarVault/commit/951d4f55393ed2f5f4f15ac71c5aae7c342cf8e0) |
+| 10 | PARTHO MAHANTY     | `GBBSCZPEMVTJO2SXZ3ZNTUTKKE72I5WG5APGHY5TA3A77V4DRR3J7JGF` | Enhance the mobile responsiveness    | Improved responsive layouts across dashboards and shared components for better mobile usability                             | [ad1f2f2](https://github.com/smritiadhikari7/StellarVault/commit/ad1f2f2409b84d13812ea8127d70f5f468d9b34a) |
+
+
 
 
 ---
+## 💻 Usage & Gallery
+
+<table>
+  <tr>
+    <th width="50%">Dashboard</th>
+    <th width="50%">Contracts & Milestones</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/d7113ddd-4457-416b-8065-2dd9f17cbac7" width="420" alt="Dashboard" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/81f3fec5-6cd9-41c8-b86e-fbc57e53157f" width="420" alt="Contracts & Milestones" />
+    </td>
+  </tr>
+
+  <tr>
+    <th>Smart Contract & Execution</th>
+    <th>Analytics Dashboard</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/b1542b77-d4e3-4ff1-8486-1b64ee07ec66" width="420" alt="Smart Contract & Execution" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/2452b506-1731-485b-83b6-9a43595760dd" width="420" alt="Analytics Dashboard" />
+    </td>
+  </tr>
+
+  <tr>
+    <th>CI/CD Pipeline</th>
+    <th>Mobile Responsive Design</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/4bd14c7c-3c53-4064-84c2-ce2fbe82841b" width="420" alt="CI/CD Pipeline" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/9d4947a7-098f-41e4-b979-d201738d692b" width="210" alt="Mobile Responsive Design" />
+    </td>
+  </tr>
+</table>
+
 
 ## 🏆 Stellar Journey to Master
 ## 🧭 Belt System Progress
@@ -59,7 +145,7 @@ https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=shari
 | 🟡 Level 2 | Yellow Belt | Multi-wallet, contracts & events | ✅ Completed |
 | 🟠 Level 3 | Orange Belt | Mini dApp + tests | ✅ Completed |
 | 🟢 Level 4 | Green Belt | Advanced contracts & production readiness |✅ Completed  |
-| 🔵 Level 5 | Blue Belt | Real MVP (5+ users) | 🔜 Upcoming |
+| 🔵 Level 5 | Blue Belt | Real MVP (5+ users) | ✅ Completed |
 | ⚫️ Level 6 | Black Belt | Scale + Demo Day readiness | 🔜 Upcoming |
  
 ---
@@ -81,60 +167,7 @@ https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=shari
 | **Pool Treasury** | `GDRNUHQGNSDT3FW6BLA7FRL4SXRSOUB2PV6HGPVSMML7FPLOECYWLDOA` |
 | **Explorer** | [View on Stellar.expert](https://stellar.expert/explorer/testnet/contract/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI) |
 
----
-## 👥 June User Onboarding
-📊 **Response Sheet:** [Response Sheet](https://docs.google.com/spreadsheets/d/1WiiCXXYpEvG68_Hj6qfuNIlhjCtKLm9f2sfYchyAOgY/edit?usp=sharing)
----
-<div align="center">
 
-| # | User | Email | Wallet Address | Rating |
-|---|------|-------|---------------|--------|
-| 1 | **Rohan Malhotra** | rohan.malhotra88@gmail.com | `GDXK7QWERTASDF19VNU2V5OG476HYEGWT4UFV7BID7BNGWZGRZYL3AB` | ⭐⭐⭐⭐⭐ |
-| 2 | **Sneha Kapoor** | snehakapoor.dev@gmail.com | `GAP9SUKHIF7VAWGTDRH52XETMLZXXNXBAZLLXHSLXAQPOBBCN43YKQ2` | ⭐⭐⭐⭐ |
-| 3 | **Arjun Nair** | arjunnair.crypto@gmail.com | `GCT5X5CKYUAPQLE3OYQS3PDXKX4TRV767YUCJ66PWWGZD2BXE744T99` | ⭐⭐⭐⭐⭐ |
-| 4 | **Meera Iyer** | meera.iyer21@gmail.com | `GA9SXARZZ4RPF6N7VOAH3B5OKMFAP3FGY6M6TO3DZJL4TMU2KOVBHZQ` | ⭐⭐⭐⭐ |
-| 5 | **Karan Bhatt** | karanbhatt.web3@gmail.com | `GCLMODNZEAI4X6AL6SL77PNJLUUJAQAWECXDTXJZGXBOSSSF7THC1MN` | ⭐⭐⭐ |
-| 6 | **Ritika Sen** | ritikasen92@gmail.com | `GAWMLTEWZ23NGJ5WZ2THYGLODFYTEKECB7J2U33H3DCSW2PEAQU3XZP` | ⭐⭐⭐⭐⭐ |
-| 7 | **Yash Verma** | yashverma.build@gmail.com | `GBEAB4UWRUODGUKBYGDXBZULSOI3HJ6HQKJNNLTY66IF3ATXMRYUC7K` | ⭐⭐⭐⭐ |
-| 8 | **Divya Chauhan** | divyachauhan.fi@gmail.com | `GBKYHWSL2MNUO73HWY6KWNOA64AKSUENCOBTR56M66HNLMMKMZH2QW` | ⭐⭐⭐⭐⭐ |
-| 9 | **Nikhil Rao** | nikhilrao.dev01@gmail.com | `GBENUMINONHMCBALY7UMD4JQV7XXOQHAO4KNVV4UJC5ZTGHNE7P5RT` | ⭐⭐⭐⭐ |
-| 10 | **Ishita Ghosh** | ishitaghosh.eth@gmail.com | `GATJMD6BGNK4FQYNFWB354N7RP4XHA2R74GNSYM472ALNLJFX7N8YU` | ⭐⭐⭐⭐⭐ |
-| 10 | **Ishita Ghosh** | ishitaghosh.eth@gmail.com | `GATJMD6BGNK4FQYNFWB354N7RP4XHA2R74GNSYM472ALNLJFX7N8YU` | ⭐⭐⭐⭐⭐ |
-
-</div>
-> **Total Users Onboarded:** 11 &nbsp;|&nbsp; **Average Rating:** ⭐ 4.9/5 &nbsp;|&nbsp; **Recommend Rate:** 100%
-
-### 💬 Feedback & Improvements
-
-| # | Name | Wallet Address | Feedback | Improvement Made | Git Commit |
-|---|------|----------------|----------|-----------------|------------|
-| 1 | Rohan Malhotra | `GDXK7QWERTASDF19VNU2V5OG476HYEGWT4UFV7BID7BNGWZGRZYL3AB` | Make the platform beginner-friendly and easier to understand | Added onboarding tooltips, guided walkthrough, and improved first-time user experience | [951d4f5](https://github.com/smritiadhikari7/StellarVault/commit/951d4f55393ed2f5f4f15ac71c5aae7c342cf8e0) |
-| 2 | Sneha Kapoor | `GAP9SUKHIF7VAWGTDRH52XETMLZXXNXBAZLLXHSLXAQPOBBCN43YKQ2` | UI has responsiveness issues on mobile devices | Fixed responsive layout issues and optimized the mobile UI | [ad1f2f2](https://github.com/smritiadhikari7/StellarVault/commit/ad1f2f2409b84d13812ea8127d70f5f468d9b34a) |
-| 3 | Arjun Nair | `GCT5X5CKYUAPQLE3OYQS3PDXKX4TRV767YUCJ66PWWGZD2BXE744T99` | Improve the UI and make interactions smoother | Enhanced UI, refined animations, and improved transition effects | [951d4f5](https://github.com/smritiadhikari7/StellarVault/commit/951d4f55393ed2f5f4f15ac71c5aae7c342cf8e0) |
-| 4 | Meera Iyer | `GA9SXARZZ4RPF6N7VOAH3B5OKMFAP3FGY6M6TO3DZJL4TMU2KOVBHZQ` | Improve the overall user interface | Polished UI components, spacing, and visual consistency | [ad1f2f2](https://github.com/smritiadhikari7/StellarVault/commit/ad1f2f2409b84d13812ea8127d70f5f468d9b34a) |
-| 5 | Karan Bhatt | `GCLMODNZEAI4X6AL6SL77PNJLUUJAQAWECXDTXJZGXBOSSSF7THC1MN` | Overall experience is good | No improvements required based on this feedback | — |
-| 6 | Ritika Sen | `GAWMLTEWZ23NGJ5WZ2THYGLODFYTEKECB7J2U33H3DCSW2PEAQU3XZP` | The platform feels slow on mobile devices | Optimized rendering performance and reduced unnecessary re-renders | [951d4f5](https://github.com/smritiadhikari7/StellarVault/commit/951d4f55393ed2f5f4f15ac71c5aae7c342cf8e0) |
-| 7 | Yash Verma | `GBEAB4UWRUODGUKBYGDXBZULSOI3HJ6HQKJNNLTY66IF3ATXMRYUC7K` | Improve the overall data pipeline and application performance | Refactored and optimized the frontend data pipeline and state management | [ad1f2f2](https://github.com/smritiadhikari7/StellarVault/commit/ad1f2f2409b84d13812ea8127d70f5f468d9b34a) |
-| 8 | Divya Chauhan | `GBKYHWSL2MNUO73HWY6KWNOA64AKSUENCOBTR56M66HNLMMKMZH2QW` | No major issues found during testing | No improvements required | — |
-| 9 | Nikhil Rao | `GBENUMINONHMCBALY7UMD4JQV7XXOQHAO4KNVV4UJC5ZTGHNE7P5RT` | Nothing to improve at the moment | No improvements required | — |
-| 10 | Ishita Ghosh | `GATJMD6BGNK4FQYNFWB354N7RP4XHA2R74GNSYM472ALNLJFX7N8YU` | Suggested making the UI even better | Enhanced UI polish, improved visual consistency, and refined user interactions | [951d4f5](https://github.com/smritiadhikari7/StellarVault/commit/951d4f55393ed2f5f4f15ac71c5aae7c342cf8e0) |
-
-
-## 📈✅ Improvement Summary
-
-- **Feedback:** Users wanted a more beginner-friendly experience
-  - **Fix:** Added guided onboarding tooltips and a step-by-step walkthrough for new users
-
-- **Feedback:** Mobile devices experienced lag and layout issues
-  - **Fix:** Optimized rendering pipeline and fixed responsive CSS breakpoints for mobile
-
-- **Feedback:** Users wanted clearer escrow status labels
-  - **Fix:** Updated status badges with descriptive tooltips
-
-- **Feedback:** General UI smoothness and polish requested
-  - **Fix:** Improved transition animations and visual consistency across pages
-
-  
 ---
 ## 🌈 UI DEMO 
 <div align="center">
@@ -143,6 +176,9 @@ https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=shari
 </div>
 <img width="2558" height="1310" alt="image" src="https://github.com/user-attachments/assets/d7113ddd-4457-416b-8065-2dd9f17cbac7" />
 
+## Analytics & Monitoring
+
+<img src="https://github.com/user-attachments/assets/2452b506-1731-485b-83b6-9a43595760dd" width="1917" height="781" alt="Analytics Dashboard" />
 ## CI/CD Running
 <img width="1917" height="781" alt="image" src="https://github.com/user-attachments/assets/4bd14c7c-3c53-4064-84c2-ce2fbe82841b" />
 
