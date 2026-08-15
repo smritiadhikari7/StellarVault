@@ -318,7 +318,7 @@ export default function LandingPage() {
                 Smart finance. Zero collateral drag.
               </h2>
               <p className="mt-5 text-base leading-8 text-white/62">
-                The reference video's black premium finance mood is rebuilt for StellarVault with the product's actual lending, borrowing, wallet, and score flows still wired in.
+                The reference video&apos;s black premium finance mood is rebuilt for StellarVault with the product&apos;s actual lending, borrowing, wallet, and score flows still wired in.
               </p>
             </div>
 
