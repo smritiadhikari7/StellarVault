@@ -33,7 +33,7 @@ https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=shari
 | **User Testing & Feedback** | [50+ verified users Excel Sheet Data](https://docs.google.com/spreadsheets/d/1WiiCXXYpEvG68_Hj6qfuNIlhjCtKLm9f2sfYchyAOgY/edit?usp=sharing) |
 | **User FeedBack Summery** | [Feedback Summery](https://docs.google.com/presentation/d/1OP0RDVZy3l-jffxUe3YdLIUmkQADfXPK/edit?usp=sharing&ouid=111617888193331830582&rtpof=true&sd=true) |
 | **Video Demo** | [Watch Demo](https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=sharing) |
-| **Analytics & Monitoring** | [/Analytics & Monitoring](https://github.com/smritiadhikari7/StellarVault/edit/main/README.md#-usage--gallery) |
+| **Analytics & Monitoring** | [/Analytics & Monitoring](https://github.com/smritiadhikari7/StellarVault/edit/main/README.md#analytics--monitoring) |
 
 ---
 
@@ -48,7 +48,10 @@ https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=shari
 | **Security Review** | ✅ Complete | Contract tested and documented |
 | **User Testing Completed** | ✅ Complete | Feedback collected and improvements implemented |
 | **Video Demo** | ✅ Complete| [Watch Demo](https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=sharing) |
-| **Analytics & Monitoring** | ✅ Complete| [/Analytics & Monitoring](https://github.com/smritiadhikari7/StellarVault/edit/main/README.md#-usage--gallery) |
+| **Analytics & Monitoring** | ✅ Complete| [/Analytics & Monitoring](https://github.com/smritiadhikari7/StellarVault/edit/main/README.md#analytics--monitoring) |
+
+<br/>
+
 ## 👥 Level 5 User Onboarding
 **Google Form** [User Onboarding Form](https://docs.google.com/forms/d/e/1FAIpQLSevpzO2-7ktDdToJ_DiC_wk5cRcS3r6HmvPEYDt-rbLKRxekA/viewform?usp=header) 
 📊**Response Sheet:** [Response Sheet](https://docs.google.com/spreadsheets/d/1WiiCXXYpEvG68_Hj6qfuNIlhjCtKLm9f2sfYchyAOgY/edit?usp=sharing)
@@ -177,8 +180,8 @@ We continuously iterated on the platform based on real user feedback.
 <img width="2558" height="1310" alt="image" src="https://github.com/user-attachments/assets/d7113ddd-4457-416b-8065-2dd9f17cbac7" />
 
 ## Analytics & Monitoring
-
 <img src="https://github.com/user-attachments/assets/2452b506-1731-485b-83b6-9a43595760dd" width="1917" height="781" alt="Analytics Dashboard" />
+
 ## CI/CD Running
 <img width="1917" height="781" alt="image" src="https://github.com/user-attachments/assets/4bd14c7c-3c53-4064-84c2-ce2fbe82841b" />
 
