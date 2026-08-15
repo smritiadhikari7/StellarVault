@@ -33,7 +33,7 @@ https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=shari
 | **User Testing & Feedback** | [50+ verified users Excel Sheet Data](https://docs.google.com/spreadsheets/d/1WiiCXXYpEvG68_Hj6qfuNIlhjCtKLm9f2sfYchyAOgY/edit?usp=sharing) |
 | **User FeedBack Summery** | [Feedback Summery](https://docs.google.com/presentation/d/1OP0RDVZy3l-jffxUe3YdLIUmkQADfXPK/edit?usp=sharing&ouid=111617888193331830582&rtpof=true&sd=true) |
 | **Video Demo** | [Watch Demo](https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=sharing) |
-| **Analytics & Monitoring** | [/Analytics & Monitoring](https://github.com/smritiadhikari7/StellarVault/edit/main/README.md#analytics--monitoring) |
+| **Analytics & Monitoring** | [/Analytics & Monitoring](#analytics--monitoring) |
 
 ---
 
