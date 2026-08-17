@@ -28,7 +28,7 @@ https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=shari
 | Resource | Link |
 |----------|------|
 | **Live Demo** | [https://stellar-vault-pied.vercel.app/](https://stellar-vault-pied.vercel.app/) |
-| **Contract ID** | [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CBKMPCT4RSI2NHJJILN7K5K6FB2ZVD7EYCB5G37UT47GJLCPZOZXYMNT) |
+| **Contract ID** | [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI) |
 | **transaction activity** | [transaction ](https://stellar.expert/explorer/testnet/account/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI) |
 | **User Testing & Feedback** | [50+ verified users Excel Sheet Data](https://docs.google.com/spreadsheets/d/1w92RoGnh2a3ovTu8xniMaC2LkajxMgs658Zkjanvi10/edit?usp=sharing) |
 | **User FeedBack Summery** | [Feedback Summery](https://docs.google.com/presentation/d/1OP0RDVZy3l-jffxUe3YdLIUmkQADfXPK/edit?usp=sharing&ouid=111617888193331830582&rtpof=true&sd=true) |
@@ -43,7 +43,7 @@ https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=shari
 |-------------|--------|----------|
 | **Live Demo Deployed** | ✅ Complete | https://stellar-vault-pied.vercel.app/ |
 | **CI/CD Pipeline** | ✅ Complete | [75ff914](https://github.com/smritiadhikari7/StellarVault/actions/runs/30058783643) GitHub Actions Enabled  |
-| **Smart Contract Deployed** | ✅ Complete | `CBKMPCT4RSI2NHJJILN7K5K6FB2ZVD7EYCB5G37UT47GJLCPZOZXYMNT` |
+| **Smart Contract Deployed** | ✅ Complete | `CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI` |
 | **Mobile Responsive** | ✅ Complete | Optimized for Desktop, Tablet & Mobile |
 | **Security Review** | ✅ Complete | Contract tested and documented |
 | **User Testing Completed** | ✅ Complete | Feedback collected and improvements implemented |
