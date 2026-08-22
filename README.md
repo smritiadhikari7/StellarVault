@@ -28,12 +28,12 @@ https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=shari
 | :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Live Application**            | 🌐 [Launch StellarVault](https://stellar-vault-pied.vercel.app/)                                                                                                    |
 | **Smart Contract**              | 🔗 [View Contract on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI)                     |
-| **Transaction Activity**        | 📡 [View Stellar Transaction Activity](https://stellar.expert/explorer/testnet/account/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI)                    |
-| **50+ User Testing & Feedback** | 👥 [View Verified User Responses](https://docs.google.com/spreadsheets/d/1w92RoGnh2a3ovTu8xniMaC2LkajxMgs658Zkjanvi10/edit?usp=sharing)                             |
+| **Transaction Activity**        | 📡 [View Stellar Transaction Activity](https://stellar.expert/explorer/testnet/contract/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI)                    |
+| **50 User Testing & Feedback** | 👥 [View Verified User Responses](https://docs.google.com/spreadsheets/d/1w92RoGnh2a3ovTu8xniMaC2LkajxMgs658Zkjanvi10/edit?usp=sharing)                             |
 | **User Feedback Summary**       | 📊 [View Feedback Summary](https://docs.google.com/presentation/d/1OP0RDVZy3l-jffxUe3YdLIUmkQADfXPK/edit?usp=sharing&ouid=111617888193331830582&rtpof=true&sd=true) |
 | **Demo Video**                  | 🎥 [Watch Demo Video](https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=sharing)                                                           |
 | **Analytics & Monitoring**      | 📈 [View Analytics & Monitoring](#analytics--monitoring)                                                                                                            |
-
+| **Pitch Deck** | 📊 [View StellarVault Pitch Deck](https://docs.google.com/presentation/d/1BJn39DCBw09PskHJECRl8WnOfX8g5LAw/edit?usp=sharing&ouid=105010126616586269510&rtpof=true&sd=true) |
 ---
 
 ## ✅ Level 5 Submission Checklist
@@ -48,9 +48,9 @@ All required Level 5 deliverables have been completed and verified below.
 | **On-Chain Transaction Activity**        | ✅ Complete | 📡 [View Stellar Activity](https://stellar.expert/explorer/testnet/account/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI)                                |
 | **CI/CD Pipeline**                       | ✅ Complete | ⚙️ [GitHub Actions Run](https://github.com/smritiadhikari7/StellarVault/actions/runs/30058783643)                                                                   |
 | **Mobile Responsive Experience**         | ✅ Complete | 📱 Optimized across desktop, tablet, and mobile interfaces                                                                                                          |
-| **User Testing Completed**               | ✅ Complete | 👥 [50+ Verified User Responses](https://docs.google.com/spreadsheets/d/1w92RoGnh2a3ovTu8xniMaC2LkajxMgs658Zkjanvi10/edit?usp=sharing)                              |
+| **User Testing Completed**               | ✅ Complete | 👥 [50 Verified User Responses](https://docs.google.com/spreadsheets/d/1w92RoGnh2a3ovTu8xniMaC2LkajxMgs658Zkjanvi10/edit?usp=sharing)                              |
 | **User Feedback & Product Iterations**   | ✅ Complete | 🔄 See [User Feedback & Improvements](#-user-feedback--improvements)                                                                                                |
-| **User Feedback Summary / Presentation** | ✅ Complete | 📊 [View Feedback Summary](https://docs.google.com/presentation/d/1OP0RDVZy3l-jffxUe3YdLIUmkQADfXPK/edit?usp=sharing&ouid=111617888193331830582&rtpof=true&sd=true) |
+| **Project Presentation / Pitch Deck** | ✅ Complete | 📊 [ View Presentation](https://docs.google.com/presentation/d/1BJn39DCBw09PskHJECRl8WnOfX8g5LAw/edit?usp=sharing&ouid=105010126616586269510&rtpof=true&sd=true) |
 | **Demo Video**                           | ✅ Complete | 🎥 [Watch Demo Video](https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=sharing)                                                           |
 | **Analytics & Monitoring**               | ✅ Complete | 📈 See [Analytics & Monitoring](#analytics--monitoring)                                                                                                             |
 | **Security Review**                      | ✅ Complete | 🛡️ Smart contract tested and security review documented                                                                                                            |
@@ -152,40 +152,6 @@ Key improvements include:
     </td>
   </tr>
 </table>
-
-
-## 🏆 Stellar Journey to Master
-## 🧭 Belt System Progress
- 
-| Level | Belt | Focus | Status |
-|-------|------|-------|--------|
-| ⚪️ Level 1 | White Belt | Wallets & transactions | ✅ Completed |
-| 🟡 Level 2 | Yellow Belt | Multi-wallet, contracts & events | ✅ Completed |
-| 🟠 Level 3 | Orange Belt | Mini dApp + tests | ✅ Completed |
-| 🟢 Level 4 | Green Belt | Advanced contracts & production readiness |✅ Completed  |
-| 🔵 Level 5 | Blue Belt | Real MVP (5+ users) | ✅ Completed |
-| ⚫️ Level 6 | Black Belt | Scale + Demo Day readiness | 🔜 Upcoming |
- 
----
-
- ## 📋 Contract Addresses (Testnet)
-
-| Name | Address |
-|------|---------|
-| 🔐💎  CONTRACT ID | `CBKMPCT4RSI2NHJJILN7K5K6FB2ZVD7EYCB5G37UT47GJLCPZOZXYMNT` |
-
----
-## Deployed Contract
-
-| Property | Value |
-|---|---|
-| **Contract ID** | `CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI` |
-| **Network** | Stellar Testnet |
-| **Admin Address** | `GCVE5QXJ33NFGVMUCGUTTUVJQ7F6O4G6OPLCIU5O6OQXPYNORGDP3UIY` |
-| **Pool Treasury** | `GDRNUHQGNSDT3FW6BLA7FRL4SXRSOUB2PV6HGPVSMML7FPLOECYWLDOA` |
-| **Explorer** | [View on Stellar.expert](https://stellar.expert/explorer/testnet/contract/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI) |
-
-
 ---
 ## 🌈 UI DEMO 
 <div align="center">
@@ -206,6 +172,39 @@ Key improvements include:
 <img width="1958" height="1163" alt="Screenshot 2026-06-27 142550" src="https://github.com/user-attachments/assets/81f3fec5-6cd9-41c8-b86e-fbc57e53157f" />
 
 <img width="2005" height="684" alt="Screenshot 2026-06-27 142654" src="https://github.com/user-attachments/assets/2391b22d-8e71-4949-95ef-c6869061f91d" />
+
+
+
+ ## 📋 Contract Addresses (Testnet)
+
+| Name | Address |
+|------|---------|
+| 🔐💎  CONTRACT ID | `CBKMPCT4RSI2NHJJILN7K5K6FB2ZVD7EYCB5G37UT47GJLCPZOZXYMNT` |
+
+---
+## Deployed Contract
+
+| Property | Value |
+|---|---|
+| **Contract ID** | `CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI` |
+| **Network** | Stellar Testnet |
+| **Admin Address** | `GCVE5QXJ33NFGVMUCGUTTUVJQ7F6O4G6OPLCIU5O6OQXPYNORGDP3UIY` |
+| **Pool Treasury** | `GDRNUHQGNSDT3FW6BLA7FRL4SXRSOUB2PV6HGPVSMML7FPLOECYWLDOA` |
+| **Explorer** | [View on Stellar.expert](https://stellar.expert/explorer/testnet/contract/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI) |
+
+
+---
+
+# ⛓️ Real On-Chain Activity
+
+StellarVault's Soroban contract has been deployed to **Stellar Testnet** and tested through real contract invocations covering the core lending workflow.
+
+## Verified Contract
+
+```text
+CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI
+```
+
 
 ## Step-by-Step Test Cases
 
@@ -273,6 +272,123 @@ Output: ✅ `26473571428` stroops = `2647.35 XLM`
 | 14 | `get_pool_balance` | ✅ Pass | `2647.35 XLM` |
 
 **14/14 Functions Passing on Stellar Testnet** 🚀
+---
+
+# 🚀 Next Phase — Roadmap Based on User Feedback
+
+The next phase of StellarVault is directly informed by feedback collected from Stellar Testnet users.
+
+## 1. Improve Beginner Onboarding
+
+Users requested clearer explanations and a smoother first-time experience.
+
+### Planned Improvements
+
+- Add contextual onboarding tooltips
+- Add a step-by-step borrowing walkthrough
+- Explain the AI Trust Score more clearly
+- Add guidance for Stellar wallet connection
+- Add Stellar Testnet guidance
+- Improve empty states throughout the application
+- Add contextual help around borrowing and lending
+
+---
+
+## 2. Improve Transaction Visibility
+
+Users need clearer confirmation of blockchain activity without depending entirely on external explorers.
+
+### Planned Improvements
+
+- Add an in-app transaction activity feed
+- Show pending transaction states
+- Show confirmed transaction states
+- Show failed transaction states
+- Display transaction hashes
+- Add direct Stellar Expert links
+- Add clearer repayment status
+- Improve loan lifecycle visibility
+
+---
+
+## 3. Improve Wallet Reliability
+
+Wallet connectivity is essential to the StellarVault experience.
+
+### Planned Improvements
+
+- Improve wallet reconnect handling
+- Add stronger network validation
+- Add clearer signing-status messages
+- Improve fallback behavior during RPC/API failures
+- Improve wallet connection feedback
+- Explore support for additional Stellar-compatible wallets
+
+---
+
+## 4. Improve Mobile Performance
+
+User feedback highlighted opportunities to further optimize smaller-screen usage.
+
+### Planned Improvements
+
+- Reduce unnecessary frontend requests
+- Improve loading states
+- Optimize dashboard rendering
+- Improve small-screen transaction flows
+- Further refine responsive tables
+- Optimize analytics rendering
+- Improve perceived loading performance
+
+---
+
+## 5. Improve Lending Transparency
+
+Users requested clearer information around borrowing decisions and loan status.
+
+### Planned Improvements
+
+- Explain Trust Score decisions
+- Show loan eligibility factors
+- Improve loan status tracking
+- Add repayment history
+- Improve lender activity visibility
+- Improve borrower activity visibility
+- Add clearer risk information
+
+---
+
+## 6. Expand StellarVault Features
+
+Based on user demand and product validation, future development will explore:
+
+- USDC lending
+- Additional lending pools
+- Advanced analytics
+- Transaction-history export
+- Community reputation improvements
+- Stronger guarantor mechanisms
+- Governance features
+- Mainnet readiness
+- Additional Stellar ecosystem integrations
+
+> These priorities ensure that StellarVault's next development phase continues to be driven by real user feedback rather than assumptions.
+
+---
+
+
+## 🏆 Stellar Journey to Master
+## 🧭 Belt System Progress
+ 
+| Level | Belt | Focus | Status |
+|-------|------|-------|--------|
+| ⚪️ Level 1 | White Belt | Wallets & transactions | ✅ Completed |
+| 🟡 Level 2 | Yellow Belt | Multi-wallet, contracts & events | ✅ Completed |
+| 🟠 Level 3 | Orange Belt | Mini dApp + tests | ✅ Completed |
+| 🟢 Level 4 | Green Belt | Advanced contracts & production readiness |✅ Completed  |
+| 🔵 Level 5 | Blue Belt | Real MVP (5+ users) | ✅ Completed |
+| ⚫️ Level 6 | Black Belt | Scale + Demo Day readiness | 🔜 Upcoming |
+ 
 ---
 
 # 🌍 Overview
