@@ -421,290 +421,1163 @@ Instead of collateral, loans are approved using a comprehensive AI-driven credit
 
 ---
 
+
+
+# 🚀 StellarVault — Level 5 Product Journey
+
+At **Level 5**, StellarVault evolved beyond a technical MVP into a **user-tested, feedback-driven decentralized lending product** built on the Stellar ecosystem.
+
+The focus of this stage was:
+
+* 👥 Real user onboarding and validation
+* 🔄 Product iteration based on user feedback
+* ⛓️ Real Stellar Testnet activity
+* 🧠 AI-powered lending intelligence
+* 🎨 UX/UI and onboarding improvements
+* 📱 Mobile and responsive optimization
+* 📊 Analytics and product monitoring
+* 🛡️ Product stability and risk management
+* 📈 Growth strategy and ecosystem readiness
+* 🎤 Professional product presentation and demo
+
+StellarVault combines **AI-powered trust scoring, Stellar wallets, Soroban smart contracts, social reputation, and transparent lending workflows** to explore a more accessible alternative to over-collateralized DeFi lending.
+
+---
+
 # 🚀 Key Features
 
 ## 💰 Collateral-Free Lending
 
-Borrow digital assets without locking cryptocurrency as collateral.
+StellarVault enables eligible users to request digital asset loans **without requiring traditional over-collateralization**.
+
+Instead of evaluating borrowers only by the amount of crypto they can lock, StellarVault combines:
+
+* AI-powered Trust Score
+* Wallet activity
+* Repayment behavior
+* User reputation
+* Guarantor support
+* Risk evaluation
+* Optional identity verification
+
+The goal is to create a lending system where **reputation and responsible financial behavior contribute to credit eligibility**.
 
 ---
 
 ## 🧠 AI Trust Score Engine
 
-Every user receives a dynamic Trust Score calculated from multiple factors.
+Every user receives a dynamic **Trust Score** designed to represent lending reliability and risk.
 
-Evaluation includes:
+The Trust Score can consider multiple signals across on-chain, behavioral, financial, and reputation layers.
 
-- Wallet age
-- Transaction history
-- Repayment behavior
-- Default history
-- Financial stability
-- Community reputation
-- Guarantor support
-- AI risk prediction
-- Optional KYC verification
+### Evaluation Signals
+
+* Wallet age
+* Transaction history
+* Wallet activity
+* Repayment behavior
+* Previous loan history
+* Default history
+* Financial stability
+* Community reputation
+* Guarantor support
+* AI-based risk prediction
+* Optional KYC verification
+
+The Trust Score helps StellarVault evaluate:
+
+* Loan eligibility
+* Borrowing limits
+* Risk level
+* Interest conditions
+* Repayment reliability
+
+> The Trust Score is processed through StellarVault's application and AI layer while blockchain transactions remain independently verifiable through Stellar.
 
 ---
 
-## 👛 Wallet Authentication
+## 👛 Stellar Wallet Authentication
 
-Authenticate securely using your Stellar wallet.
+Users authenticate through their Stellar wallet rather than relying only on traditional username/password authentication.
 
-Supported features:
+### Wallet Capabilities
 
-- Wallet login
-- Balance verification
-- Transaction signing
-- Loan disbursement
-- Loan repayment
+* 🔐 Wallet authentication
+* 💰 Balance verification
+* ✍️ Transaction signing
+* 💸 Loan disbursement
+* 🔁 Loan repayment
+* 🛡️ Guarantee interaction
+* 📊 On-chain transaction verification
 
-> Wallets execute blockchain transactions only. Loan evaluation and scoring are processed off-chain.
+> Wallets authorize blockchain actions. Lending eligibility and AI Trust Score evaluation are handled separately by StellarVault's application and risk-analysis layers.
+
+---
+
+## ⛓️ Soroban Smart Contract Integration
+
+StellarVault uses **Soroban smart contracts deployed on Stellar Testnet** to provide transparent and verifiable lending operations.
+
+The smart contract supports core lending and escrow-related functionality including:
+
+* Loan requests
+* Loan data retrieval
+* Loan repayment
+* Lending pool management
+* Guarantee locking
+* Guarantee release
+* Fund release
+* Refund handling
+* Wallet-specific lending records
+
+### Current Stellar Testnet Contract
+
+```text
+CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI
+```
+
+### Contract Verification
+
+[View StellarVault Contract on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CCM5NDCXGRACZBPKRXAPEOAJV4AO4ILAUN52TJBS7WTI4UL4RKWKUGKI)
+
+> StellarVault's Soroban integration is implemented and deployed on Stellar Testnet.
 
 ---
 
 ## 📊 Transparent Lending
 
-Every transaction remains verifiable on the Stellar blockchain.
+Blockchain-backed transactions provide users with greater visibility into lending activity.
 
 Users can monitor:
 
-- Loan requests
-- Active loans
-- Repayments
-- Investor earnings
-- Wallet balances
+* Loan requests
+* Active loans
+* Loan status
+* Repayments
+* Lending activity
+* Wallet balances
+* Guarantee status
+* Pool interactions
+* Transaction hashes
+* Stellar Testnet activity
+
+This improves transparency while allowing important contract activity to remain independently verifiable through blockchain explorers.
 
 ---
 
 ## 🤝 Social Trust System
 
-Increase borrowing capacity through community trust.
+StellarVault introduces social and reputation-based signals to complement traditional financial risk evaluation.
 
-Supports:
+### Social Trust Components
 
-- Verified guarantors
-- Community reputation
-- Trust endorsements
+* Verified guarantors
+* Community reputation
+* Trust endorsements
+* Wallet reputation
+* Repayment history
+* User credibility signals
+
+Guarantor support provides an additional risk-management layer while helping users gradually establish stronger borrowing credibility.
 
 ---
 
 ## 📉 Intelligent Risk Management
 
-AI continuously evaluates loan risk using behavioral analysis.
+StellarVault combines multiple protection layers to reduce lending risk.
 
-Features include:
+### Risk Management Features
 
-- Dynamic interest rates
-- Fraud detection
-- Default prediction
-- Blacklisting of malicious users
-- Adaptive borrowing limits
+* AI-assisted risk evaluation
+* Default probability analysis
+* Fraud detection signals
+* Dynamic borrowing limits
+* Trust-based eligibility
+* Guarantor verification
+* Previous repayment analysis
+* Malicious wallet detection
+* Behavioral monitoring
+* Optional KYC verification
+
+The system is designed to balance **financial accessibility with responsible lending controls**.
+
+---
+
+# 👥 Level 5 User Validation
+
+Level 5 shifted StellarVault's focus from simply building functionality to validating the product with real users.
+
+StellarVault onboarded **50+ test users** and collected structured feedback covering product usability, onboarding, wallet interaction, navigation, lending flows, responsiveness, and feature improvements.
+
+### User Validation Included
+
+* Name
+* Email
+* Stellar wallet address
+* Product feedback
+* Usability feedback
+* Improvement suggestions
+* Rating information
+
+### Feedback Was Used To Improve
+
+* 🎨 Overall UI design
+* 🧭 Navigation
+* 📱 Mobile responsiveness
+* 💳 Wallet interaction
+* ⚠️ Error handling
+* 📝 Product guidance
+* 🔄 User flows
+* 📊 Dashboard experience
+* ✨ Interaction quality
+* 🧩 Visual consistency
+
+> Level 5 development follows a continuous iteration cycle:
+
+**Build → Test → Collect Feedback → Analyze → Improve → Validate**
+
+---
+
+# 🔄 Feedback-Driven Product Iteration
+
+User feedback was converted into measurable product improvements instead of being collected only for documentation.
+
+## Major Improvement Areas
+
+### 🎨 UI & Visual Experience
+
+* Improved visual hierarchy
+* Improved typography
+* Improved spacing
+* Standardized layouts
+* Improved component consistency
+* Improved dashboard presentation
+* Improved overall product polish
+
+### 📱 Responsive Experience
+
+* Improved smaller-screen layouts
+* Improved responsive cards
+* Improved navigation behavior
+* Improved overflow handling
+* Improved responsive forms
+* Improved mobile usability
+
+### 🧭 Navigation & Product Flow
+
+* Simplified application navigation
+* Improved Borrow flow
+* Improved Lend flow
+* Improved Dashboard experience
+* Improved Analytics navigation
+* Improved KYC flow
+* Improved overall information architecture
+
+### 💳 Wallet Experience
+
+* Improved wallet connection feedback
+* Improved wallet error handling
+* Improved network-state visibility
+* Improved transaction interaction clarity
+* Improved user-facing failure messages
+
+### 📝 Onboarding & Guidance
+
+* Improved labels
+* Improved descriptions
+* Added clearer action guidance
+* Improved first-time usability
+* Improved lending-flow explanations
+* Improved borrowing-flow explanations
+
+### ⚡ Product Stability
+
+* Improved transaction handling
+* Improved error states
+* Improved loading states
+* Improved frontend reliability
+* Improved responsive behavior
+* Improved overall interaction consistency
 
 ---
 
 # 🏛 System Architecture
 
-```
-                     +----------------------+
-                     |    Borrower Portal   |
-                     +----------+-----------+
-                                |
-                                v
-                    +------------------------+
-                    |   AI Trust Score API   |
-                    +----------+-------------+
-                               |
-                 Approved? ----+---- Rejected
-                      |
-                      v
-            +-----------------------+
-            |     Lending Pool      |
-            +-----------+-----------+
-                        |
-                        v
-              Stellar Blockchain
-                        |
-        Loan Transfer & Repayment
-                        |
-                        v
-              Trust Score Updated
+```mermaid
+flowchart TD
+
+    U["👤 Borrower / Lender"] --> FE["🖥️ StellarVault Frontend"]
+
+    FE --> WALLET["👛 Stellar Wallet / Freighter"]
+    FE --> API["⚙️ Backend API"]
+
+    API --> AUTH["🔐 User & Profile Layer"]
+    API --> AI["🧠 AI Trust Score Engine"]
+    API --> DB["🗄️ Application Database"]
+
+    AI --> RISK["📉 Risk Evaluation"]
+    RISK --> DECISION{"Loan Eligibility"}
+
+    DECISION -->|Approved| EXEC["✅ Loan Execution"]
+    DECISION -->|Rejected| FEEDBACK["⚠️ Eligibility Feedback"]
+
+    EXEC --> SDK["🌐 Stellar SDK"]
+    WALLET --> SDK
+
+    SDK --> SOROBAN["⛓️ Soroban Smart Contract"]
+
+    SOROBAN --> POOL["🏦 Lending Pool"]
+    SOROBAN --> GUARANTEE["🤝 Guarantee System"]
+    SOROBAN --> LOAN["💰 Loan State"]
+    SOROBAN --> REPAYMENT["🔁 Repayment State"]
+
+    POOL --> STELLAR["⭐ Stellar Testnet"]
+    GUARANTEE --> STELLAR
+    LOAN --> STELLAR
+    REPAYMENT --> STELLAR
+
+    STELLAR --> MONITOR["📊 On-Chain Monitoring"]
+    MONITOR --> FE
+
+    REPAYMENT --> HISTORY["📈 Repayment History"]
+    HISTORY --> AI
 ```
 
 ---
 
 # 🧠 AI Trust Score
 
-Each user receives a score between **0–1000**.
+Each user receives a Trust Score between **0–1000**.
+
+The score helps provide an understandable representation of a user's borrowing reliability.
 
 ## 📊 On-Chain Metrics
 
-- Wallet age
-- Transaction frequency
-- Wallet activity
-- Repayment records
-- Default history
+Potential blockchain-based signals include:
+
+* Wallet age
+* Transaction frequency
+* Wallet activity
+* Transaction consistency
+* Repayment records
+* Default history
+* Previous lending interactions
 
 ---
 
 ## 💳 Financial Behavior
 
-- Income vs spending pattern
-- Balance consistency
-- Cash flow analysis
+Behavioral and financial signals may include:
+
+* Income versus spending patterns
+* Balance consistency
+* Cash-flow behavior
+* Repayment consistency
+* Previous loan performance
 
 ---
 
 ## 🤝 Social Reputation
 
-- Community endorsements
-- Guarantor backing
-- Trust network strength
+Social credibility can include:
+
+* Community endorsements
+* Guarantor backing
+* Reputation strength
+* Trust relationships
+* Previous successful borrowing activity
 
 ---
 
 ## 🪪 Optional Identity Verification
 
-- Government ID
-- Income proof
-- Address verification
+Additional identity assurance may include:
+
+* Government-issued ID
+* Income verification
+* Address verification
+* User profile verification
+
+Identity verification acts as an additional trust layer rather than being the only factor used for lending decisions.
 
 ---
 
-## 🤖 AI Prediction Model
+## 🤖 AI Risk Prediction
 
-Machine learning estimates:
+The AI layer assists with estimating:
 
-- Default probability
-- Repayment reliability
-- Financial behavior trends
-- Loan eligibility
+* Default probability
+* Repayment reliability
+* Financial behavior patterns
+* Borrower risk level
+* Loan eligibility
+* Suggested borrowing limits
+
+> AI evaluation supports lending decisions while final blockchain actions remain transparent and verifiable through Stellar.
 
 ---
 
-# 🪪 KYC Levels
+# 🪪 User Verification & Trust Levels
 
-| Level | Access | Loan Limit |
-|--------|--------|------------|
-| 🟢 Level 1 | Wallet Connected | Small Loans |
-| 🔵 Level 2 | Verified Identity | Medium Loans |
-| 🟣 Level 3 | Trusted User | High Loan Limits |
+| Level          | Verification                     | Access                          |
+| :------------- | :------------------------------- | :------------------------------ |
+| 🟢 **Level 1** | Stellar Wallet Connected         | Entry-level borrowing access    |
+| 🔵 **Level 2** | Identity / Profile Verified      | Increased borrowing eligibility |
+| 🟣 **Level 3** | Strong Trust & Repayment History | Higher borrowing opportunities  |
+
+> Borrowing eligibility can also depend on Trust Score, repayment behavior, risk evaluation, and guarantor support.
 
 ---
 
 # 💰 Lending Workflow
 
-```text
-Loan Request
-      │
-      ▼
-Wallet Verification
-      │
-      ▼
-AI Trust Score Evaluation
-      │
-      ▼
-Loan Approval
-      │
-      ▼
-Funding from Lending Pool
-      │
-      ▼
-XLM Transfer
-      │
-      ▼
-Scheduled Repayment
-      │
-      ▼
-Trust Score Updated
+```mermaid
+flowchart TD
+
+    A["👤 User Connects Stellar Wallet"] --> B["📝 Loan Request"]
+    B --> C["👛 Wallet Verification"]
+    C --> D["🧠 AI Trust Score Evaluation"]
+
+    D --> E{"Eligible?"}
+
+    E -->|No| F["⚠️ Request Rejected / Improvement Guidance"]
+
+    E -->|Yes| G["✅ Loan Approved"]
+    G --> H["⛓️ Soroban Smart Contract"]
+    H --> I["🏦 Lending Pool"]
+    I --> J["💸 XLM / Asset Transfer"]
+    J --> K["📊 Active Loan Tracking"]
+    K --> L["🔁 Scheduled Repayment"]
+    L --> M["⭐ Stellar Transaction Confirmation"]
+    M --> N["📈 Repayment History Updated"]
+    N --> O["🧠 Trust Score Updated"]
 ```
 
 ---
 
 # ⚡ Wallet Integration
 
-Wallet functionality includes:
+StellarVault uses wallet-based interactions for secure Stellar transactions.
 
-- 🔐 Secure authentication
-- 💸 Loan disbursement
-- 🔁 Loan repayment
-- 📊 Transaction verification
+### Supported Wallet Functionality
 
-**Wallets do not determine loan eligibility.**
+* 🔐 Secure wallet authentication
+* 🔗 Stellar network connection
+* 💸 Loan disbursement
+* 🔁 Loan repayment
+* 🤝 Guarantee interaction
+* ✍️ Transaction signing
+* 📊 Transaction verification
+* 💰 Balance visibility
 
-Loan approval is handled by the AI Trust Engine.
+> **Wallets do not independently determine loan eligibility.**
+
+Loan evaluation is handled through StellarVault's Trust Score and risk-management layers.
 
 ---
 
 # 🏦 Lending Pool
 
-The lending pool acts as the protocol treasury.
+The StellarVault lending pool acts as the protocol's source of lendable liquidity.
 
-Responsibilities include:
+### Lending Pool Responsibilities
 
-- Holding investor funds
-- Funding approved borrowers
-- Receiving repayments
-- Distributing investor returns
+* Holding available lending liquidity
+* Funding approved borrowers
+* Tracking pool balances
+* Receiving repayments
+* Managing protocol lending activity
+* Supporting transparent smart-contract execution
+
+The pool interacts with StellarVault's Soroban contract to help ensure lending operations remain verifiable on-chain.
 
 ---
 
-# 🛡 Risk Management
+# 🛡️ Risk Management
 
-StellarVault minimizes lending risk using multiple protection layers.
+StellarVault uses multiple layers of protection instead of relying on a single risk signal.
 
-- AI fraud detection
-- Default prediction
-- Dynamic interest rates
-- Borrowing limits
-- Trust-based approval
-- Guarantor verification
-- Blacklisted wallet detection
+### Protection Layers
+
+* 🧠 AI-assisted risk analysis
+* 📉 Default prediction
+* 🚨 Fraud-detection signals
+* 📊 Dynamic borrowing limits
+* ⭐ Trust Score evaluation
+* 🤝 Guarantor verification
+* 🧾 Repayment history
+* 👛 Wallet behavior
+* 🚫 Malicious-wallet detection
+* 🪪 Optional KYC verification
+* ⛓️ Transparent blockchain settlement
+
+This creates a hybrid approach combining:
+
+**AI Intelligence + Reputation + Social Trust + Blockchain Transparency**
 
 ---
 
 # 🧱 Tech Stack
 
-## Frontend
+## 🎨 Frontend
 
-- React
-- Tailwind CSS
-- Framer Motion
-- Axios
-
----
-
-## Backend
-
-- Node.js
-- Express.js
-- MongoDB
-- Supabase
+* React
+* Tailwind CSS
+* Framer Motion
+* Axios
+* Responsive UI Components
 
 ---
 
-## Blockchain
+## ⚙️ Backend
 
-- Stellar Testnet
-- Freighter Wallet
-- Stellar SDK
-- Soroban *(Planned)*
+* Node.js
+* Express.js
+* MongoDB
+* Supabase
+* REST APIs
 
 ---
 
-## AI Layer
+## ⛓️ Blockchain
 
-- Python
-- Trust Score Engine
-- Risk Prediction Model
-- Behavioral Analysis
+* **Stellar Testnet**
+* **Soroban Smart Contracts**
+* **Stellar SDK**
+* **Freighter Wallet**
+* **Stellar Expert**
+* **On-chain transaction verification**
+
+> ✅ **Soroban smart contracts are implemented and deployed on Stellar Testnet.**
+
+---
+
+## 🧠 AI Layer
+
+* Python
+* Trust Score Engine
+* Risk Prediction Model
+* Behavioral Analysis
+* Default-risk evaluation
+
+---
+
+## 📊 Product & Monitoring Layer
+
+* User analytics
+* Product usage monitoring
+* Feedback collection
+* User testing
+* Transaction activity monitoring
+* Git-based development tracking
+
+---
+
+# 🔌 REST API
+
+## 👛 Wallet
+
+### Connect Wallet
+
+```http
+POST /api/connect-wallet
+```
+
+### Retrieve Wallet Balance
+
+```http
+GET /api/balance/:wallet
+```
+
+---
+
+## 💰 Lending
+
+### Request Loan
+
+```http
+POST /api/request-loan
+```
+
+### Approve Loan
+
+```http
+POST /api/approve-loan
+```
+
+### Repay Loan
+
+```http
+POST /api/repay-loan
+```
+
+---
+
+## 🧠 Trust Score
+
+### Retrieve Trust Score
+
+```http
+GET /api/trust-score/:user
+```
+
+### Update Trust Score
+
+```http
+POST /api/update-score
+```
+
+---
+
+# 📈 Level 5 Product Roadmap
+
+StellarVault's roadmap reflects the project's evolution from an early MVP into a **user-validated Stellar product**, while preparing for the next stage: **Level 6 — Black Belt**, focused on mainnet deployment, security, and real-world adoption.
+
+---
+
+## ✅ Phase 1 — MVP Foundation
+
+The first phase focused on building the core StellarVault product experience.
+
+### Completed
+
+* ✅ Stellar wallet authentication
+* ✅ Borrowing interface
+* ✅ Lending interface
+* ✅ Loan request system
+* ✅ Lending pool
+* ✅ AI Trust Score MVP
+* ✅ User dashboard
+* ✅ KYC flow
+* ✅ Responsive frontend
+* ✅ Core backend APIs
+* ✅ Initial lending-risk logic
+
+### Outcome
+
+StellarVault established a functional foundation for **AI-assisted, reputation-based decentralized lending**.
+
+---
+
+## ✅ Phase 2 — Stellar & Soroban Integration
+
+The second phase moved StellarVault from a traditional application architecture into a blockchain-powered lending product.
+
+### Completed
+
+* ✅ Soroban smart contract development
+* ✅ Stellar Testnet deployment
+* ✅ Stellar wallet integration
+* ✅ Smart contract interaction from the application
+* ✅ Automated lending logic
+* ✅ Loan repayment functionality
+* ✅ Guarantee functionality
+* ✅ Lending pool integration
+* ✅ Contract testing
+* ✅ On-chain transaction verification
+* ✅ Analytics dashboard
+* ✅ CI/CD integration
+
+### Outcome
+
+StellarVault successfully connected its lending experience with **Stellar Testnet and Soroban smart contracts**, making important lending actions publicly verifiable on-chain.
+
+---
+
+## ✅ Phase 3 — Level 5: User Growth & Product Validation
+
+Level 5 shifted StellarVault's focus from **building features** to **testing whether users could actually understand, use, and benefit from the product**.
+
+### User Growth
+
+* ✅ 50+ users onboarded
+* ✅ Stellar wallet addresses collected
+* ✅ Structured user feedback collected
+* ✅ Product ratings collected
+* ✅ Real product testing completed
+* ✅ User behavior and usability feedback analyzed
+
+### Product Validation
+
+Users tested important areas including:
+
+* Borrowing
+* Lending
+* Wallet connection
+* Dashboard
+* Navigation
+* Trust Score experience
+* Mobile responsiveness
+* Error handling
+* Overall product usability
+
+### Outcome
+
+StellarVault moved beyond internal development and gained **real user validation from the Stellar Testnet community**.
+
+---
+
+## ✅ Phase 4 — Level 5: Feedback-Driven Product Iteration
+
+The feedback collected during Level 5 was converted into direct product improvements.
+
+### UX/UI Improvements
+
+* ✅ Improved interface consistency
+* ✅ Improved navigation
+* ✅ Improved visual hierarchy
+* ✅ Improved mobile responsiveness
+* ✅ Improved dashboard experience
+* ✅ Improved component layouts
+* ✅ Improved user interaction states
+
+### Wallet & Blockchain Experience
+
+* ✅ Improved wallet connection handling
+* ✅ Improved network-state feedback
+* ✅ Improved transaction error handling
+* ✅ Improved blockchain interaction clarity
+* ✅ Improved user-facing transaction feedback
+
+### Onboarding Improvements
+
+* ✅ Improved labels and instructions
+* ✅ Improved borrowing guidance
+* ✅ Improved lending guidance
+* ✅ Improved first-time user experience
+* ✅ Improved product descriptions
+
+### Product Stability
+
+* ✅ Improved application reliability
+* ✅ Improved loading states
+* ✅ Improved responsive behavior
+* ✅ Improved API/error handling
+* ✅ Improved overall application consistency
+
+### Documentation & Evidence
+
+* ✅ Updated README documentation
+* ✅ User feedback documentation
+* ✅ Feedback-to-commit mapping
+* ✅ Testnet contract evidence
+* ✅ Analytics and monitoring evidence
+* ✅ Professional product demo
+* ✅ Level 5 pitch preparation
+* ✅ Future roadmap based on user feedback
+
+### Outcome
+
+Level 5 established a repeatable development cycle:
+
+**Build → Test → Collect Feedback → Improve → Validate**
+
+---
+
+# 🎯 Level 5 Growth Strategy
+
+StellarVault's Level 5 growth strategy focuses on reaching communities that can benefit from accessible, reputation-based lending.
+
+## Initial Growth Channels
+
+* ⭐ Stellar ecosystem communities
+* 👨‍💻 Developer communities
+* 🎓 College and student communities
+* 💼 Freelancer communities
+* 🌐 Web3 communities
+* 🏆 Hackathons
+* 🎤 Product demonstrations
+* 📚 Educational content
+* 🤝 Ecosystem partnerships
+* 🔁 Referral-based onboarding
+
+---
+
+## 🔄 Product Growth Loop
+
+```mermaid
+flowchart LR
+
+    A["👥 Community Outreach"] --> B["🚀 User Onboarding"]
+    B --> C["🧪 Product Testing"]
+    C --> D["💬 User Feedback"]
+    D --> E["🔄 Product Improvements"]
+    E --> F["✨ Better User Experience"]
+    F --> G["📈 Retention & Referrals"]
+    G --> A
+```
+
+The objective is to continuously grow StellarVault through **community acquisition, real product usage, feedback, measurable improvements, and user referrals**.
+
+---
+
+# 🌱 StellarVault Level 5 Journey
+
+StellarVault's Level 5 journey represents the transition from a **working MVP into a validated early-stage ecosystem product**.
+
+## Before Level 5
+
+The primary focus was technical development:
+
+* Core frontend development
+* Backend APIs
+* Wallet integration
+* AI Trust Score MVP
+* Borrowing and lending workflows
+* Soroban smart contract development
+* Stellar Testnet deployment
+
+---
+
+## During Level 5
+
+The focus shifted toward product validation and growth:
+
+* 👥 Real user onboarding
+* 🧪 Real product testing
+* 💬 Structured feedback collection
+* 🔄 Feedback-driven development
+* 🎨 UX/UI improvements
+* 📱 Mobile optimization
+* 🛡️ Stability improvements
+* ⛓️ On-chain activity validation
+* 📊 Analytics and monitoring
+* 📈 Growth strategy
+* 🎤 Pitch preparation
+* 🎥 Product demonstration
+* 📚 Improved technical documentation
+
+---
+
+## 🏆 Level 5 Outcome
+
+StellarVault now demonstrates:
+
+* ✅ Live deployed application
+* ✅ 50+ user validation
+* ✅ Structured feedback collection
+* ✅ Feedback-driven product improvements
+* ✅ Stellar wallet integration
+* ✅ Soroban smart contract deployment
+* ✅ Real Stellar Testnet activity
+* ✅ AI-powered Trust Score
+* ✅ Borrowing and lending workflows
+* ✅ Loan repayment functionality
+* ✅ Guarantee functionality
+* ✅ Responsive user experience
+* ✅ Analytics and monitoring
+* ✅ Updated documentation
+* ✅ Product growth strategy
+* ✅ Feedback-based development roadmap
+* ✅ Pitch and demo readiness
+
+> **Level 5 transformed StellarVault from a technical MVP into a user-tested and continuously improving Stellar ecosystem product.**
+
+---
+
+# ⚫ Next Stage — Level 6 Black Belt
+
+With Level 5 focused on **Testnet validation, user growth, and product iteration**, Level 6 will move StellarVault toward **real-world production readiness**.
+
+### Level 6 Focus
+
+**Mainnet Launch + Security + Real Adoption**
+
+The objective is to move from:
+
+**Testnet Product → Production Product → Mainnet Adoption**
+
+---
+
+## 🚀 Phase 5 — Stellar Mainnet Launch
+
+The first Level 6 priority will be transitioning StellarVault from Testnet to production.
+
+### Planned
+
+* 🔄 Deploy StellarVault smart contracts on Stellar Mainnet
+* 🔄 Configure production Stellar RPC/Horizon infrastructure
+* 🔄 Update frontend contract addresses
+* 🔄 Configure production environment variables
+* 🔄 Perform final production testing
+* 🔄 Deploy production-ready application
+* 🔄 Verify contracts on Stellar Mainnet explorers
+* 🔄 Prepare rollback and deployment procedures
+
+### Target Outcome
+
+A publicly accessible **production StellarVault application connected to Stellar Mainnet**.
+
+---
+
+## 👥 Phase 6 — Real Mainnet Adoption
+
+Level 6 requires actual usage beyond testing environments.
+
+### Initial Target
+
+* 🎯 Minimum 20+ verified Stellar Mainnet users
+* 🎯 Real Mainnet transactions
+* 🎯 Real wallet interaction
+* 🎯 Production user feedback
+* 🎯 Mainnet product usage evidence
+
+### User Validation Process
+
+The Level 6 onboarding process will collect:
+
+* Name
+* Email
+* Stellar Mainnet wallet address
+* Product feedback
+* Product rating
+* Usage experience
+
+Responses will be:
+
+* Collected through Google Forms
+* Exported to Excel
+* Documented in the repository
+* Analyzed for product iteration
+* Connected with future Git commit evidence
+
+---
+
+## 🛡️ Phase 7 — Security & Production Hardening
+
+Security becomes one of the highest priorities before expanding real usage.
+
+### Planned Security Work
+
+* 🔄 Smart contract security review
+* 🔄 Mentor/team security approval or independent audit
+* 🔄 Contract authorization review
+* 🔄 Access-control review
+* 🔄 Input validation review
+* 🔄 Lending-risk validation
+* 🔄 Error-handling review
+* 🔄 RPC/network failure testing
+* 🔄 Transaction simulation testing
+* 🔄 Production environment security review
+
+### Required Level 6 Evidence
+
+At least one:
+
+* ✅ Smart contract audit
+
+**OR**
+
+* ✅ Security review approved by mentors/team
+
+---
+
+## ⚡ Phase 8 — Advanced Stellar Feature
+
+To satisfy the Black Belt advanced-feature requirement, StellarVault will implement at least one advanced Stellar capability.
+
+### Priority Options
+
+#### Option 1 — Fee Sponsorship
+
+Implement **gasless user transactions using Stellar fee-bump transactions**.
+
+This would allow StellarVault to sponsor transaction fees for selected users and improve onboarding for users unfamiliar with blockchain gas fees.
+
+#### Option 2 — Multi-Signature Lending Approval
+
+Introduce multi-party authorization for high-value lending operations.
+
+Potential approvals could involve:
+
+* Borrower
+* Guarantor
+* Protocol authority
+* Lending pool authorization
+
+#### Option 3 — Smart Account / Account Abstraction
+
+Explore custom authorization logic to simplify wallet interaction and create a more application-like user experience.
+
+### Preferred Direction
+
+**Fee Sponsorship + improved transaction onboarding** would provide immediate UX value for StellarVault users.
+
+---
+
+## 📢 Phase 9 — Product Launch & Ecosystem Marketing
+
+Level 6 requires StellarVault to move beyond development and actively promote the product.
+
+### Planned Marketing
+
+* 🔄 Official StellarVault Mainnet launch post
+* 🔄 Twitter/X launch thread
+* 🔄 Demo/showcase video
+* 🔄 Stellar ecosystem tagging
+* 🔄 Product development updates
+* 🔄 User success stories
+* 🔄 Community feedback posts
+* 🔄 Technical progress updates
+
+### Goal
+
+Build public awareness around StellarVault as a **real Stellar ecosystem lending product**, not only a hackathon or challenge submission.
+
+---
+
+## 🌐 Phase 10 — Ecosystem Contribution
+
+StellarVault will contribute knowledge back to the developer ecosystem.
+
+At least one Level 6 ecosystem contribution will be completed.
+
+### Planned Options
+
+* 📝 Technical blog
+* 🎓 Stellar/Soroban tutorial
+* 🎤 Community workshop
+* 📚 Developer guide
+* 🧑‍💻 Open-source contribution
+* 🗣️ Community learning session
+
+### Potential Technical Blog
+
+**Building AI-Assisted Decentralized Lending with Stellar Soroban**
+
+The article can cover:
+
+* StellarVault architecture
+* Soroban lending contracts
+* Wallet integration
+* Trust Score architecture
+* Testnet-to-Mainnet migration
+* Product lessons from real user testing
+
+---
+
+# 🎯 Level 6 Growth Strategy
+
+After the initial Mainnet launch, StellarVault's focus will shift toward sustainable adoption.
+
+## Stage 1 — First 20 Mainnet Users
+
+Validate:
+
+* Mainnet transactions
+* Production wallet behavior
+* Contract reliability
+* Real-user onboarding
+* Production feedback
+
+---
+
+## Stage 2 — First 100 Mainnet Users
+
+After satisfying the initial Level 6 requirement, the next target will be:
+
+> **100 additional Stellar Mainnet users**
+
+Growth will focus on:
+
+* Stellar communities
+* Campus communities
+* Freelancer communities
+* Web3 developers
+* Referral programs
+* Educational content
+* Ecosystem partnerships
+* Product demonstrations
+
+---
+
+## Stage 3 — Continuous Product Improvement
+
+Level 6 will operate as a continuous cycle:
+
+```mermaid
+flowchart LR
+
+    A["🚀 Mainnet Launch"] --> B["👥 Real Users"]
+    B --> C["⛓️ Real Transactions"]
+    C --> D["💬 Production Feedback"]
+    D --> E["🧑‍💻 Core Product Improvements"]
+    E --> F["🛡️ Better Security & Stability"]
+    F --> G["📈 More Adoption"]
+    G --> B
+```
+
+> **Level 6 does not represent the end of StellarVault's roadmap. It begins the transition from a builder project into a continuously growing production ecosystem product.**
+
+---
+
+# 🗺️ StellarVault Journey
+
+```mermaid
+flowchart LR
+
+    A["🧱 MVP Foundation"] --> B["⛓️ Stellar + Soroban"]
+    B --> C["👥 50+ Testnet Users"]
+    C --> D["💬 User Feedback"]
+    D --> E["🔄 Level 5 Product Iteration"]
+    E --> F["🎤 Pitch + Demo"]
+    F --> G["⚫ Level 6 Black Belt"]
+    G --> H["🚀 Stellar Mainnet"]
+    H --> I["🛡️ Security Review"]
+    I --> J["👥 20+ Mainnet Users"]
+    J --> K["⚡ Advanced Stellar Feature"]
+    K --> L["📢 Public Ecosystem Launch"]
+    L --> M["🌍 100+ Mainnet Users"]
+    M --> N["📈 Continuous Growth"]
+```
+
+---
+
+# 🏁 Roadmap Summary
+
+| Stage                 | Focus                                     |    Status   |
+| :-------------------- | :---------------------------------------- | :---------: |
+| **Phase 1**           | MVP Foundation                            | ✅ Completed |
+| **Phase 2**           | Stellar & Soroban Testnet Integration     | ✅ Completed |
+| **Phase 3**           | 50+ User Validation                       | ✅ Completed |
+| **Phase 4**           | Level 5 Feedback-Driven Product Iteration | ✅ Completed |
+| **Phase 5**           | Stellar Mainnet Deployment                |  🔜 Level 6 |
+| **Phase 6**           | 20+ Verified Mainnet Users                |  🔜 Level 6 |
+| **Phase 7**           | Security Audit / Review                   |  🔜 Level 6 |
+| **Phase 8**           | Advanced Stellar Feature                  |  🔜 Level 6 |
+| **Phase 9**           | Public Product Launch & Marketing         |  🔜 Level 6 |
+| **Phase 10**          | Ecosystem Contribution                    |  🔜 Level 6 |
+| **Continuous Growth** | 100+ Mainnet Users + Core Improvements    |  🎯 Future  |
+
+> **Level 5 proved that users can test, understand, and help improve StellarVault. Level 6 is the next step: taking that validated product to Stellar Mainnet, securing it for production, and proving real ecosystem adoption.**
+
+---
+
+# 🎯 Vision
+
+> **"Transforming human behavior and reputation into accessible financial credit through AI and blockchain."**
+
+StellarVault envisions a decentralized lending ecosystem where access to credit is not determined only by how much capital a person already owns.
+
+By combining:
+
+* 🧠 AI-powered risk intelligence
+* ⭐ Stellar infrastructure
+* ⛓️ Soroban smart contracts
+* 🤝 Social reputation
+* 📈 Repayment history
+* 👛 Wallet identity
+
+StellarVault aims to make **trust a meaningful component of decentralized credit**.
+
+> **Trust becomes the new collateral.**
 
 ---
 
 # 📁 Project Structure
 
-```bash
-stellarvault/
+```text
+StellarVault/
 │
 ├── frontend/
 │   ├── public/
@@ -719,6 +1592,7 @@ stellarvault/
 │   │   ├── utils/
 │   │   ├── routes/
 │   │   └── App.jsx
+│   │
 │   └── package.json
 │
 ├── backend/
@@ -738,10 +1612,13 @@ stellarvault/
 │   ├── default_prediction.py
 │   └── requirements.txt
 │
-├── smart-contracts/
-│   └── soroban/
+├── contracts/
+│   └── StellarVault Soroban Contract
 │
-├── docs/
+├── Docs/
+│   ├── User Feedback
+│   ├── Analytics Evidence
+│   └── Level 5 Documentation
 │
 ├── README.md
 │
@@ -750,85 +1627,32 @@ stellarvault/
 
 ---
 
-# 🔌 REST API
+# 🏆 Level 5 Product Status
 
-## 👛 Wallet
+| Area                           | Status |
+| :----------------------------- | :----: |
+| Live Application               |    ✅   |
+| Stellar Wallet Integration     |    ✅   |
+| AI Trust Score                 |    ✅   |
+| Lending & Borrowing Flow       |    ✅   |
+| Lending Pool                   |    ✅   |
+| Soroban Smart Contract         |    ✅   |
+| Stellar Testnet Deployment     |    ✅   |
+| Real On-Chain Activity         |    ✅   |
+| 50+ User Validation            |    ✅   |
+| Feedback Collection            |    ✅   |
+| Feedback-Driven Improvements   |    ✅   |
+| UX/UI Improvements             |    ✅   |
+| Mobile Optimization            |    ✅   |
+| Product Stability Improvements |    ✅   |
+| Analytics & Monitoring         |    ✅   |
+| Updated Documentation          |    ✅   |
+| Growth Strategy                |    ✅   |
+| Feedback-Based Future Roadmap  |    ✅   |
+| Pitch & Demo Readiness         |    ✅   |
 
-```http
-POST /api/connect-wallet
-```
+> **StellarVault Level 5 represents the journey from MVP development to real-user validation, product iteration, blockchain verification, and ecosystem growth readiness.**
 
-```http
-GET /api/balance/:wallet
-```
-
----
-
-## 💰 Lending
-
-```http
-POST /api/request-loan
-```
-
-```http
-POST /api/approve-loan
-```
-
-```http
-POST /api/repay-loan
-```
-
----
-
-## 🧠 Trust Score
-
-```http
-GET /api/trust-score/:user
-```
-
-```http
-POST /api/update-score
-```
-
----
-
-# 📈 Roadmap
-
-## Phase 1
-
-- ✅ Wallet Authentication
-- ✅ Loan Request System
-- ✅ Lending Pool
-- ✅ AI Trust Score MVP
-
----
-
-## Phase 2
-
-- Smart Contracts (Soroban)
-- Automated Loan Execution
-- Investor Dashboard
-- Advanced Analytics
-
----
-
-## Phase 3
-
-- DAO Governance
-- Mobile Application
-- Stablecoin Lending
-- Cross-chain Expansion
-- Institutional Lending
-
----
-
-# 🎯 Vision
-
-> **"Transforming human behavior into financial credit through AI and blockchain."**
-
-StellarVault aims to create a world where **trust becomes the new collateral**, enabling fair and inclusive access to decentralized finance.
-
----
 
 # 🤝 Contributing
 
