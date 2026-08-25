@@ -36,6 +36,17 @@ https://drive.google.com/file/d/1_yzCvQeYYT7av3XH8Zild7SXetCMu81M/view?usp=shari
 | **Pitch Deck** | 📊 [View StellarVault Pitch Deck](https://docs.google.com/presentation/d/1BJn39DCBw09PskHJECRl8WnOfX8g5LAw/edit?usp=sharing&ouid=105010126616586269510&rtpof=true&sd=true) |
 ---
 
+## 📚 Documentation
+
+| Documentation | Description |
+| --- | --- |
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | System architecture, data flow, frontend/backend boundaries, Trust Score and Stellar/Soroban integration |
+| [USER_GUIDE.md](./USER_GUIDE.md) | End-user guide for authentication, wallet connection, borrowing, lending, KYC, social trust and transaction verification |
+| [FEEDBACK.md](./FEEDBACK.md) | Level 5 user feedback themes, improvement mapping and next-phase priorities |
+| [SECURITY_CHECKLIST.md](./SECURITY_CHECKLIST.md) | Smart contract, backend, wallet, treasury, CI/CD and production security checklist |
+| [LEVEL5_VALIDATION.md](./LEVEL5_VALIDATION.md) | Level 5 requirement-to-evidence mapping and reviewer checklist |
+
+---
 ## ✅ Level 5 Submission Checklist
 
 All required Level 5 deliverables have been completed and verified below.
